@@ -28,8 +28,8 @@ p{
     color:rgba(255,255,255,.3)
 }
 .site-heading{
-    margin-top:5rem;
-    margin-bottom:5rem;
+    margin-top:3rem;
+    margin-bottom:3rem;
     text-transform:uppercase;
     line-height:1;
     font-family:Raleway
@@ -45,10 +45,10 @@ p{
     font-weight:100;
     line-height:4rem
 }
-.page-section{margin-top:5rem;margin-bottom:5rem}
+.page-section{margin-top:5rem;margin-bottom:auto}
 .section-heading{text-transform:uppercase}
-.section-heading .section-heading-upper{display:block;font-size:1rem;font-weight:800}
-.section-heading .section-heading-lower{display:block;font-size:3rem;font-weight:100}
+.section-heading .section-heading-upper{display:block;font-size:0.5rem;font-weight:600}
+.section-heading .section-heading-lower{display:block;font-size:rem;font-weight:80}
 .bg-faded{background-color:rgba(255,255,255,.85)}
 #mainNav{background-color:rgba(47,23,15,.9);font-family:Raleway}
 #mainNav .navbar-brand{color:#e6a756}
@@ -59,7 +59,7 @@ p{
 .btn-xl{font-weight:700;font-size:.8rem;padding-top:1.5rem;padding-bottom:1.5rem;padding-left:2rem;padding-right:2rem}
 .intro{position:relative}@media (min-width:992px){.intro .intro-img{width:75%;float:right}.intro .intro-text{left:0;width:60%;margin-top:3rem;position:absolute}
 .intro .intro-text .intro-button{width:100%;left:0;position:absolute;bottom:-2rem}}
-@media (min-width:1200px){.intro .intro-text{width:45%}}.cta{padding-top:5rem;padding-bottom:5rem;background-color:rgba(230,167,86,.9)}
+@media (min-width:1200px){.intro .intro-text{width:45%}}.cta{padding-top:2rem;padding-bottom:2rem;background-color:rgba(230,167,86,.9)}
 .cta .cta-inner{position:relative;padding:3rem;margin:.5rem;background-color:rgba(255,255,255,.85)}
 .cta .cta-inner:before{border-radius:.5rem;content:'';position:absolute;top:-.5rem;bottom:-.5rem;left:-.5rem;right:-.5rem;border:.25rem solid rgba(255,255,255,.85)}
 @media (min-width:992px){.about-heading .about-heading-img{position:relative;z-index:0}.about-heading .about-heading-content{margin-top:-5rem;position:relative;z-index:1}}
