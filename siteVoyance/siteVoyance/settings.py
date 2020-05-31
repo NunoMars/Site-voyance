@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
+    'ball8.apps.Ball8Config',
+    'clairvoyance_print.apps.ClairvoyancePrintConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +79,12 @@ WSGI_APPLICATION = 'siteVoyance.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'siteVoyance',
+        'USER': 'Nuno',
+        'PASSWORD': 'bcxau9p^^123.',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
