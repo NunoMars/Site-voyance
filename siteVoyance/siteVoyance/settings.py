@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'ball8.apps.Ball8Config',
-    'clairvoyance_print.apps.ClairvoyancePrintConfig',
+    'clairvoyance.apps.ClairvoyanceConfig',
 ]
 
 MIDDLEWARE = [
