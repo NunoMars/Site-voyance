@@ -1,11 +1,12 @@
 {% load static %}
+{% load static i18n %}
 <section class="page-section cta">   
   <div class="container">
     <div class="row">
       <div class="col">
         <div class="cta-inner text-center rounded">
           <h2 class="section-heading mb-4">
-            <span class="mb-0">Tirage</span>
+            <span class="mb-0">{% trans "Tirage" %}</span>
           </h2>
           <p class="mb-0"><img href = "clairvoyance"
             src={% static 'img/boule-magie-voyance.jpg' %}
@@ -18,15 +19,15 @@
       <div class="col">
         <div class="cta-inner text-center rounded">
           <h2 class="section-heading mb-4">
-            <span class="section-heading-lower">Attention</span>
+            <span class="section-heading-lower">{% trans "Attention" %}</span>
           </h2>
-          <p class="mb-0">Ce site ne remplacera jamais une consultation, présentiel. Pour une analyse personnalisée, cliquez sur « Consultations live » afin de prendre rdv avec moi.</p>
+          <p class="mb-0">{% trans "Ce site ne remplacera jamais une consultation, présentiel. Pour une analyse personnalisée, cliquez sur « Consultations live » afin de prendre rdv avec moi." %}</p>
         </div>
       </div>
       <div class="col">
         <div class="cta-inner text-center rounded">
           <h2 class="section-heading mb-4">
-            <span class="mb-0">Oracle</span>
+            <span class="mb-0">{% trans "Oracle" %}</span>
           </h2>
           <p class="mb-0"><a href="ball8" target="oracle"><img
             src={% static 'img/boule-magie-voyance.jpg' %}

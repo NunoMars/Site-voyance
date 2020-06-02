@@ -1,4 +1,5 @@
 {% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,21 +35,21 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href=" ">Home
+              <a class="nav-link text-uppercase text-expanded" href=" ">{% trans Home %}
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="clairvoyance">Tirage Tarot</a>
+              <a class="nav-link text-uppercase text-expanded" href="clairvoyance">{% trans "Tirage Tarot" %}</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="ball8">Oracle Ball8</a>
+              <a class="nav-link text-uppercase text-expanded" href="ball8">{% trans "Oracle" %} Ball8</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="consultations.html">Consultations live</a>
+              <a class="nav-link text-uppercase text-expanded" href="consultations.html">{% trans "Consultations live" %}</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="contact.html">Contactez moi</a>
+              <a class="nav-link text-uppercase text-expanded" href="contact.html">{% trans "Contactez moi" %}</a>
             </li>
           </ul>
         </div>

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+from django.utils.translation import gettext as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -122,6 +123,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('French')),
+    ('pt', _('Portuguese')),
+    ('es', _('Spanish')),
+)
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
