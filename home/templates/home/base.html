@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>{% block title %} {% endblock %}</title>
+  <title>{{page_title}}</title>
 
   <!-- Bootstrap core CSS -->
   <link href= {% static 'vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href=" ">{% trans Home %}
+              <a class="nav-link text-uppercase text-expanded" href="home">{% trans Home %}
                 <span class="sr-only">(current)</span>
               </a>
             </li>

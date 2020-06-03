@@ -1,0 +1,28 @@
+{% load static %}
+{% load static i18n %}
+
+  <section class="avenue-messenger">
+    <div class="agent-face">
+      <div class="half">
+      <img class="agent circle" src={% static "img/voyante.jpg" %} alt="voyante"></div>
+    </div>
+  <div class="chat">
+    <div class="chat-title">
+      <h1>Mme T</h1>
+      <h2>La voyante Bot</h2>
+    </div>
+    <div class="messages">
+      <div class="messages-content"></div>
+    </div>
+    <div class="message-box">
+      <form action="">
+        <textarea type="text" class="message-input" placeholder="Pose ta question ici..."></textarea>
+        <button type="submit" class="message-submit">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  </section>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+
