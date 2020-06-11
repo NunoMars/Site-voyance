@@ -56,12 +56,15 @@ function escapeHtml(msg) {
   .replace(/'/g, "&#039;");
 };
 
-function getMessageGrandPy(msg) {
+function getMessageGrandPy(msg) {  
   $.ajax({
-    data : {messageInput : msg},
     type : 'POST',
     url : '/clairvoyante',
     dataType: "json",
+    data : {
+      csrfmiddlewaretoken: "{{ csrf_token }}",
+      messageInput : msg,
+    },
     success: function(data) {
       mapGrandPyMessages(data.messages, data.tag);
     },
