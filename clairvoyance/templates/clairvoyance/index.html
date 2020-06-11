@@ -76,7 +76,7 @@
             
                 $(window).load(function() {
                   $messages.mCustomScrollbar();
-                  firstGrandPyMessage();
+                  firstClairvoyantMessage();
                 });
             
             
@@ -87,7 +87,7 @@
                   });
                 }
             
-                function grandPyMessage(message) {
+                function clairvoyantMessage(message) {
                   $('.message.loading').remove();
                   $('<div class="message new"><figure class="avatar"><img src= "../static/img/voyante.jpg"/></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
                   setDate();
@@ -106,17 +106,17 @@
             
                 function insertMessage() {
                 msg = $('.message-input').val();
-                if ($.trim(msg) == '') {
-                    return false;
-                }
-                escapeHtml(msg);
-                $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-                setDate();
-                $('.message-input').val(null);
-                updateScrollbar();
-                $('<div class="message loading new"><figure class="avatar"><img src="../static/img/voyante.jpg"/></figure><span></span></div>').appendTo($('.mCSB_container'));
-                updateScrollbar();
-                getMessageGrandPy(msg);
+                  if ($.trim(msg) == '') {
+                      return false;
+                  }
+                  escapeHtml(msg);
+                  $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+                  setDate();
+                  $('.message-input').val(null);
+                  updateScrollbar();
+                  $('<div class="message loading new"><figure class="avatar"><img src="../static/img/voyante.jpg"/></figure><span></span></div>').appendTo($('.mCSB_container'));
+                  updateScrollbar();
+                  getMessageClairvoyant(msg);
                 };
             
                 function escapeHtml(msg) {
@@ -128,12 +128,12 @@
                   .replace(/'/g, "&#039;");
                 };
             
-                function getMessageGrandPy(msg) {
+                function getMessageClairvoyant(msg) {
                   console.log(msg),
                   $.ajax({
                     type : 'POST',
-                    url : '/clairvoyante',
-                    dataType: "json",
+                    url : "{% url 'clairvoyante' %}",
+                    dataType: 'json',
                     data : {
                     csrfmiddlewaretoken: "{{ csrf_token }}",
                     messageInput : msg,
@@ -180,25 +180,24 @@
                   return false;
                 };
                 });
-            
-                last = "Voilà petit fou! Une autre Question a me soumettre ?"
-                function firstGrandPyMessage() {
+
+                function firstClairvoyantMessage() {
                   if ($('.message-input').val() != '') {
                     return false;
                   }
-                  msg = "Bonjour, je suis votre voyante virtuelle,"+
-                  " je me propose de vous éclairer sur votre avenir,"+
-                  "Mais avant tout, on doit faire connaissance."+
-                  "Quel est votre prénom?"
-                  grandPyMessage(msg);
+                  msg = "Olá, eu sou a Sra. T, sua vidente virtual."+
+                  " Proponho esclarecê-lo sobre o seu futuro!"+
+                  " Mas, acima de tudo, precisamos nos conhecer."+
+                  " Qual é o seu primeiro nome?"
+                  clairvoyantMessage(msg);
                 };
             
-                function lastGrandPyMessage() {
+                function lastClairvoyantMessage() {
                   if ($('.message-input').val() != '') {
                     return false;
                   }
                   last = "Voilà petit fou! Une autre question à me soumettre ? Profites je suis de bonne humeur!"
-                  grandPyMessage(last);
+                  clairvoyantMessage(last);
                   };
               
                   $('.button').click(function(){

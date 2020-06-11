@@ -2,10 +2,10 @@ from django.shortcuts import render
 from django.utils.translation import gettext as _
 from .process import *
 from django.http import Http404, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.csrf import csrf_protect
 
-# Create your views here
+
+# Create your views here.
+
 def clairvoyance(request):
     args= {}
     page_title = _("Tirage Tarot")
@@ -14,9 +14,9 @@ def clairvoyance(request):
 
 
 def clairvoyante(request):
-    if request.is_ajax():
-        input_value = request.GET['messageInput']
-        """print(input_value)"""
+    if request.method == 'POST':
+        input_value = request.POST.get('messageInput', None)
+        print(input_value)
         result = input_value
         return JsonResponse(result)
     else:
