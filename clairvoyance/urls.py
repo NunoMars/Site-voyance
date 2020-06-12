@@ -4,5 +4,5 @@ from .views import clairvoyance, clairvoyante
 
 urlpatterns = [
     path("", clairvoyance, name='clairvoyance'),
-    path("/clairvoyante/", clairvoyante, name='clairvoyante'),
+    path("clairvoyante/", clairvoyante, name='clairvoyante'),
 ]

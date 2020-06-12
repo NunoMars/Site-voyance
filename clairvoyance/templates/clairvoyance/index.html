@@ -129,7 +129,6 @@
                 };
             
                 function getMessageClairvoyant(msg) {
-                  console.log(msg),
                   $.ajax({
                     type : 'POST',
                     url : "{% url 'clairvoyante' %}",
@@ -138,36 +137,24 @@
                     csrfmiddlewaretoken: "{{ csrf_token }}",
                     messageInput : msg,
                     },
-                    success: function(data) {
-                    mapGrandPyMessages(data.messages, data.tag);
+                    success: function(data) {                    
+                    secondClairvoyantMessage(msg);
+                    clairvoyantPredictions(data.messages);
                     },
                   });
                 };
             
-                var id_tags = Array();
-                function mapGrandPyMessages(messages,tag) {
-                  if(tag==="ups") {
-                    grandPyMessage(messages[0]);
-                    grandPyMessage(messages[1]);
-                    grandPyMessage(messages[2]);
-                    grandPyMessage(messages[3]);
-                  } else {
-                    if(id_tags.includes(tag)){
-                    var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeuneaux...Revenons a nos moutons.. Que veux-tu que je te trouve encore?"
-                    grandPyMessage(message_ups);
-                    } else{
-                    id_tags.push(tag);
-                    grandPyMessage(messages[0]);
-                    grandPyMessage(messages[1]);
-                    grandPyMessage(messages[2]);
-                    $('.message.loading').remove();
+                function clairvoyantPredictions(messages) {
+                  /*if(tag!=="ups") {*/
+                    clairvoyantMessage(messages);
+                    /*$('.message.loading').remove();
                     $('<div class="message new"><figure class="avatar"><img src="../static/img/voyante.jpg" /></figure></div>').appendTo($('.mCSB_container')).addClass('new');
                     setDate();
                     updateScrollbar();
-                    grandPyMessage(messages[3]);
-                    lastGrandPyMessage();
-                    };
-                  };
+                  /*} else {
+                    var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeuneaux...Revenons a nos moutons.. Que veux-tu que je te trouve encore?"
+                    clairvoyantMessage(message_ups);
+                  };*/
                 };
             
                 $('.message-submit').click(function() {
@@ -191,6 +178,16 @@
                   " Qual é o seu primeiro nome?"
                   clairvoyantMessage(msg);
                 };
+
+                function secondClairvoyantMessage(name) {
+                  if ($('.message-input').val() != '') {
+                    return false;
+                  }
+                  msg = "Merci " + name + " !" +
+                  " Il me faut ta date de naissance stp"
+                  clairvoyantMessage(msg);
+                }
+                
             
                 function lastClairvoyantMessage() {
                   if ($('.message-input').val() != '') {
