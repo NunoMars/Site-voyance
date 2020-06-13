@@ -14,15 +14,12 @@ def clairvoyance(request):
 
 
 def clairvoyante(request):
-    if request.method == 'POST':
-        inputs = {}
-        asked_items = ['name', 'birth', "number", "right_or_left"]
-        input_value = request.POST.get('messageInput', None)        
-        i=0
-        for i in asked_items:                                          
-            inputs[i] = input_value
-        result = clairvoyant(inputs['name'], inputs['birth'], inputs['number'], inputs['right_or_left'])
-        print(result)
-        return JsonResponse(result)
+    if request.method == 'POST':    
+        try:
+            input_value = request.POST.get('messageInput')
+            result = clairvoyant(input_value)
+            return JsonResponse(result)
+        except ValueError:
+            pass
     else:
-        raise Http404
+        pass 

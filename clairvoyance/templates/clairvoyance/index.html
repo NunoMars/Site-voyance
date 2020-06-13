@@ -57,7 +57,8 @@
       <section class="avenue-messenger col align-self-center">
         <div class="agent-face">
           <div class="half">
-          <img class="agent circle" src={% static "img/voyante.jpg" %} alt="voyante"></div>
+          <img class="agent circle" src={% static "img/voyante.jpg" %} alt="voyante">
+        </div>
         </div>
         <div class="chat">
           <div class="chat-title">
@@ -77,8 +78,7 @@
                 $(window).load(function() {
                   $messages.mCustomScrollbar();
                   firstClairvoyantMessage();
-                });
-            
+                });            
             
                 function updateScrollbar() {
                   $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
@@ -118,7 +118,7 @@
                   updateScrollbar();
                   getMessageClairvoyant(msg);
                 };
-            
+
                 function escapeHtml(msg) {
                   return msg
                   .replace(/&/g, "&amp;")
@@ -138,23 +138,9 @@
                     messageInput : msg,
                     },
                     success: function(data) {                    
-                    secondClairvoyantMessage(msg);
-                    clairvoyantPredictions(data.messages);
+                      clairvoyantMessage(data.messages);
                     },
                   });
-                };
-            
-                function clairvoyantPredictions(messages) {
-                  /*if(tag!=="ups") {*/
-                    clairvoyantMessage(messages);
-                    /*$('.message.loading').remove();
-                    $('<div class="message new"><figure class="avatar"><img src="../static/img/voyante.jpg" /></figure></div>').appendTo($('.mCSB_container')).addClass('new');
-                    setDate();
-                    updateScrollbar();
-                  /*} else {
-                    var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeuneaux...Revenons a nos moutons.. Que veux-tu que je te trouve encore?"
-                    clairvoyantMessage(message_ups);
-                  };*/
                 };
             
                 $('.message-submit').click(function() {
@@ -175,29 +161,13 @@
                   msg = "Olá, eu sou a Sra. T, sua vidente virtual."+
                   " Proponho esclarecê-lo sobre o seu futuro!"+
                   " Mas, acima de tudo, precisamos nos conhecer."+
+                  " Antes de ver o seu futuro precisamos de nos conhecer melhor.." +
+                  " e vou lhe pror algumas perguntas, começêmos!" + 
                   " Qual é o seu primeiro nome?"
                   clairvoyantMessage(msg);
-                };
-
-                function secondClairvoyantMessage(name) {
-                  if ($('.message-input').val() != '') {
-                    return false;
-                  }
-                  msg = "Merci " + name + " !" +
-                  " Il me faut ta date de naissance stp"
-                  clairvoyantMessage(msg);
-                }
-                
+                };    
             
-                function lastClairvoyantMessage() {
-                  if ($('.message-input').val() != '') {
-                    return false;
-                  }
-                  last = "Voilà petit fou! Une autre question à me soumettre ? Profites je suis de bonne humeur!"
-                  clairvoyantMessage(last);
-                  };
-              
-                  $('.button').click(function(){
+                $('.button').click(function(){
                   $('.menu .items span').toggleClass('active');
                   $('.menu .button').toggleClass('active');
                 });
