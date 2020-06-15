@@ -5,6 +5,7 @@
 <html lang="en">
     <head>
         <title>{{page_title}}</title>
+        <link rel="icon" href={% static 'img/tapis.ico' %}/>
         <!-- Bootstrap core JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -120,12 +121,12 @@
                 };
 
                 function escapeHtml(msg) {
-                  return msg
+                  return msg                  
                   .replace(/&/g, "&amp;")
                   .replace(/</g, "&lt;")
                   .replace(/>/g, "&gt;")
                   .replace(/"/g, "&quot;")
-                  .replace(/'/g, "&#039;");
+                  .replace(/'/g, "&#039;");                  
                 };
             
                 function getMessageClairvoyant(msg) {
@@ -148,22 +149,25 @@
                 });
             
                 $(window).on('keydown', function(e) {
-                if (e.which == 13) {
-                  insertMessage();
-                  return false;
-                };
+                  if (e.which == 13) {
+                    insertMessage();
+                    return false;
+                  };
                 });
 
                 function firstClairvoyantMessage() {
                   if ($('.message-input').val() != '') {
                     return false;
                   }
-                  msg = "Olá, eu sou a Sra. T, sua vidente virtual."+
+                  msg = "<div class='col'><div class='cta-inner text-center rounded'>" +
+                  "<p class='mb-1'>Olá, eu sou a Sra. T, sua vidente virtual."+
                   " Proponho esclarecê-lo sobre o seu futuro!"+
                   " Mas, acima de tudo, precisamos nos conhecer."+
                   " Antes de ver o seu futuro precisamos de nos conhecer melhor.." +
                   " e vou lhe pror algumas perguntas, começêmos!" + 
-                  " Qual é o seu primeiro nome?"
+                  " Qual é o seu primeiro nome?</p>" +
+                  "</div>"
+
                   clairvoyantMessage(msg);
                 };    
             
@@ -171,9 +175,30 @@
                   $('.menu .items span').toggleClass('active');
                   $('.menu .button').toggleClass('active');
                 });
+                function sendMessageLove() {
+                  getMessageClairvoyant("love");
+                };
+                function sendMessageWork() {
+                  getMessageClairvoyant("work");
+                };
+                function sendMessageGen() {
+                  getMessageClairvoyant("gen");
+                };
+                function sendMessageOneCard() {
+                  getMessageClairvoyant("one");
+                };
+                function sendMessageCut() {
+                  getMessageClairvoyant("cut");
+                };
+                function sendMessageLeft() {
+                  getMessageClairvoyant("left");
+                };
+                function sendMessageRight() {
+                  getMessageClairvoyant("right");
+                };
               </script>
               {% csrf_token %}
-              <textarea type="text" class="message-input" placeholder="Pergunta aqui ici..."></textarea>
+              <textarea type="text" class="message-input" placeholder="Ponha sua resposta aqui..."></textarea>
               <button type="submit" class="message-submit">Enviar</button>
             </form>
           </div>

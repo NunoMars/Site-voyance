@@ -1,87 +1,83 @@
-from random import shuffle as suf
-from datetime import datetime
-from .models import MajorArcana
+from random import shuffle as suf, randint as rand
+from .card_prints import one_card, clairvoyante_sort_cards
 
 #faire Connaiscance
 inputs = []
-def clairvoyant(input_value):    
-    msg = [
-        {"messages" : "Muito obrigada " + input_value.capitalize() + " !" +
-        " Vou baralhando as cartas..." +
-        " Agora a sua data de nascimento (en formato 'AAAA-MM-DD') ! "},
-        {"messages" : "Obrigada !" +
-        " Mais duas persuntas.. Estamos quase a saber o que o destino nos diz!" +
-        " Afins de cortar o baralho em dois, preciso de um numero (de 1 a 38 incluidos)!"},
-        {"messages" : "Por ultimo, tenho aqui o baralho dividido em dois, um direito e um esquerdo. " +
-        " Qual e que vai escolher ? (Responda 'direito' ou 'esquerdo')! " }            
-    ]
+def clairvoyant(input_value):
     #création deck
     card_deck = [i+1 for i in range(38)]
 
+    
     if input_value not in inputs:
         inputs.append(input_value)
         print(inputs)
-    else:
-        pass
+
+    """while True:
+        del inputs[1:]"""
 
     if (len(inputs) == 1):        
 
-        return msg[0]
+        msg = {"messages" : "<div class='col'><div class='cta-inner text-center rounded'>" +
+        "<p class='mb-1'>Muito obrigada " + input_value.capitalize() + " !" +
+        " Vou baralhando as cartas..." +
+        "<div class='container'><div class='cta-inner text-center rounded'>" +
+        "<div class='col' height= '100%' text-align='center'>" +
+        "<p class=class='mb-0'>Escolha o tema da pergunta!</p>" +
+        "<p class=class='mb-0'>Clique no baralho para escolher o baralho</p></div>" +
+        "<div class='row' height= '100%' text-align='center'>" +
+        "<p class=class='mb-0'><h6>" + "Pergunta sobre AMOR" + "<h6></p>"
+        "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></div></p>" +
+        "<p class=class='mb-0'><h6>" + "Pergunta sobre TRABALHO" + "</h6></p>"
+        "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></div></p>" +
+        "<p class=class='mb-0'><h6>" + "Pergunta sobre SITUACAO EN GERAL" + "</h6></p>"
+        "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></div></p>" +
+        "<p class=class='mb-0'><h6>" + "Pergunta RAPIDA (una carta)" + "</h6></p>"
+        "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></div><p/>" +
+        "</div></div>"
+        } 
 
-    if (len(inputs) == 2):
+        return msg
 
-        return msg[1]        
-    
-    if (len(inputs) == 3):
-        while True:           
-            try:
-                if inputs[2] in card_deck:
-                    print("Index ok dans les cartes!")
-                break 
-                    
-            except IndexError:                
-                del inputs[2]                
-                return {"messages": "Deve escolher un numero entre 1 e 38! Qual e o seu numero ?"}
+    if inputs[1] == "one":
+        input_name = inputs[0]
+        value = one_card(input_name)
+        return value
+        del inputs[1:]
+        
+    else:
+        if (len(inputs) == 2):
 
-        return msg[2]
+            return {"messages" : "<div class='col'><div class='cta-inner text-center rounded'>" +
+            "<p class='mb-1'>Obrigada !</p>" +
+            " <p class='mb-1'>Estamos quase a saber o que o Tarot nos diz!</p>" +
+            " <p class='mb-1'>Clique no baralho para cortar en dois</p>" +
+            "<p class='mb-1'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></p>" +
+            "</div>"
+            }
 
-    if (len(inputs) == 4):
-        #mélanger deck
-        suf(card_deck)
-        column = len(inputs[0])
-        cut_point = int(inputs[2])
-        while True:
-            if inputs[3] == "direita" or "Direita":
-                chosen_deck = card_deck[0:cut_point]  
-                break
+        if (len(inputs) == 3):
+            
+            return {"messages" : "<div class='container'><div class='cta-inner text-center rounded'>" +
+            "<div class='row' height= '100%' text-align='center'>" +
+            "<p class='mb-1'>Obrigada !</p>" +
+            " <p class='mb-1'>Temos aqui os dois baralhos!</p>" +
+            " <p class='mb-1'>Clique no baralho para escolher o baralho</p></div>" +
+            "<div class='row' height= '100%' text-align='center'>" +
+            "<div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLeft();'/></div>" +
+            "<div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageRight();'/></div>" +
+            "</div></div>"
+            }
 
-            if inputs[3] == "esquerda" or "Esquerda":
-                chosen_deck = card_deck[cut_point:37] 
-                break
-        else:
-            del inputs[3]
-            print(inputs)
-            return {"messages": "Deve escolher 'direita' ou 'esquerda' imperativamente!" +
-            "Qual e a sua resposta?"} 
- 
-    #construire tableau
-    def splitBy(li, n=1):
-        return [li[i:i+n] for i in range(0, len(li), n)]
+        deck_chosed = inputs[3]       
 
-    column = len(inputs[0])
-    print(column)   
+        if input_value[1] == "love":
+            result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"love")
+            return result
+        if input_value[1] == "work":
+            result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"work")
+            return result
+        if input_value[1] == "gen":
+            result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"gen")
+            return result
 
-    list_of_cards = []
-    for i in chosen_deck:        
-        obj = MajorArcana.objects.get(pk=i)
-        card_img = obj.card_image
-        list_of_cards.append("<td><img src= " + card_img + " alt='card' width = '30%' height = '30%'></td>")
-    card_board = splitBy(list_of_cards, column)
-    final_card_deck = []
-    for i in card_board:
-        l = ''.join(i)
-        final_card_deck.append("<tr>" + l + "</tr>")
-    print(final_card_deck)
-    f = ''.join(final_card_deck)
-    return {"messages" : "<table>" + f + "</table>"}
 
