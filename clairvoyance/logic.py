@@ -43,7 +43,6 @@ def clairvoyant(input_value):
         value = one_card(input_name)
         return value
         del inputs[1:]
-        
     else:
         if (len(inputs) == 2):
 
@@ -54,6 +53,9 @@ def clairvoyant(input_value):
             "<p class='mb-1'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></p>" +
             "</div>"
             }
+
+        if inputs[2] == "cut":
+            cut_point = rand(0, 37)
 
         if (len(inputs) == 3):
             
@@ -70,13 +72,13 @@ def clairvoyant(input_value):
 
         deck_chosed = inputs[3]       
 
-        if input_value[1] == "love":
+        if inputs[1] == "love":
             result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"love")
             return result
-        if input_value[1] == "work":
+        if inputs[1] == "work":
             result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"work")
             return result
-        if input_value[1] == "gen":
+        if inputs[1] == "gen":
             result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"gen")
             return result
 
