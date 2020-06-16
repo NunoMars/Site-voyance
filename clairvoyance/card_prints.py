@@ -42,11 +42,9 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
         return [li[i:i+n] for i in range(0, len(li), n)]
     if deck_chosed == "left":
         chosen_deck = card_deck[0:cut_point]
-        print(chosen_deck)  
 
     if deck_chosed == "right":
         chosen_deck = card_deck[cut_point:37]
-        print(chosen_deck)
     
     if chosed_theme == 'love':     
 
