@@ -1,3 +1,4 @@
+from django.utils.translation import gettext as _
 from random import shuffle as suf, randint as rand
 from .card_prints import one_card, clairvoyante_sort_cards
 
@@ -17,20 +18,20 @@ def clairvoyant(input_value):
         if (len(inputs) == 1):        
 
             msg = {"messages" : "<div class='col'><div class='cta-inner text-center rounded'>" +
-            "<p class='mb-1'>Muito obrigada " + input_value.capitalize() + " !" +
-            " Vou baralhando as cartas..." +
+            "<p class='mb-1'>" + _("Muito obrigada")  + input_value.capitalize() + " !" +
+            _(" Vou baralhando as cartas...") +
             "<div class='container'><div class='cta-inner text-center rounded'>" +
             "<div class='col' height= '100%' text-align='center'>" +
-            "<p class=class='mb-0'>Escolha o tema da pergunta!</p>" +
-            "<p class=class='mb-0'>Clique no baralho para escolher o baralho</p></div>" +
+            "<p class=class='mb-0'>" + _("Escolha o tema da pergunta!") + "</p>" +
+            "<p class=class='mb-0'>" + _("Clique no baralho para escolher o baralho") + "</p></div>" +
             "<div class='row' height= '100%' text-align='center'>" +
-            "<p class=class='mb-0'><h6>" + "Pergunta sobre AMOR" + "<h6></p>"
+            "<p class=class='mb-0'><h6>" + _("Pergunta sobre AMOR") + "<h6></p>"
             "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></div></p>" +
-            "<p class=class='mb-0'><h6>" + "Pergunta sobre TRABALHO" + "</h6></p>"
+            "<p class=class='mb-0'><h6>" + _("Pergunta sobre TRABALHO") + "</h6></p>"
             "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></div></p>" +
-            "<p class=class='mb-0'><h6>" + "Pergunta sobre SITUACAO EN GERAL" + "</h6></p>"
+            "<p class=class='mb-0'><h6>" + _("Pergunta sobre SITUACAO EN GERAL") + "</h6></p>"
             "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></div></p>" +
-            "<p class=class='mb-0'><h6>" + "Pergunta RAPIDA (una carta)" + "</h6></p>"
+            "<p class=class='mb-0'><h6>" + _("Pergunta RAPIDA (una carta)") + "</h6></p>"
             "<p><div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></div><p/>" +
             "</div></div>"
             } 
@@ -48,9 +49,9 @@ def clairvoyant(input_value):
                 if (len(inputs) == 2):
 
                     return {"messages" : "<div class='col'><div class='cta-inner text-center rounded'>" +
-                    "<p class='mb-1'>Obrigada !</p>" +
-                    " <p class='mb-1'>Estamos quase a saber o que o Tarot nos diz!</p>" +
-                    " <p class='mb-1'>Clique no baralho para cortar en dois</p>" +
+                    "<p class='mb-1'>" + _("Obrigada !") + "</p>" +
+                    " <p class='mb-1'>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
+                    " <p class='mb-1'>" + _("Clique no baralho para cortar en dois") + "</p>" +
                     "<p class='mb-1'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></p>" +
                     "</div>"
                     }
@@ -62,9 +63,9 @@ def clairvoyant(input_value):
                     
                     return {"messages" : "<div class='container'><div class='cta-inner text-center rounded'>" +
                     "<div class='row' height= '100%' text-align='center'>" +
-                    "<p class='mb-1'>Obrigada !</p>" +
-                    " <p class='mb-1'>Temos aqui os dois baralhos!</p>" +
-                    " <p class='mb-1'>Clique no baralho para escolher o baralho</p></div>" +
+                    "<p class='mb-1'>" + _("Obrigada !") + "</p>" +
+                    " <p class='mb-1'>" + _("Temos aqui os dois baralhos!") + "</p>" +
+                    " <p class='mb-1'>" + _("Clique no baralho para escolher o baralho") + "</p></div>" +
                     "<div class='row' height= '100%' text-align='center'>" +
                     "<div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLeft();'/></div>" +
                     "<div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageRight();'/></div>" +

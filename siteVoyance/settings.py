@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.i18n",
             ],
         },
     },
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-pt'
 
 TIME_ZONE = 'UTC'
 
@@ -123,11 +124,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+gettext = lambda x: x
+
 LANGUAGES = (
-    ('en', _('English')),
-    ('fr', _('French')),
-    ('pt', _('Portuguese')),
-    ('es', _('Spanish')),
+    ('en', ('English')),
+    ('fr', ('French')),
+    ('pt', ('Portuguese')),
+    ('es', ('Spanish')),
 )
 
 LOCALE_PATHS = [

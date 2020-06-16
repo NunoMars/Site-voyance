@@ -1,4 +1,5 @@
 from random import shuffle as suf, randint as rand
+from django.utils.translation import gettext as _
 from datetime import datetime
 from .models import MajorArcana
 
@@ -17,18 +18,18 @@ def one_card(input_value):
 
     return {"messages" : "<div class='container'><div class='cta-inner text-center rounded'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" +
-        "<div class='mb-0'><h2>" + name.capitalize() + " o que o tarot tem para lhe dizer!</h2></div>" +
-        "<div class='mb-0'><h3>" + card_name.capitalize() + "</h3></div>" +
+        "<div class='mb-0'><h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2></div>" +
+        "<div class='mb-0'><h3>" + _(card_name.capitalize()) + "</h3></div>" +
         "<p class='mb-0'><a href= '#'><img src= " + card_img +
         " alt='card' height='25%' width='25%' /></a></p>" +
-        "<div class='mb-0'><h4>" + "Significado en geral" + "</h4></div>" +
-        "<p class='mb-0'>" + card_signification_gen + "</p>" +
-        "<div class='mb-0'><h3>" + "Atenção" + "</h3></div>" +
-        "<p class='mb-0'>" + card_warnings + "</p>" +
-        "<div class='mb-0'><h4>" + "No amor" + "</h4></div>" +
-        "<p class='mb-0'>" + card_signification_love + "</p>" +
-        "<div class='mb-0'><h4>" + "No trabalho" + "</h4></div>" +
-        "<p class='mb-0'>" + card_signification_work + "</p>" + 
+        "<div class='mb-0'><h4>" + _("Significado en geral") + "</h4></div>" +
+        "<p class='mb-0'>" + _(card_signification_gen) + "</p>" +
+        "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
+        "<p class='mb-0'>" + _(card_warnings) + "</p>" +
+        "<div class='mb-0'><h4>" + _("No amor") + "</h4></div>" +
+        "<p class='mb-0'>" + _(card_signification_love) + "</p>" +
+        "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
+        "<p class='mb-0'>" + _(card_signification_work) + "</p>" + 
         "</div></div> "}
 
 def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
@@ -58,12 +59,12 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             card_warnings = obj.card_signification_warnings
             list_of_cards.append(
                 "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<h4><div class='mb-0'>" + card_name.capitalize() + "</div></h4>" +
+                "<h4><div class='mb-0'>" + _(card_name.capitalize()) + "</div></h4>" +
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
-                " alt='card' height='25%' width='25%' /><span>" + card_warnings +
+                " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
-                "<div class='mb-0'><h4>" + "No trabalho" + "</h4></div>" +
-                "<p class='mb-0'>" + chosed_theme + "</p>" +
+                "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
+                "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
                 "</div></div> "
             )
 
@@ -76,8 +77,8 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
         print(f)
         return {"messages" : "<div class='container'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
-        "<h4>" + name.capitalize() + " aqui esta o resultado das cartas</h4>" +
-        "<h6>Para saber os avisos do Tarot passe o rato en cima de cada carta!</h6>" +
+        "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
+        "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
         f + "</div></div>"}
 
     if chosed_theme == 'work':
@@ -91,12 +92,12 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             card_warnings = obj.card_signification_warnings
             list_of_cards.append(
                 "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<h4><div class='mb-0'>" + card_name.capitalize() + "</div></h4>" +
+                "<h4><div class='mb-0'>" + _(card_name.capitalize()) + "</div></h4>" +
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
-                " alt='card' height='25%' width='25%' /><span>" + card_warnings +
+                " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
-                "<div class='mb-0'><h4>" + "No trabalho" + "</h4></div>" +
-                "<p class='mb-0'>" + chosed_theme + "</p>" +
+                "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
+                "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
                 "</div></div> "
             )
 
@@ -109,8 +110,8 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
         print(f)
         return {"messages" : "<div class='container'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
-        "<h4>" + name.capitalize() + " aqui esta o resultado das cartas</h4>" +
-        "<h6>Para saber os avisos do Tarot passe o rato en cima de cada carta!</h6>" +
+        "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
+        "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
         f + "</div></div>"}
             
     if chosed_theme == 'gen':
@@ -124,12 +125,12 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             card_warnings = obj.card_signification_warnings
             list_of_cards.append(
                 "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<h4><div class='mb-0'>" + card_name.capitalize() + "</div></h4>" +
+                "<h4><div class='mb-0'>" + _(card_name.capitalize()) + "</div></h4>" +
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
-                " alt='card' height='25%' width='25%' /><span>" + card_warnings +
+                " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
-                "<div class='mb-0'><h4>" + "No trabalho" + "</h4></div>" +
-                "<p class='mb-0'>" + chosed_theme + "</p>" +
+                "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
+                "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
                 "</div></div> "
             )
 
@@ -142,7 +143,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
         print(f)
         return {"messages" : "<div class='container'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
-        "<h4>" + name.capitalize() + " aqui esta o resultado das cartas</h4>" +
-        "<h6>Para saber os avisos do Tarot passe o rato en cima de cada carta!</h6>" +
+        "<h4>" + _(name.capitalize()) + _(" aqui esta o resultado das cartas") + "</h4>" +
+        "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
         f + "</div></div>"}
         

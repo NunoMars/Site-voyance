@@ -2,7 +2,7 @@
 {% load static i18n %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
     <head>
         <title>{{page_title}}</title>
         <link rel="icon" href={% static 'img/tapis.ico' %}/>
@@ -41,10 +41,10 @@
               <span class="sr-only">(current)</span>
               </li>
               <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="\ball8">{% trans "Oracle" %} Ball8</a>
+              <a class="nav-link text-uppercase text-expanded" href="\ball8">{% trans "Oracle" %}</a>
               </li>
               <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="\consultations.html">{% trans "Consultas live" %}</a>
+              <a class="nav-link text-uppercase text-expanded" href="\consultations.html">{% trans "Marcar Consultas" %}</a>
               </li>
               <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="\contact.html">{% trans "Fale comigo" %}</a>
@@ -63,8 +63,8 @@
         </div>
         <div class="chat">
           <div class="chat-title">
-            <h1>Senhora T</h1>
-            <h2>A vidente Bot</h2>
+            <h1>{% trans 'Senhora T'%}</h1>
+            <h2>{% trans 'A vidente Bot'%}</h2>
           </div>
           <div class="messages">
             <div class="messages-content"></div>
@@ -160,17 +160,13 @@
                     return false;
                   }
                   msg = "<div class='col'><div class='cta-inner text-center rounded'>" +
-                  "<p class='mb-1'>Olá, eu sou a Sra. T, sua vidente virtual."+
-                  " Proponho esclarecê-lo sobre o seu futuro!"+
-                  " Mas, acima de tudo, precisamos nos conhecer."+
-                  " Antes de ver o seu futuro precisamos de nos conhecer melhor.." +
-                  " e vou lhe pror algumas perguntas, começêmos!" + 
-                  " Qual é o seu primeiro nome?</p>" +
-                  "</div>"
-
+                  "<p class='mb-1'>" + "Olá, eu sou a Sra. b0v   T, sua vidente virtual." +
+                  " Proponho esclarecê-lo sobre o seu futuro!" + " Mas, acima de tudo, precisamos nos conhecer."+
+                  " Qual e o seu primeiro nome se faz favor? "
+                  
                   clairvoyantMessage(msg);
-                };    
-            
+                };
+
                 $('.button').click(function(){
                   $('.menu .items span').toggleClass('active');
                   $('.menu .button').toggleClass('active');
@@ -199,7 +195,7 @@
               </script>
               {% csrf_token %}
               <textarea type="text" class="message-input" placeholder="Ponha sua resposta aqui..."></textarea>
-              <button type="submit" class="message-submit">Enviar</button>
+              <button type="submit" class="message-submit">{% trans 'Enviar'%}</button>
             </form>
           </div>
         </div>
