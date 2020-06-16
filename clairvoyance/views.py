@@ -8,7 +8,7 @@ from django.http import Http404, JsonResponse
 
 def clairvoyance(request):
     args= {}
-    page_title = _("Tirage Tarot")
+    page_title = _("Tarot")
     args["page_title"]= page_title
     return render(request, 'clairvoyance/index.html', args)
 
