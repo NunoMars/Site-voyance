@@ -63,7 +63,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
                 " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
-                "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
+                "<div class='mb-0'><h4>" + _("No AMOR") + "</h4></div>" +
                 "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
                 "</div></div> "
             )
@@ -129,7 +129,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
                 " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
-                "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
+                "<div class='mb-0'><h4>" + _("En GERAL") + "</h4></div>" +
                 "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
                 "</div></div> "
             )

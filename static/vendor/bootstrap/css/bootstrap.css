@@ -555,13 +555,13 @@ pre code {
 
 @media (min-width: 576px) {
   .container {
-    max-width: 576px;
+    max-width: 100%;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 768px;
+    max-width: 100%;
   }
 }
 
