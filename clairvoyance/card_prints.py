@@ -4,7 +4,31 @@ from datetime import datetime
 from .models import MajorArcana
 
 
+
 def one_card(input_value):
+    menu = ["<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
+            "<div class='row'>" +
+            "<div class='col'>" +
+            "<p><h5 class='mb-0'>" + input_value.capitalize() + _(" se desajar outra pergunta...") + " !</h5></p>" +        
+            "<div class='row'>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h6>" + _("Escolha o tema da pergunta!") + "</h6></p>" +
+            "<p class='mb-0'><h6>" + _("Clique no baralho para escolher o baralho") + "</h6></p></div></div></div></div>" +
+            "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
+            "<div class='row'>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("AMOR") + "<h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></div></p></div>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("TRABALHO") + "</h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></div></p></div>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("GERAL") + "</h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></div></p></div>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("RAPIDA") + "</h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></div><p/>" +
+            "</div></div></div></div>"]
     rand_card = rand(0, 37)
     print(rand_card)
     obj = MajorArcana.objects.get(pk=rand_card)
@@ -30,9 +54,35 @@ def one_card(input_value):
         "<p class='mb-0'>" + _(card_signification_love) + "</p>" +
         "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
         "<p class='mb-0'>" + _(card_signification_work) + "</p>" + 
-        "</div></div> "}
+        "</div></div> " + menu[0]
+        }
 
 def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
+    menu = ["<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
+            "<div class='row'>" +
+            "<div class='col'>" +
+            "<p><h5 class='mb-0'>" + name.capitalize() + _(" se desajar outra pergunta...") + " !</h5></p>" +        
+            "<div class='row'>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h6>" + _("Escolha o tema da pergunta!") + "</h6></p>" +
+            "<p class='mb-0'><h6>" + _("Clique no baralho para escolher o baralho") + "</h6></p></div></div></div></div>" +
+            "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
+            "<div class='row'>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("AMOR") + "<h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></div></p></div>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("TRABALHO") + "</h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></div></p></div>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("GERAL") + "</h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></div></p></div>" +
+            "<div class='col'>" +
+            "<p class='mb-0'><h8>" + _("RAPIDA") + "</h8></p>" +
+            "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></div><p/>" +
+            "</div></div></div></div>"]
+    
+
     card_deck = [i+1 for i in range(38)]
     suf(card_deck)
     column = len(name)
@@ -77,7 +127,8 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
         "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
         "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
-        f + "</div></div>"}
+        f + "</div></div>" + menu[0]
+        }
 
     if chosed_theme == 'work':
 
@@ -110,7 +161,8 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
         "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
         "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
-        f + "</div></div>"}
+        f + "</div></div>" + menu[0]
+        }
             
     if chosed_theme == 'gen':
         
@@ -143,5 +195,6 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
         "<h4>" + _(name.capitalize()) + _(" aqui esta o resultado das cartas") + "</h4>" +
         "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
-        f + "</div></div>"}
+        f + "</div></div>" + menu[0]
+        }
         
