@@ -28,16 +28,16 @@ def clairvoyant(input_value):
             "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
             "<div class='row'>" +
             "<div class='col'>" +
-            "<p class='mb-0'><h8>" + _("AMOR") + "<h8></p>" +
+            "<p class='mb-0'><h6>" + _("AMOR") + "<h6></p>" +
             "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></div></p></div>" +
             "<div class='col'>" +
             "<p class='mb-0'><h8>" + _("TRABALHO") + "</h8></p>" +
             "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></div></p></div>" +
             "<div class='col'>" +
-            "<p class='mb-0'><h8>" + _("GERAL") + "</h8></p>" +
+            "<p class='mb-0'><h6>" + _("GERAL") + "</h6></p>" +
             "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></div></p></div>" +
             "<div class='col'>" +
-            "<p class='mb-0'><h8>" + _("RAPIDA") + "</h8></p>" +
+            "<p class='mb-0'><h6>" + _("RAPIDA") + "</h6></p>" +
             "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></div><p/>" +
             "</div></div></div></div>"
             } 
@@ -54,10 +54,10 @@ def clairvoyant(input_value):
             if (len(inputs) == 2):
 
                 return {"messages" : "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<p class='mb-1'><h4>" + _("Obrigada !") + "</h4></p>" +
-                " <p class='mb-1'>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
-                " <p class='mb-1'>" + _("Clique no baralho para cortar en dois") + "</p>" +
-                "<p class='mb-1'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></p>" +
+                "<p class='mb-0'><h4>" + _("Obrigada !") + "</h4></p>" +
+                " <p class='mb-0'>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
+                " <p class='mb-0'>" + _("Clique no baralho para cortar en dois") + "</p>" +
+                "<p class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></p>" +
                 "</div>"
                 }
 
@@ -68,9 +68,9 @@ def clairvoyant(input_value):
                 
                 return {"messages" : "<div class='container'><div class='cta-inner text-center rounded'>" +
                 "<div class='row' height= '100%' text-align='center'>" +
-                "<p class='mb-1'>" + _("Obrigada !") + "</p>" +
-                " <p class='mb-1'>" + _("Temos aqui os dois baralhos!") + "</p>" +
-                " <p class='mb-1'>" + _("Clique no baralho para escolher o baralho") + "</p></div>" +
+                "<p class='mb-0'>" + _("Obrigada !") + "</p>" +
+                " <p class='mb-0'>" + _("Temos aqui os dois baralhos!") + "</p>" +
+                " <p class='mb-0'>" + _("Clique no baralho para escolher o baralho") + "</p></div>" +
                 "<div class='row' height= '100%' text-align='center'>" +
                 "<div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLeft();'/></div>" +
                 "<div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageRight();'/></div>" +
@@ -95,6 +95,5 @@ def clairvoyant(input_value):
                 return result
 
         del inputs[1:]
-        print(inputs)
         continue
 

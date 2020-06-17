@@ -90,6 +90,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
     #construire tableau
     def splitBy(li, n=1):
         return [li[i:i+n] for i in range(0, len(li), n)]
+    #chisir le tas pour afficher
     if deck_chosed == "left":
         chosen_deck = card_deck[0:cut_point]
 
@@ -107,7 +108,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             card_warnings = obj.card_signification_warnings
             list_of_cards.append(
                 "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<h4><div class='mb-0'>" + _(card_name.capitalize()) + "</div></h4>" +
+                "<div class='mb-0'><h4>" + _(card_name.capitalize()) + "</h4></div>" +
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
                 " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
@@ -122,7 +123,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             l = ''.join(i)
             final_card_deck.append("<div class='row' height= '100%' text-align='center'>" + l + "</div>")
         f = ''.join(final_card_deck)
-        print(f)
+
         return {"messages" : "<div class='container'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
         "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
@@ -141,7 +142,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             card_warnings = obj.card_signification_warnings
             list_of_cards.append(
                 "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<h4><div class='mb-0'>" + _(card_name.capitalize()) + "</div></h4>" +
+                "<div class='mb-0'><h4>" + _(card_name.capitalize()) + "</h4></div>" +
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
                 " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
@@ -156,7 +157,6 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             l = ''.join(i)
             final_card_deck.append("<div class='row' height= '100%' text-align='center'>" + l + "</div>")
         f = ''.join(final_card_deck)
-        print(f)
         return {"messages" : "<div class='container'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
         "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
@@ -175,7 +175,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             card_warnings = obj.card_signification_warnings
             list_of_cards.append(
                 "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<h4><div class='mb-0'>" + _(card_name.capitalize()) + "</div></h4>" +
+                "<div class='mb-0'><h4>" + _(card_name.capitalize()) + "</h4></div>" +
                 "<p class='mb-0'><a href= '#'><img src= " + card_img +
                 " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
                 "</span></a></p>" +
@@ -190,7 +190,6 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme):
             l = ''.join(i)
             final_card_deck.append("<div class='row' height= '100%' text-align='center'>" + l + "</div>")
         f = ''.join(final_card_deck)
-        print(f)
         return {"messages" : "<div class='container'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
         "<h4>" + _(name.capitalize()) + _(" aqui esta o resultado das cartas") + "</h4>" +
