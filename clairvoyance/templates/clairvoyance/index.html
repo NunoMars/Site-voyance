@@ -24,47 +24,45 @@
       <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
   </head>
-  <header class="fixed-top">        
-    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-      <div class="container">
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="\home">Home</a>
-            </li>
-            <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="\clairvoyance">{% trans "Tiragem Tarot" %}</a>
-            <span class="sr-only">(current)</span>
-            </li>
-            <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="\ball8">{% trans "Oracle" %}</a>
-            </li>
-            <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="\consultations.html">{% trans "Marcar Consultas" %}</a>
-            </li>
-            <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="\contact.html">{% trans "Fale comigo" %}</a>
-            </li>
-          </ul>
-        </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Mundo do Tarot"%}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item active px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="home">Home</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="clairvoyance">{% trans "Tarot" %}
+              <span class="sr-only">(current)</span></li>
+            </a>          
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="ball8">{% trans "Oraculo" %}</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="consultations.html">{% trans "Marcar consulta" %}</a>
+          </li>
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="contact.html">{% trans "Fale comigo" %}</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
   </header>
   <body>  
     <section class="avenue-messenger container col align-self-center">
-
       <div class="agent-face">
         <div class="half">
         <img class="agent circle" src={% static "img/voyante.jpg" %} alt="voyante">
-      </div>
+        </div>
       </div>
       <div class="chat">
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-          <div class="container">
-            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Mundo do Tarot" %}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
         <div class="chat-title">
           <h1>{% trans 'Senhora T'%}</h1>
           <h2>{% trans 'A vidente Bot'%}</h2>
