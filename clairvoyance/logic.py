@@ -12,9 +12,6 @@ def clairvoyant(input_value):
     while True:
         #création deck
         card_deck = [i+1 for i in range(38)]    
-        
-
-
         input_name = inputs[0]
         
         if (len(inputs) == 1):        

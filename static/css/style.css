@@ -461,9 +461,9 @@ Bounce
   min-height: 600px !important;
   background: rgba(255, 255, 255, 0.9);
   position: relative;
-  z-index: 10;
+  z-index: 1000;
   box-shadow: 2px 10px 4px rgba(22, 20, 19, 0.4);
-  margin-top: 13%;
+  margin-top: 6.6%;
 }
 
 .avenue-messenger div.agent-face {
@@ -606,13 +606,13 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 .menu .items a:hover {
   color: #777;
 }
-@media only screen and (max-device-width: 768px), screen and (max-device-width: 320px), screen and (max-device-width: 800px) {
+@media only screen and (max-device-width: 800px){
   .avenue-messenger {
     margin: 0px;
     z-index: 2147483001 !important;
     width: 100% !important;
-    height: 100% !important;
-    max-height: none !important;
+    height: 1524px !important;
+    max-height: 1550px !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
@@ -645,8 +645,58 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   }
 
   .chat-title {
-    padding: 20px 20px 15px 10px !important;
-    text-align: left;
+    display:none;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #fff;
+  }
+
+  .menu .button {
+    border-top-right-radius: 0;
+  }
+}  
+
+@media only screen and (max-device-width: 360px) {
+  .avenue-messenger {
+    margin: 0px;
+    z-index: 2147483001 !important;
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+    background: #fff;
+  }
+  .messages .message, .message-box .message-input {
+    font-size: 12px;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .message-box .message-input {
+    height: 18px;
+  }
+
+  .av{
+    border-radius: 5px 5px 5px 0;
+  }
+  .avenue-messenger div.agent-face {
+    top: -10px !important;
+  }
+
+  .chat {
+    border-radius: 0 !important;
+    max-height: initial !important;
+  }
+
+  .chat-title {
+    display: none;
   }
 
   .circle {
@@ -659,6 +709,7 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
     border-top-right-radius: 0;
   }
 }
+
 @media only screen and (min-device-width: 667px) {
   div.half {
     margin: auto;
