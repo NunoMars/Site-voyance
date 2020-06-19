@@ -5,8 +5,13 @@ from .card_prints import one_card, clairvoyante_sort_cards
 #faire Connaiscance
 inputs = []
 def clairvoyant(input_value):
+    
     if input_value not in inputs:
         inputs.append(input_value)
+        print(inputs)
+    
+    if input_value == " ":
+        inputs.clear()
         print(inputs)
 
     while True:
@@ -17,7 +22,7 @@ def clairvoyant(input_value):
         menu = {"messages" : "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
             "<div class='row'>" +
             "<div class='col'>" +
-            "<p><h6 class='mb-0'>" + _("Muito obrigada ")  + input_value.capitalize() + " !</h6></p>" +
+            "<p><h6 class='mb-0'>" + _("Muito obrigada ")  + input_name.capitalize() + " !</h6></p>" +
             "<p><h5 class='mb-0'>" + _(" Vou baralhando as cartas...") + "</h5></p></div></div>" +            
             "<div class='row'>" +
             "<div class='col'>" +
@@ -43,7 +48,8 @@ def clairvoyant(input_value):
         if (len(inputs) == 1):
             return menu
 
-        if inputs[1] == "one":
+        if input_value == "one":
+            del inputs[1:]
             input_name = inputs[0]
             value = one_card(input_name, menu)
             del inputs[1:]
@@ -51,9 +57,9 @@ def clairvoyant(input_value):
 
         else:
             if (len(inputs) == 2):
-
+                input_name = inputs[0]
                 return {"messages" : "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<p class='mb-0'><h4>" + _("Obrigada !") + "</h4></p>" +
+                "<p class='mb-0'><h4>" + _("Obrigada ") + input_name.capitalize() + " !</h4></p>" +
                 " <p class='mb-0'>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
                 " <p class='mb-0'>" + _("Clique no baralho para cortar en dois") + "</p>" +
                 "<p class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></p>" +
@@ -68,7 +74,7 @@ def clairvoyant(input_value):
                 return {"messages" : "<div class='container'><div class='cta-inner text-center rounded'>" +
                 "<div class='row' height= '100%' text-align='center'>" +
                 "<p class='mb-0'>" + _("Obrigada !") + "</p>" +
-                " <p class='mb-0'>" + _("Temos aqui os dois baralhos!") + "</p>" +
+                " <p class='mb-0'>" + _("Temos, agora aqui os dois baralhos!") + "</p>" +
                 " <p class='mb-0'>" + _("Clique no baralho para escolher o baralho") + "</p></div>" +
                 "<div class='row' height= '100%' text-align='center'>" +
                 "<div class='col''><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLeft();'/></div>" +
@@ -79,17 +85,17 @@ def clairvoyant(input_value):
             deck_chosed = inputs[3]       
 
             if inputs[1] == "love":                    
-                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"love", menu)
+                result = clairvoyante_sort_cards(inputs[0], cut_point, deck_chosed,"love", menu)
                 del inputs[1:]
                 return result                 
 
             if inputs[1] == "work":
-                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"work", menu)
+                result = clairvoyante_sort_cards(inputs[0], cut_point, deck_chosed,"work", menu)
                 del inputs[1:]
                 return result
 
             if inputs[1] == "gen":
-                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"gen", menu)
+                result = clairvoyante_sort_cards(inputs[0], cut_point, deck_chosed,"gen", menu)
                 del inputs[1:]
                 return result
 
