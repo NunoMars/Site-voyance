@@ -13,10 +13,8 @@ def clairvoyant(input_value):
         #création deck
         card_deck = [i+1 for i in range(38)]    
         input_name = inputs[0]
-        
-        if (len(inputs) == 1):        
 
-            msg = {"messages" : "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
+        menu = {"messages" : "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
             "<div class='row'>" +
             "<div class='col'>" +
             "<p><h6 class='mb-0'>" + _("Muito obrigada ")  + input_value.capitalize() + " !</h6></p>" +
@@ -42,11 +40,12 @@ def clairvoyant(input_value):
             "</div></div></div></div>"
             } 
 
-            return msg
+        if (len(inputs) == 1):
+            return menu
 
         if inputs[1] == "one":
             input_name = inputs[0]
-            value = one_card(input_name)
+            value = one_card(input_name, menu)
             del inputs[1:]
             return value
 
@@ -80,17 +79,17 @@ def clairvoyant(input_value):
             deck_chosed = inputs[3]       
 
             if inputs[1] == "love":                    
-                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"love")
+                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"love", menu)
                 del inputs[1:]
                 return result                 
 
             if inputs[1] == "work":
-                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"work")
+                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"work", menu)
                 del inputs[1:]
                 return result
 
             if inputs[1] == "gen":
-                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"gen")
+                result = clairvoyante_sort_cards(input_name, cut_point, deck_chosed,"gen", menu)
                 del inputs[1:]
                 return result
 
