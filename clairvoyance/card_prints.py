@@ -50,6 +50,16 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme, menu):
 
     if deck_chosed == "right":
         chosen_deck = card_deck[cut_point:37]
+    
+
+    def create_cards_message(card_name, card_img, card_warnings, chosed_theme):
+        msg =["<div class='col'><div class='cta-inner text-center rounded'>" +
+            "<div class='mb-0'><h4>" + _(card_name.capitalize()) + "</h4></div>" +
+            "<p class='mb-0'><a href= '#'><img src= " + card_img +
+            " alt='card' height='50%' width='50%' /><span>" + _(card_warnings) + _(chosed_theme) +
+            "</span></a></p>" +            
+            "</div></div> "]
+        return msg
 
     def create_final_response(list_of_cards, menu, name):
         card_board = splitBy(list_of_cards, column)
@@ -64,72 +74,125 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme, menu):
         "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
         "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
         f + "</div></div>" + menu["messages"]
-        }
-
+        }    
     
     if chosed_theme == 'love':     
 
         list_of_cards = []
+        list_of_polarity = []
         for i in chosen_deck:        
             obj = MajorArcana.objects.get(pk=i)
             card_img = obj.card_image
             card_name = obj.card_name_pt
             chosed_theme = obj.card_signification_love
             card_warnings = obj.card_signification_warnings
-            list_of_cards.append(
-                "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<div class='mb-0'><h4>" + _(card_name.capitalize()) + "</h4></div>" +
-                "<p class='mb-0'><a href= '#'><img src= " + card_img +
-                " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
-                "</span></a></p>" +
-                "<div class='mb-0'><h4>" + _("No AMOR") + "</h4></div>" +
-                "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
-                "</div></div> "
-            )
+            card_polarity = obj.card_polarity
+            list_of_polarity.append(card_polarity)
+            message_card = create_cards_message(card_name, card_img, card_warnings, chosed_theme)
+            list_of_cards.append(message_card[0])
+
+
+        print(list_of_polarity)
+
+        how_positif = list_of_polarity.count('Positif')
+        how_negatif = list_of_polarity.count('Negatif')
+        how_neutral = list_of_polarity.count('Neutral')
+        
+        items_on_list = len(list_of_polarity)
+
+        def percentage(items_on_list, count_list):
+            percentage = count_list * 100/items_on_list
+            return percentage
+        percentage_positif = round(percentage(items_on_list, how_positif),2)
+        percentage_negatif = round(percentage(items_on_list, how_negatif),2)
+        percentage_neutral = round(percentage(items_on_list, how_neutral),2)
+
+
+        print("Nous avons " + str(percentage_negatif) +
+                "% negatifs, et " + str(percentage_positif) +
+                "% positifs, et aussi " + str(percentage_neutral) +
+                "% de neutres !")
+        print(percentage_positif)
 
         return create_final_response(list_of_cards, menu, name)
 
     if chosed_theme == 'work':
 
         list_of_cards = []
+        list_of_polarity = []
         for i in chosen_deck:        
             obj = MajorArcana.objects.get(pk=i)
             card_img = obj.card_image
             card_name = obj.card_name_pt
             chosed_theme = obj.card_signification_work
             card_warnings = obj.card_signification_warnings
-            list_of_cards.append(
-                "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<div class='mb-0'><h4>" + _(card_name.capitalize()) + "</h4></div>" +
-                "<p class='mb-0'><a href= '#'><img src= " + card_img +
-                " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
-                "</span></a></p>" +
-                "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
-                "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
-                "</div></div> "
-            )
+            card_polarity = obj.card_polarity
+            list_of_polarity.append(card_polarity)
+            message_card = create_cards_message(card_name, card_img, card_warnings, chosed_theme)
+            list_of_cards.append(message_card[0])
+
+
+        print(list_of_polarity)
+
+        how_positif = list_of_polarity.count('Positif')
+        how_negatif = list_of_polarity.count('Negatif')
+        how_neutral = list_of_polarity.count('Neutral')
+        
+        items_on_list = len(list_of_polarity)
+
+        def percentage(items_on_list, count_list):
+            percentage = count_list * 100/items_on_list
+            return percentage
+        percentage_positif = round(percentage(items_on_list, how_positif),2)
+        percentage_negatif = round(percentage(items_on_list, how_negatif),2)
+        percentage_neutral = round(percentage(items_on_list, how_neutral),2)
+
+
+        print("Nous avons " + str(percentage_negatif) +
+                "% negatifs, et " + str(percentage_positif) +
+                "% positifs, et aussi " + str(percentage_neutral) +
+                "% de neutres !")
+        print(percentage_positif)
 
         return create_final_response(list_of_cards, menu, name)
             
     if chosed_theme == 'gen':
         
         list_of_cards = []
+        list_of_polarity = []
         for i in chosen_deck:        
             obj = MajorArcana.objects.get(pk=i)
             card_img = obj.card_image
             card_name = obj.card_name_pt
             chosed_theme = obj.card_signification_gen
             card_warnings = obj.card_signification_warnings
-            list_of_cards.append(
-                "<div class='col'><div class='cta-inner text-center rounded'>" +
-                "<div class='mb-0'><h4>" + _(card_name.capitalize()) + "</h4></div>" +
-                "<p class='mb-0'><a href= '#'><img src= " + card_img +
-                " alt='card' height='25%' width='25%' /><span>" + _(card_warnings) +
-                "</span></a></p>" +
-                "<div class='mb-0'><h4>" + _("En GERAL") + "</h4></div>" +
-                "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
-                "</div></div> "
-            )
+            card_polarity = obj.card_polarity
+            list_of_polarity.append(card_polarity)
+            message_card = create_cards_message(card_name, card_img, card_warnings, chosed_theme)
+            list_of_cards.append(message_card[0])
+
+
+        print(list_of_polarity)
+
+        how_positif = list_of_polarity.count('Positif')
+        how_negatif = list_of_polarity.count('Negatif')
+        how_neutral = list_of_polarity.count('Neutral')
+        
+        items_on_list = len(list_of_polarity)
+
+        def percentage(items_on_list, count_list):
+            percentage = count_list * 100/items_on_list
+            return percentage
+        percentage_positif = round(percentage(items_on_list, how_positif),2)
+        percentage_negatif = round(percentage(items_on_list, how_negatif),2)
+        percentage_neutral = round(percentage(items_on_list, how_neutral),2)
+
+
+        print("Nous avons " + str(percentage_negatif) +
+                "% negatifs, et " + str(percentage_positif) +
+                "% positifs, et aussi " + str(percentage_neutral) +
+                "% de neutres !")
+        print(percentage_positif)
 
         return create_final_response(list_of_cards, menu, name)
         

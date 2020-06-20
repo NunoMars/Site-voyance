@@ -34,7 +34,7 @@ def clairvoyant(input_value):
             "<p class='mb-0'><h6>" + _("AMOR") + "<h6></p>" +
             "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></div></p></div>" +
             "<div class='col'>" +
-            "<p class='mb-0'><h8>" + _("TRABALHO") + "</h8></p>" +
+            "<p class='mb-0'><h6>" + _("TRABALHO") + "</h6></p>" +
             "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></div></p></div>" +
             "<div class='col'>" +
             "<p class='mb-0'><h6>" + _("GERAL") + "</h6></p>" +
