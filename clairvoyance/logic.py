@@ -5,7 +5,7 @@ from .card_prints import one_card, clairvoyante_sort_cards
 #faire Connaiscance
 inputs = []
 def clairvoyant(input_value):
-    
+        
     if input_value not in inputs:
         inputs.append(input_value)
         print(inputs)

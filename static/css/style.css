@@ -6,8 +6,8 @@
 .bouton_card {
   background-image: url(/static/img/cards/Back.jpg);
   background-size: contain;
-  width: 100px;
-  height: 175px;
+  width: 130px;
+  height: 225px;
 }
 
 /*--------------------
@@ -27,8 +27,9 @@ a:hover span {
   position: relative;
   margin-top:0px;
   left: 10px;
-  width: 400px;
+  width: 100%;
   z-index: 1030;
+  text-decoration: none;
   border:1px solid #009900;
   background:#ffffff;
   text-align: center;
@@ -456,9 +457,10 @@ Bounce
 .avenue-messenger {
   opacity: 0.8;
   border-radius: 20px;
+  width: 98%;
   height: calc(100% - 600px) !important;
   max-height: 1400px !important;
-  min-height: 600px !important;
+  min-height: 800px !important;
   background: rgba(255, 255, 255, 0.9);
   position: relative;
   z-index: 1000;
