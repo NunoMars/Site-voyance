@@ -5,10 +5,7 @@ from .models import MajorArcana
 
 
 
-def one_card(input_value, menu):
-    card_deck = [i+1 for i in range(38)]
-    suf(card_deck)
-    rand_card = choice(card_deck)
+def one_card(input_value, rand_card, menu):
     obj = MajorArcana.objects.get(pk=rand_card)
     card_img = obj.card_image
     card_name = obj.card_name_pt
@@ -128,8 +125,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme, menu):
             return sum(chosen_deck)/len(chosen_deck)
         
         index_result_card = round(average(chosen_deck))
-
-
+        result = one_card(name, index_result_card, menu)
         card_board = splitBy(list_of_cards, column)
         final_card_deck = []
         for i in card_board:
@@ -145,7 +141,7 @@ def clairvoyante_sort_cards(name, cut_point, deck_chosed, chosed_theme, menu):
         "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
         "<h4>" + polarity + "</h4>" +
         "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
-        f + "</div></div>" + menu["messages"]
+        f + "</div></div>" + result["messages"]
         }    
     
     if chosed_theme == 'love':     

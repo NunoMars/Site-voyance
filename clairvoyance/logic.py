@@ -1,5 +1,5 @@
 from django.utils.translation import gettext as _
-from random import shuffle as suf, randint as rand
+from random import shuffle as suf, choice, randint as rand
 from .card_prints import one_card, clairvoyante_sort_cards
 
 #faire Connaiscance
@@ -45,7 +45,10 @@ def clairvoyant(input_value):
             return menu        
         
         if input_value == "one":
-            value = one_card(input_name, menu)
+            card_deck = [i+1 for i in range(38)]
+            suf(card_deck)
+            rand_card = choice(card_deck)
+            value = one_card(input_name, rand_card, menu)
             del inputs[1:]
             return value
 
