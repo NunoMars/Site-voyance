@@ -43,10 +43,10 @@ a span {
   display: none;
 }
 a:hover span {
-  display: block;
+  display: inline-block;
   position: relative;
   margin-top:10px;
-  left: 10px;
+  left: 1px;
   width: 100%;
   z-index: 1030;
   text-decoration: none;
