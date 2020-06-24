@@ -5,6 +5,7 @@ from .card_prints import one_card, clairvoyante_sort_cards
 #faire Connaiscance
 inputs = []
 def clairvoyant(input_value):
+    
     card_deck = [i+1 for i in range(38)] 
 
     if input_value not in inputs:
