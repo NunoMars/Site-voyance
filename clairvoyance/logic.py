@@ -8,11 +8,11 @@ def clairvoyant(input_value):
     card_deck = [i+1 for i in range(38)] 
 
     if input_value not in inputs:
-        inputs.append(input_value)
-          
+        inputs.append(input_value)          
   
     while True:
         #création deck
+
 
         menu = {"messages" : "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
             "<div class='row'>" +
@@ -95,8 +95,6 @@ def clairvoyant(input_value):
         if input_value == "right":
             inputs[3] = card_deck[inputs[2]:37]
 
-        if input_value == "Quit":
-            inputs =[]
 
         result = clairvoyante_sort_cards(inputs[0], inputs[3], inputs[1], menu)
         del inputs[1:]
