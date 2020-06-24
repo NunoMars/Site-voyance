@@ -141,6 +141,11 @@
                                     function sendMessageRight() {
                                     getMessageClairvoyant("right");
                                     };
+                                    $(window).unload(function() {
+                                    $messages.mCustomScrollbar();
+                                    msg = "Quit"
+                                    getMessageClairvoyant(msg)
+                                    });
                                 </script>
                                 {% csrf_token %}
                                 <textarea type="text" class="message-input" placeholder="Ponha sua resposta aqui..."></textarea>
