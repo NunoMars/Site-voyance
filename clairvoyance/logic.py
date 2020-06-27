@@ -98,7 +98,9 @@ def clairvoyant(input_value):
         if input_value == "right":
             inputs[3] = card_deck[inputs[2]:37]
 
-
+        if input_value == "Quit":
+            inputs = []
+            
         result = clairvoyante_sort_cards(inputs[0], inputs[3], inputs[1], menu)
         del inputs[1:]
         return result
