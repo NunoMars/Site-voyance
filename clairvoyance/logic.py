@@ -2,17 +2,19 @@ from django.utils.translation import gettext as _
 from random import shuffle as suf, choice, randint as rand
 from .card_prints import one_card, clairvoyante_sort_cards
 
-#faire Connaiscance
+
+   
 inputs = []
+
 def clairvoyant(input_value):
     card_deck = [i+1 for i in range(38)] 
 
     if input_value not in inputs:
-        inputs.append(input_value)          
-  
+        inputs.append(input_value)         
+    print(inputs)
+
     while True:
         #création deck
-
 
         menu = {"messages" : "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
             "<div class='row'>" +
@@ -39,8 +41,7 @@ def clairvoyant(input_value):
             "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></div><p/>" +
             "</div></div></div></div>"
             } 
-        if (len(inputs) == 1):
-            return menu     
+            
         
         if input_value == "one":
             card_deck = [i+1 for i in range(38)]
@@ -50,10 +51,12 @@ def clairvoyant(input_value):
             del inputs[1:]
             return value
 
+        if (len(inputs) == 1):
+            return menu 
         
         if input_value == "love":
             inputs[1] = "love"
-       
+    
 
         if input_value == "work":
             inputs[1] = "work"
