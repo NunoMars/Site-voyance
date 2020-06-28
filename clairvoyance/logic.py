@@ -1,3 +1,4 @@
+
 from django.utils.translation import gettext as _
 from random import shuffle as suf, choice, randint as rand
 from .card_prints import one_card, clairvoyante_sort_cards
@@ -8,13 +9,15 @@ inputs = []
 
 def clairvoyant(input_value):
     card_deck = [i+1 for i in range(38)] 
-
+    global inputs
     if input_value not in inputs:
         inputs.append(input_value)         
     print(inputs)
 
     while True:
         #création deck
+        if input_value == "Quit":
+            del inputs[0:]
 
         menu = {"messages" : "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
             "<div class='row'>" +
@@ -98,11 +101,8 @@ def clairvoyant(input_value):
         if input_value == "right":
             inputs[3] = card_deck[inputs[2]:37]
 
-        if input_value == "Quit":
-            inputs = []
+        
             
         result = clairvoyante_sort_cards(inputs[0], inputs[3], inputs[1], menu)
         del inputs[1:]
         return result
-
-
