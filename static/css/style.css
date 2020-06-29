@@ -55,7 +55,12 @@ a:hover span {
   text-align: center;
   color: #ff0000;
 }
-
+/*--------------------
+Oracle
+--------------------*/
+.message-send {
+  width: 100%;
+}
 
 /*--------------------
 Chat
@@ -104,6 +109,7 @@ Chat Title
   font-size: 15px;
   letter-spacing: 1px;
 }
+
 .chat-title .avatar {
   position: absolute;
   z-index: 1;

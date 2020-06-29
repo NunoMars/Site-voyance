@@ -1,4 +1,3 @@
-
 from django.utils.translation import gettext as _
 from random import shuffle as suf, choice, randint as rand
 from .card_prints import one_card, clairvoyante_sort_cards
