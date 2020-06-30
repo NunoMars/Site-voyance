@@ -7,6 +7,9 @@ from .card_prints import one_card, clairvoyante_sort_cards
 inputs = []
 
 def clairvoyant(input_value):
+    """
+        Construct the bot reponse.
+    """
     card_deck = [i+1 for i in range(38)] 
     global inputs
     if input_value not in inputs:
@@ -93,7 +96,7 @@ def clairvoyant(input_value):
             "</div>"
             }
 
-                #chisir le tas pour afficher
+        #chose the deck
         if input_value == "left":
             inputs[3] = card_deck[0:inputs[2]]
 

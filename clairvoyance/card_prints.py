@@ -4,6 +4,9 @@ from datetime import datetime
 from .models import MajorArcana
 
 def get_from_db(id_card):
+    """
+        Get objects from DataBase
+    """
     obj = MajorArcana.objects.get(pk=id_card)
     card_img = obj.card_image
     card_name = obj.card_name_pt
@@ -23,6 +26,9 @@ def get_from_db(id_card):
         ]
 
 def one_card(name, rand_card, menu):
+    """
+        Rends one cart reponse.
+    """
     card = get_from_db(rand_card)
 
     return {"messages" : "<div class='container'><div class='cta-inner text-center rounded'>" +
@@ -44,6 +50,7 @@ def one_card(name, rand_card, menu):
         }
 
 def response_card(name, index_result_card, chosed_theme, menu):
+    
     card = get_from_db(index_result_card)
     if chosed_theme == "love":
         chosed_theme = card[4]
