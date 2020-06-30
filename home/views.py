@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 
 # Create your views here.
 def home(request):
-    args= {}
+    args = {}
     page_title = _("Mundo Do Tarot")
     args["page_title"] = page_title
     first_title = _("Benvindo ao Meu mundo")

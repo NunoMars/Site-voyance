@@ -124,7 +124,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-gettext = lambda x: x
+
+def gettext(x): return x
+
 
 LANGUAGES = (
     ('en', ('English')),

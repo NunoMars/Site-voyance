@@ -14,9 +14,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Sentences',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('sentence', models.CharField(max_length=200)),
-                ('sentence_polarity', models.CharField(choices=[('Positif', 'Positif'), ('Negatif', 'Negatif'), ('Neutral', 'neutral')], default='Positif', max_length=10)),
+                ('sentence_polarity', models.CharField(choices=[('Positif', 'Positif'), (
+                    'Negatif', 'Negatif'), ('Neutral', 'neutral')], default='Positif', max_length=10)),
             ],
         ),
     ]

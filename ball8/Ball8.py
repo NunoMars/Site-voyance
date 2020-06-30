@@ -7,7 +7,7 @@ print("Concentrez-vous sur la question à poser")
 
 
 def chose_sentence_ramdomly():
-	obj = Sentences.objects.all()
-	response = ch(obj)
-	response = response.sentence
-	return response
+    obj = Sentences.objects.all()
+    response = ch(obj)
+    response = response.sentence
+    return response

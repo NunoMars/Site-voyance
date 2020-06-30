@@ -7,14 +7,14 @@ from django.http import Http404, JsonResponse
 # Create your views here.
 
 def clairvoyance(request):
-    args= {}
+    args = {}
     page_title = _("Tarot")
-    args["page_title"]= page_title
+    args["page_title"] = page_title
     return render(request, 'clairvoyance/index.html', args)
 
 
 def clairvoyante(request):
-    if request.method == 'POST':    
+    if request.method == 'POST':
         try:
             input_value = request.POST.get('messageInput')
             result = clairvoyant(input_value)
@@ -22,4 +22,4 @@ def clairvoyante(request):
         except ValueError:
             pass
     else:
-        pass 
+        pass
