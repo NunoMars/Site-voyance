@@ -3,9 +3,10 @@
 
 <section>
     <div class="section-heading text-center rounded mb-4">
-        <h1 class="mb-0 cta">{% trans "Oráculo" %}</h1>
+        <h1 class="mb-0 cta animated lightSpeedIn slow">{% trans "Oráculo" %}</h1>
+        <h6 class="animated lightSpeedIn slow" style="color:white">{% trans "Pergunte o que deseja saber e o Oraculo responde SIM ou Não" %}</h6>
     </div>
-    <p style = "background:transparent;
+    <p class ="animated zoomInUp" style = "background:transparent;
     text-shadow: 0 4px 4px rgba(208, 243, 8, 0.308);
     z-index: 10;
     position: absolute;
@@ -28,9 +29,10 @@
                         height="580px" 
                         width="580px" >
                     </div>
-                    <p style = "background:transparent;
+                    <p class ="animated zoomInUp" style = "background:rgba(253, 253, 253, 0.2);
                         text-shadow: 1px 4px 4px rgb(0, 0, 0, 0.98);
                         z-index: 10;
+                        border-radius: 27px 27px 27px 27px;
                         position: absolute;
                         text-align: center;
                         margin: 0 auto;
@@ -39,7 +41,7 @@
                         top: 40%;
                         color: black;
                         font-style: inherit;
-                        width: 28%;
+                        width: 27%;
                         font-size: 25px;">{{ball8_message}}
                     </p>                    
                 </div>   
@@ -50,11 +52,6 @@
                         <button type="submit" name="bouton_submit" value="bouton_submit" style="font-size: 30px; border-radius: 15px 15px 15px 15px;">{% trans 'Enviar'%}</button>
                     </form>
                 </p>
-            </div>
-        </div>
-        <div class="row">
-            
-                
             </div>
         </div>
     </div>

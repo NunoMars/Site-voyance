@@ -105,6 +105,7 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu):
             def percentage(items_on_list, count_list):
                 percentage = count_list * 100/items_on_list
                 return percentage
+                
 
             how_positif = list_of_polarity.count('Positif')
             if how_positif != 0:
@@ -130,25 +131,26 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu):
                 if list_of_polarity[0] == "Neutral":
                     msg = [_("O resultado e revelado pela carta que segue!")]
                 return msg[0]
+                
 
-            if percentage_positif > percentage_negatif:
+            if percentage_positif > percentage_negatif or percentage_positif > percentage_neutral:
                 msg = [
                     _(" O resultado é positivo com ") + str(percentage_positif) + _("% total de cartas a favor!")
                 ]
                 return msg[0]
-            if percentage_negatif > percentage_positif:
+
+            if percentage_negatif > percentage_positif or percentage_negatif > percentage_neutral:
                 msg = [
                     _(" O resultado é negativo com ") + str(percentage_negatif) +
                      _("% total de cartas en desfavor, mâs, tudo tem solução o Tarot vai-lhe indicar o caminho...!")
                 ]
                 return msg[0]
-            if percentage_neutral > percentage_positif or percentage_neutral > percentage_negatif:
+            if percentage_neutral >= percentage_positif or percentage_neutral >= percentage_negatif:            
                 msg = [
                     _("O resultado revela o equilibrio com ") + str(percentage_neutral) + _("% das cartas!") +
                     _("! Nem muito nem pouco, mas ha sempre aspectos que podem que ser melhorados!")
                 ]
                 return msg[0]
-
         
         def average(chosed_card_deck):
             return sum(chosed_card_deck)/len(chosed_card_deck)
@@ -164,6 +166,7 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu):
         f = ''.join(final_card_deck)
 
         polarity = polarity_calcul(list_of_polarity)
+        print(polarity)
 
         return {"messages" : "<div class='container'>" +
         "<div class='col'><div class='cta-inner text-center rounded'>" + 
