@@ -1,21 +1,18 @@
 {% load static %}
 {% load static i18n %}
-<section class="page-section cta">   
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="cta-inner text-center rounded">
+<section class="page-section animated zoomInUp cta">   
+  <div class="container"> 
+    <div class="row">      
+      <div class="col">                
+        <div class="cta-inner text-center rounded">        
           <h2 class="section-heading mb-4">
-            <span class="mb-0">{% trans "Tarot" %}</span>
-          </h2>
-          <p class="mb-0">
-            <a href="clairvoyance">
+              <span class="mb-0">{% trans "Tarot" %}</span>
+            </h2>
+            <a class="nav-item" href="clairvoyance">     
               <img src={% static 'img/voyante_carre.jpg' %}       
               alt="boule de magie"
               height="170px" 
-              width="170px">
-            </a>
-          </p>
+              width="170px"></a>
         </div>
       </div>
       <div class="col">
@@ -31,14 +28,12 @@
           <h2 class="section-heading mb-4">
             <span class="mb-0">{% trans "Oráculo" %}</span>
           </h2>
-          <p class="mb-0">
-            <a href="ball8" target="ball8">
+            <a class="nav-item" href="ball8" target="ball8">
               <img src={% static 'img/boule-magie-voyance.jpg' %}
               alt="boule de magie"
               height="170px" 
               width="170px">
             </a>
-          </p>
         </div>
       </div>
     </div>
