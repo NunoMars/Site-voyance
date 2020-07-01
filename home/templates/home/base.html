@@ -11,15 +11,11 @@
     <title>{{page_title}}</title>
     <link rel="icon" href={% static 'img/tapis.ico' %}/>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link href= {% static 'vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
-    <div>
-      <!-- Custom styles for this template -->
-      <link href={% static 'css/business-casual.min.css' %} rel="stylesheet">
+    <!-- purified CSS -->
+    <link href= {% static 'css/styles.pure.css' %} rel="stylesheet">
       <h1 class="site-heading text-center text-white d-none  animated zoomInUp d-lg-block">
-        <span class="site-heading-upper text-primary mb-3">{{first_title}}</span>
-        <span class="site-heading-lower">{{second_title}}</span>
+        <span class="site-heading-upper text-primary mb-3" >{{first_title}}</span>
+        <span class="site-heading-lower" style="text-shadow: wheat; color: white;">{{second_title}}</span>
       </h1>
 
       <!-- Navigation -->
