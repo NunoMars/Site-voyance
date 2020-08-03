@@ -486,9 +486,12 @@ Bounce
 }
 .avenue-messenger {
   border-radius: 20px;
-  height: calc(100% - 600px) !important;
+  margin: auto;
+  min-width: 360px;
+  width: 70%;
+  height: calc(100% - 1000px) !important;
   max-height: 1400px !important;
-  min-height: 800px !important;
+  min-height: 640px !important;
   background: rgba(255, 255, 255, 0.561);
   position: relative;
   z-index: 1000;
