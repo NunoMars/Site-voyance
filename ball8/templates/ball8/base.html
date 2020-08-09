@@ -13,41 +13,41 @@
     <link href= {% static 'css/styles.pure.css' %} rel="stylesheet">
     <link href= {% static 'css/business-casual.min.css' %} rel="stylesheet">
   </head>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark animated zoomInUp py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Mundo do Tarot"%}</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="home">Home</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="clairvoyance">{% trans "Tarot" %}   
-            </a>
-          </li>          
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="ball8">{% trans "Oraculo" %}
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="consultations.html">{% trans "Marcar consulta" %}</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="contact.html">{% trans "Fale comigo" %}</a>
-          </li>
-        </ul>
+  <header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark animated zoomInUp py-lg-4" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Mundo do Tarot"%}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="home">Home</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="clairvoyance">{% trans "Tarot" %}   
+              </a>
+            </li>          
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="ball8">{% trans "Oraculo" %}
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="consultations.html">{% trans "Marcar consulta" %}</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="contact.html">{% trans "Fale comigo" %}</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
   </header>
   <body>{% block body %}{% endblock %}</body>
-  <footer class="footer text-faded text-center">
+  <footer class="footer fixed-bottom text-faded text-center">
     <div class="container">
       <p class="m-0 py-lg-4">Copyright &copy; Nuno Marcelino 2020</p>
       <!-- Bootstrap core JavaScript -->
