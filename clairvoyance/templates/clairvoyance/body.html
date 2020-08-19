@@ -18,7 +18,7 @@
                     <div class="messages-content"></div>
                 </div>
                 <div class="message-box">
-                    <form action="">
+                    <form action="" id="message-form">
                         <script>
                             var $messages = $('.messages-content'),
                             d, h, m,
@@ -92,15 +92,9 @@
                             });
                             };
                         
-                            $('.message-submit').click(function() {
-                            insertMessage();
-                            });
-                        
-                            $(window).on('keydown', function(e) {
-                            if (e.which == 13) {
+                            $('#message-form').submit(function(event) {
+                                event.preventDefault();
                                 insertMessage();
-                                return false;
-                            };
                             });
         
                             function firstClairvoyantMessage() {
@@ -147,7 +141,7 @@
                             });
                         </script>
                         {% csrf_token %}
-                        <textarea type="text" class="message-input" placeholder="{% trans 'Ponha sua resposta aqui...'%}"></textarea>
+                        <input type="text" class="message-input" placeholder="{% trans 'Ponha sua resposta aqui...'%}">
                         <button type="submit" class="message-submit">{% trans 'Enviar'%}</button>
                     </form>
                 </div>
