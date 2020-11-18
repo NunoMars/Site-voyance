@@ -5,13 +5,12 @@ from django.http import Http404, JsonResponse
 
 
 def index(request):
-    args= {}
-    page_title = _("Mundo Do Tarot")
-    args["page_title"] = page_title
-    first_title = _("Benvindo ao Meu mundo")
-    args["first_title"] = first_title
-    second_title = _("TAROT T")
-    args["second_title"] = second_title
+    args= {
+        "page_title" : _("Mundo Do Tarot"),
+        "first_title" : _("Benvindo ao Meu mundo"),
+        "second_title" : _("TAROT T"),
+        }
+
     return render(request, 'clairvoyance/home.html', args)
 
 def clairvoyance(request):
