@@ -15,4 +15,4 @@ def ball8(request):
             response = chose_sentence_ramdomly
             ball8_message = response
             args["ball8_message"] = ball8_message
-    return render(request, 'ball8/index.html', args)
+    return render(request, 'ball8/ball8.html', args)

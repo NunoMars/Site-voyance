@@ -4,13 +4,21 @@ from .logic import clairvoyant
 from django.http import Http404, JsonResponse
 
 
-# Create your views here.
+def index(request):
+    args= {}
+    page_title = _("Mundo Do Tarot")
+    args["page_title"] = page_title
+    first_title = _("Benvindo ao Meu mundo")
+    args["first_title"] = first_title
+    second_title = _("TAROT T")
+    args["second_title"] = second_title
+    return render(request, 'clairvoyance/home.html', args)
 
 def clairvoyance(request):
     args= {}
     page_title = _("Tarot")
     args["page_title"]= page_title
-    return render(request, 'clairvoyance/index.html', args)
+    return render(request, 'clairvoyance/clairvoyante.html', args)
 
 
 def clairvoyante(request):
@@ -23,3 +31,7 @@ def clairvoyante(request):
             pass
     else:
         pass 
+
+
+def history(request):
+    pass
