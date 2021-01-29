@@ -1,0 +1,65 @@
+{% load static %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="pt">  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Tarot" content="">
+    <meta name="Nuno Marcelino" content="Tarot">
+
+    <title>{{page_title}}</title>
+    <link rel="icon" href={% static 'img/tapis.ico' %}/>
+
+    <!-- purified CSS -->
+    <link href= {% static 'css/styles.pure.css' %} rel="stylesheet">
+    <link href= {% static 'css/business-casual.min.css' %} rel="stylesheet">
+    <link href= {% static 'css/style.css' %} rel="stylesheet">
+  </head>
+  <header>
+    <h1 class="site-heading text-center text-white d-none  animated zoomInUp d-lg-block">
+      <span class="site-heading-upper text-primary mb-3" >{{first_title}}</span>
+      <span class="site-heading-lower" style="text-shadow: wheat; color: white;">{{second_title}}</span>
+    </h1>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4 animated lightSpeedIn slow mCSB_container" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Mundo do Tarot"%}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="home">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="clairvoyance">{% trans "Tarot" %}</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="ball8">{% trans "Oraculo" %}</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="consultations.html">{% trans "Marcar consulta" %}</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="contact.html">{% trans "Fale comigo" %}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>  
+  <body>{% block body %}{% endblock %}</body>
+  <footer class="footer fixed-bottom text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Nuno Marcelino 2020</p>
+
+      <!-- Bootstrap core JavaScript -->
+      <script src= {% static "vendor/jquery/jquery.min.js" %}></script>
+      <script src= {% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %} ></script>
+    </div>
+  </footer>
+</html>

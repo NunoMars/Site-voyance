@@ -14,7 +14,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MajorArcana',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('card_name_pt', models.CharField(max_length=50)),
                 ('card_signification_gen', models.TextField()),
                 ('card_signification_warnings', models.TextField()),

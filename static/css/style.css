@@ -3,63 +3,55 @@
 *::after {
   box-sizing: border-box;
 }
-.bouton_card {
-  background-image: url(/static/img/cards/Back.jpg);
-  background-size: contain;
-  width: 130px;
-  height: 225px;
-  -webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+/*--------------------
+Body
+--------------------*/
+body {
+  position: fixed;
+  height: 100%;
+  background: url('../images/backGround.jpg');
+  font-family: 'Avenir', 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
 }
-.bouton_card:hover {
-	-webkit-transform: scale(1.3);
-	transform: scale(1.3);
+/*--------------------
+Head
+--------------------*/
+h3
+{
+  width: 100%;
+  font-size: 40px;
+  text-align: left;
+  padding-left: 250px;
+  color: white;
+  background-color: rgb(11, 125, 240);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 2px 10px 40px rgba(7, 7, 7, 0.4);
 }
 
-.card {
-  width: 130px;
-  height: 225px;
-  -webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-.card:hover {
-	-webkit-transform: scale(1.3);
-	transform: scale(1.3);
-}
 /*--------------------
-Mouse_houver
+Footer
 --------------------*/
-a {
-  text-decoration: none;
+.close:hover
+{
+  padding-right: 100px;
 }
-a:hover {
-  background: none;
-}
-a span {
-  display: none;
-}
-a:hover span {
-  display: inline-block;
-  position: relative;
-  margin-top:10px;
-  left: 1px;
+.footer
+{
+  position:fixed;
+  padding-left: 150px;
   width: 100%;
-  z-index: 1030;
-  text-decoration: none;
-  border:1px solid #009900;
-  background:#ffffff;
-  text-align: center;
-  color: #ff0000;
-}
-/*--------------------
-Oracle
---------------------*/
-.message-send {
-  width: 100%;
+  height:25%;
+  font-size: 20px;
+  text-align: left;
+  color: white;
+  background-color: rgb(11, 125, 240);
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 
 /*--------------------
@@ -67,9 +59,9 @@ Chat
 --------------------*/
 .chat {
   position: relative;
-  width: 100%;
+  width: 98%;
   height: calc(100% - 15px);
-  max-height: 98%px;
+  max-height: 95%;
   z-index: 10;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
@@ -93,6 +85,7 @@ Chat Title
   width: 100%;
   border-bottom: 1px solid #ccc;
   color: #777;
+  padding-top: 50px;
   padding-bottom: 5px;
   background-color: #fff;
   text-transform: uppercase;
@@ -109,7 +102,6 @@ Chat Title
   font-size: 15px;
   letter-spacing: 1px;
 }
-
 .chat-title .avatar {
   position: absolute;
   z-index: 1;
@@ -138,24 +130,22 @@ Messages
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 480px;
 }
 .messages .messages-content {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 101%;
   width: 100%;
 }
 .messages .message {
-  width:90%;
   clear: both;
   float: left;
   padding: 10px 10px 7px;
   border-radius: 20px 20px 20px 0;
   background: #eee;
   margin: 8px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
   margin-left: 50px;
   position: relative;
@@ -187,11 +177,11 @@ Messages
 .messages .message .avatar {
   position: absolute;
   z-index: 1;
-  bottom: -20px;
-  left: -65px;
+  bottom: -18px;
+  left: -50px;
   border-radius: 35px;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -202,7 +192,7 @@ Messages
   height: auto;
 }
 .messages .message.message-personal {
-  color: rgb(3, 37, 100);
+  color: rgb(5, 85, 131);
   float: right;
   text-align: right;
   background: rgb(157, 216, 250);
@@ -483,18 +473,25 @@ Bounce
   }
 }
 .avenue-messenger {
+  opacity: 1;
   border-radius: 20px;
-  height: calc(100% - 600px) !important;
-  max-height: 1400px !important;
-  min-height: 800px !important;
-  background: rgba(255, 255, 255, 0.561);
-  position: relative;
-  z-index: 1000;
+  height: calc(100% - 60px) !important;
+  max-height: 900px !important;/*460*/
+  min-height: 220px !important;
+  width: 800px;/*320*/
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 2%;
+  right: 7%;
+  bottom: auto;
+  margin: 30px;
+  z-index: 10;
   box-shadow: 2px 10px 4px rgba(22, 20, 19, 0.4);
+
 }
 
 .avenue-messenger div.agent-face {
-  position: relative;
+  position: absolute;
   left: 0;
   top: -50px;
   right: 0;
@@ -528,8 +525,8 @@ Bounce
 
 .circle {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin: 1em auto;
   background-size: cover;
   background-repeat: no-repeat;
@@ -633,13 +630,14 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 .menu .items a:hover {
   color: #777;
 }
-@media only screen and (max-device-width: 800px){
+
+@media only screen and (max-device-width: 768px), screen and (max-device-width: 320px), screen and (max-device-width: 800px) {
   .avenue-messenger {
     margin: 0px;
     z-index: 2147483001 !important;
     width: 100% !important;
-    height: 1524px !important;
-    max-height: 1550px !important;
+    height: 100% !important;
+    max-height: none !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
@@ -651,10 +649,20 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
     font-size: 12px;
   }
 
+  body {
+    background: none;
+  }
   .footer {
     display: none;
   }
 
+  .superPapy {
+    display: none;
+  }
+
+  h3 {
+    display: none;
+  }
   .message-box .message-input {
     height: 18px;
   }
@@ -672,58 +680,8 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   }
 
   .chat-title {
-    display:none;
-  }
-
-  .circle {
-    width: 80px;
-    height: 80px;
-    border: 1px solid #fff;
-  }
-
-  .menu .button {
-    border-top-right-radius: 0;
-  }
-}  
-
-@media only screen and (max-device-width: 360px) {
-  .avenue-messenger {
-    margin: 0px;
-    z-index: 2147483001 !important;
-    width: 100% !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    border-radius: 0 !important;
-    background: #fff;
-  }
-  .messages .message, .message-box .message-input {
-    font-size: 12px;
-  }
-
-  .footer {
-    display: none;
-  }
-
-  .message-box .message-input {
-    height: 18px;
-  }
-
-  .av{
-    border-radius: 5px 5px 5px 0;
-  }
-  .avenue-messenger div.agent-face {
-    top: -10px !important;
-  }
-
-  .chat {
-    border-radius: 0 !important;
-    max-height: initial !important;
-  }
-
-  .chat-title {
-    display: none;
+    padding: 20px 20px 15px 10px !important;
+    text-align: left;
   }
 
   .circle {
@@ -736,12 +694,11 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
     border-top-right-radius: 0;
   }
 }
-
 @media only screen and (min-device-width: 667px) {
   div.half {
     margin: auto;
-    width: 100px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
     background-color: #fff;
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;

@@ -17,6 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='majorarcana',
             name='card_polarity',
-            field=models.CharField(choices=[('Positif', 'Positif'), ('Negatif', 'Negatif'), ('Neutral', 'neutral')], default='Positif', max_length=10),
+            field=models.CharField(choices=[('Positif', 'Positif'), ('Negatif', 'Negatif'), (
+                'Neutral', 'neutral')], default='Positif', max_length=10),
         ),
     ]

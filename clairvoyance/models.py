@@ -9,7 +9,7 @@ class MajorArcana(models.Model):
     CHOICES = (
         ("Positif", "Positif"),
         ("Negatif", "Negatif"),
-        ("Neutral", "neutral") 
+        ("Neutral", "neutral")
     )
 
     card_name_pt = models.CharField(max_length=50)
@@ -18,4 +18,5 @@ class MajorArcana(models.Model):
     card_signification_love = models.TextField()
     card_signification_work = models.TextField()
     card_image = models.CharField(max_length=100)
-    card_polarity = models.CharField(max_length=10, choices=CHOICES, default="Positif")
+    card_polarity = models.CharField(
+        max_length=10, choices=CHOICES, default="Positif")
