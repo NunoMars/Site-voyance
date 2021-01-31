@@ -22,7 +22,6 @@
                             </div>
                             <div class="message-box">
                                 <form action="">
-                                    {% csrf_token %}
                                     <textarea type="text" class="message-input" placeholder="{% trans 'Ponha sua resposta aqui...'%}"></textarea>
                                     <button type="submit" class="message-submit">{% trans 'Enviar'%}</button>
                                 </form>
