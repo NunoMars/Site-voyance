@@ -3,48 +3,45 @@
 {% load static i18n %}
 
 {% block content %}
-  <title>{{page_title}}</title>
-  <div class="cta-inner text-center text-uppercase text-expanded font-weight-bold rounded py-5">
-    <h1>{{first_title}}</h1>
-    <h1>{{second_title}}</h1>
-  </div>
-  <section class="page-section animated zoomInUp cta py-5">   
-    <div class="container"> 
-      <div class="row">      
-        <div class="col">                
-          <div class="cta-inner text-center rounded">        
-            <h2 class="section-heading mb-4">
-                <span class="mb-0">{% trans "Tarot" %}</span>
+
+    <section class="page-section animated zoomInUp cta py-5">   
+      <div class="container"> 
+        <div class="row">      
+          <div class="col">                
+            <div class="cta-inner text-center rounded">        
+              <h2 class="section-heading mb-4">
+                  <span class="mb-0">{% trans "Tarot" %}</span>
+                </h2>
+                <a class="nav-item" href="clairvoyance">     
+                  <img src={% static 'img/voyante_carre.jpg' %}       
+                  alt="boule de magie"
+                  height="170px" 
+                  width="170px"></a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-lower">{% trans "Atenção" %}</span>
               </h2>
-              <a class="nav-item" href="clairvoyance">     
-                <img src={% static 'img/voyante_carre.jpg' %}       
-                alt="boule de magie"
-                height="170px" 
-                width="170px"></a>
+              <p class="mb-0">{% trans "Este site nunca substituirá uma consulta presencial. Para uma análise personalizada, clique em 'Marcar consulta' para marcar uma consulta comigo." %}</p>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-lower">{% trans "Atenção" %}</span>
-            </h2>
-            <p class="mb-0">{% trans "Este site nunca substituirá uma consulta presencial. Para uma análise personalizada, clique em 'Marcar consulta' para marcar uma consulta comigo." %}</p>
-          </div>
-        </div>
-        <div class="col">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="mb-0">{% trans "Oráculo" %}</span>
-            </h2>
+          <div class="col">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="mb-0">{% trans "Oráculo" %}</span>
+              </h2>
               <a href="{% url 'ball8' %}">
                 <img src={% static 'img/boule-magie-voyance.jpg' %}
                 alt="boule de magie"
                 height="170px" 
                 width="170px">
               </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
 {% endblock %}

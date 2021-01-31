@@ -11,7 +11,7 @@ def index(request):
         "second_title" : _("TAROT T"),
         }
 
-    return render(request, 'clairvoyance/home.html', args)
+    return render(request, 'home.html', args)
 
 def clairvoyance(request):
     args = {}
