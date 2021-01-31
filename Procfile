@@ -1,1 +1,1 @@
-web: gunicorn siteVoyance.wsgi --log-file -
+web: gunicorn siteVoyanceconfig.wsgi --log-file -
