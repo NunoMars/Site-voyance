@@ -76,5 +76,3 @@ def logout_view(request):
     # Redirect to a success page.
     return redirect("home")
 
-def consultations(request):
-    pass

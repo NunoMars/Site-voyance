@@ -1,47 +1,48 @@
 {% extends 'base.html'%}
 {% load static %}
 {% load static i18n %}
+{% csrf_token %}
 
 {% block content %}
-
-    <section class="page-section animated zoomInUp cta py-5">   
-      <div class="container"> 
-        <div class="row">      
-          <div class="col">                
-            <div class="cta-inner text-center rounded">        
-              <h2 class="section-heading mb-4">
-                  <span class="mb-0">{% trans "Tarot" %}</span>
-                </h2>
-                <a class="nav-item" href="clairvoyance">     
-                  <img src={% static 'img/voyante_carre.jpg' %}       
-                  alt="boule de magie"
-                  height="170px" 
-                  width="170px"></a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-lower">{% trans "Atenção" %}</span>
+  <title>{{page_title}}</title>
+  <div class="cta-inner text-center text-uppercase text-expanded font-weight-bold rounded py-3">
+    <h1>{{first_title}}</h1>
+  </div>
+  <section class="page-section animated zoomInUp cta py-2">  
+      <div class="row">      
+        <div class="col">                
+          <div class="cta-inner text-center rounded">        
+            <h2 class="section-heading">
+                <span class="mb-0">{% trans "Tarot" %}</span>
               </h2>
-              <p class="mb-0">{% trans "Este site nunca substituirá uma consulta presencial. Para uma análise personalizada, clique em 'Marcar consulta' para marcar uma consulta comigo." %}</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="mb-0">{% trans "Oráculo" %}</span>
-              </h2>
-              <a href="{% url 'ball8' %}">
-                <img src={% static 'img/boule-magie-voyance.jpg' %}
-                alt="boule de magie"
+              <a class="nav-item" href="clairvoyance">     
+                <img src={% static 'img/voyante_carre.jpg' %}       
+                alt="voyante"
                 height="170px" 
-                width="170px">
-              </a>
-            </div>
+                width="170px"></a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading">
+              <span class="section-heading-lower">{% trans "Atenção" %}</span>
+            </h2>
+            <p class="mb-0">{% trans "Este site nunca substituirá uma consulta presencial. Para uma análise personalizada, clique em 'Marcar consulta' para marcar uma consulta comigo." %}</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="cta-inner text-center rounded">              
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'ball8' %}">
+              <img src={% static 'img/boule-magie-voyance.jpg' %}
+              alt="boule de magie"
+              height="170px" 
+              width="170px">
+           </a>   
+            <h2 class="section-heading">{% trans "Oráculo" %}
+            </h2>            
           </div>
         </div>
       </div>
-    </section>
+  </section>
 
 {% endblock %}

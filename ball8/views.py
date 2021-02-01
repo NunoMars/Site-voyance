@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
 from .Ball8 import chose_sentence_ramdomly
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
-
+@csrf_exempt
 def ball8(request):
     args = {}
 

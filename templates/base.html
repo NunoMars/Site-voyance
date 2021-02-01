@@ -34,8 +34,8 @@
   {% block navbar %}
   <!-- Navigation -->
   <body>
-    <nav class="navbar-b navbar-expand-lg py-5 fixed-top" id="mainNav">      
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Mundo do Tarot"%}</a>
+    <nav class="navbar-b navbar-expand-lg py-4 fixed-top" id="mainNav">      
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Monde du Tarot"%}</a>
       <button class="navbar-brand navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
         <span></span>
@@ -52,7 +52,7 @@
             </a>
           </li>          
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'ball8' %}">{% trans "Oraculo" %}</a>
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'ball8' %}"><img height="45px" width="45px" src="{% static 'img/boule-magie-voyance.jpg' %}"/>{% trans "Oraculo" %}</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
@@ -67,18 +67,10 @@
           <li class="nav-item px-lg-4">
             <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><img height="40px" width="40px" src="{% static 'dist/assets/img/logout.ico' %}"/></a></li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'consultations' %}">{% trans "Marcar consulta" %}</a>
-          </li>
-          <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="contact.html">{% trans "Fale comigo" %}</a>
           </li>
         </ul>        
       </nav>
-      <title>{{page_title}}</title>
-      <div class="cta-inner text-center text-uppercase text-expanded font-weight-bold rounded py-5">
-        <h1>{{first_title}}</h1>
-        <h1>{{second_title}}</h1>
-      </div>
     </header>
   {% endblock %}
   {% block content %}
@@ -86,7 +78,7 @@
   {% block footer %}
     <footer class=" footer fixed-bottom text-faded text-center py-5">
       <div class="container">
-        <p class="m-0 py-lg-4">Copyright &copy; Nuno Marcelino 2020</p>
+        <p class="m-0 py-lg-2">Copyright &copy; Nuno Marcelino 2020</p>
         <!-- Bootstrap core JavaScript -->
         <script src= {% static "js/script.js" %}></script>
         <script src= {% static "js/main.js" %}></script>

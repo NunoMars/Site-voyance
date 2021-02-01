@@ -61,7 +61,6 @@ function getMessageClairvoyant(msg) {
         url: "{% url 'clairvoyante' %}",
         dataType: 'json',
         data: {
-            csrfmiddlewaretoken: "{{ csrf_token }}",
             messageInput: msg,
         },
         success: function(data) {
