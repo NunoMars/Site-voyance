@@ -33,13 +33,12 @@ def one_card(name, rand_card, menu):
     """
     card = get_from_db(rand_card)
 
-    return {"messages": "<div class='container'><div class='cta-inner text-center rounded'>" +
-            "<div class='col'><div class='cta-inner text-center rounded'>" +
-            "<div class='mb-0'><h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2></div>" +
-            "<div class='mb-0'><a href='#'><img src='/static/img/cards/Back.jpg'" +
+    return {"messages": "<div class='col cta-inner text-center rounded'>" +
+            "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
+            "<a href='#'><img src='/static/img/cards/Back.jpg'" +
             "onmouseover=" + '"this.src=' + "'" + card[0] + "'" + '"' +
-            "border='0' alt='' height='25%' width='25%'/></a></div>" +
-            "<div class='mb-0'><h3>" + _(card[1].capitalize()) + "</h3></div>" +
+            "border='0' alt='' height='25%' width='25%'/></a>" +
+            "<p><h3>" + _(card[1].capitalize()) + "</h3></p>" +
             "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
             "<p class='mb-0'>" + _(card[2]) + "</p>" +
             "<div class='mb-0'><h4>" + _("Significado en geral") + "</h4></div>" +
@@ -48,7 +47,7 @@ def one_card(name, rand_card, menu):
             "<p class='mb-0'>" + _(card[4]) + "</p>" +
             "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
             "<p class='mb-0'>" + _(card[5]) + "</p>" +
-            "</div></div></div></div> " + menu["messages"]
+            "</div>" + menu["messages"]
             }
 
 
@@ -90,9 +89,9 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu):
     def create_cards_message(card_name, card_img, card_warnings, chosed_theme):
         msg = ["<div class='col'>" +
                "<div class='cta-inner text-center rounded'>" +
-               "<a href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
+               "<a href='#'><img class='card' src='{% static 'img/cards/Back.jpg' %}'" +
                "onmouseover=" + '"this.src=' + "'" + card_img + "'" + '"' +
-               "onmouseout=" + '"this.src=' + "'/static/img/cards/Back.jpg'" + '"' +
+               "onmouseout=" + '"this.src=' + "{% static 'img/cards/Back.jpg' %}" + '"' +
                "border='0' alt=''/>" +
                "<span><p>" + _(card_name.capitalize()) + "</p>" +
                "<p>" + _("Atenção") + "</p>" +

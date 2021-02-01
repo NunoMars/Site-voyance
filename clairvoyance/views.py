@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils.translation import gettext as _
 from .logic import clairvoyant
 from django.http import Http404, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+
 
 
 def index(request):
@@ -14,14 +14,15 @@ def index(request):
 
     return render(request, 'home.html', args)
 
-@csrf_exempt
+
 def clairvoyance(request):
     args = {}
     page_title = _("Tarot")
     args["page_title"]= page_title
+    
     return render(request, 'clairvoyance/clairvoyance.html', args)
 
-@csrf_exempt
+
 def clairvoyante(request):
     if request.method == 'POST':
         try:

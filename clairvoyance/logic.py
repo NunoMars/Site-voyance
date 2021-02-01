@@ -21,30 +21,29 @@ def clairvoyant(input_value):
         if input_value == "Quit":
             del inputs[0:]
 
-        menu = {"messages": "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
+        menu = {"messages": "<div class='cta-inner text-center rounded'>" +
                 "<div class='row'>" +
                 "<div class='col'>" +
-                "<p><h6 class='mb-0'>" + _("Muito obrigada ") + inputs[0].capitalize() + " !</h6></p>" +
-                "<p><h5 class='mb-0'>" + _(" Vou baralhando as cartas...") + "</h5></p></div></div>" +
+                "<p><h6>" + _("Muito obrigada ") + inputs[0].capitalize() + " !</h6></p>" +
+                "<p><h5>" + _(" Vou baralhando as cartas...") + "</h5></p></div></div>" +
                 "<div class='row'>" +
                 "<div class='col'>" +
-                "<p class='mb-0'><h5>" + _("Escolha o tema da pergunta!") + "</h5></p>" +
-                "<p class='mb-0'><h6>" + _("Clique no baralho para escolher o baralho") + "</h6></p></div></div></div></div>" +
-                "<div class='container' width = '100%'><div class='cta-inner text-center rounded'>" +
+                "<p><h5>" + _("Escolha o tema da pergunta!") + "</h5></p>" +
+                "<p><h6>" + _("Clique no baralho para escolher o baralho") + "</h6></p></div></div>" +
                 "<div class='row'>" +
                 "<div class='col'>" +
-                "<p class='mb-0'><h6>" + _("AMOR") + "<h6></p>" +
-                "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></div></p></div>" +
+                "<p><h6>" + _("AMOR") + "<h6></p>" +
+                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></p></div>" +
                 "<div class='col'>" +
-                "<p class='mb-0'><h6>" + _("TRABALHO") + "</h6></p>" +
-                "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></div></p></div>" +
+                "<p><h6>" + _("TRABALHO") + "</h6></p>" +
+                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></p></div>" +
                 "<div class='col'>" +
-                "<p class='mb-0'><h6>" + _("GERAL") + "</h6></p>" +
-                "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></div></p></div>" +
+                "<p><h6>" + _("GERAL") + "</h6></p>" +
+                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></p></div>" +
                 "<div class='col'>" +
-                "<p class='mb-0'><h6>" + _("RAPIDA") + "</h6></p>" +
-                "<p><div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></div><p/>" +
-                "</div></div></div></div>"
+                "<p><h6>" + _("RAPIDA") + "</h6></p>" +
+                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></p></div>" +
+                "</div></div>"
                 }
 
         if input_value == "one":
@@ -69,12 +68,17 @@ def clairvoyant(input_value):
 
         if (len(inputs) == 2):
             input_name = inputs[0]
-            return {"messages": "<div class='col'><div class='cta-inner text-center rounded'>" +
-                    "<p class='mb-0'><h4>" + _("Obrigada ") + input_name.capitalize() + " !</h4></p>" +
-                    " <p class='mb-0'>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
-                    " <p class='mb-0'>" + _("Clique no baralho para cortar en dois") + "</p>" +
-                    "<p class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></p>" +
-                    "</div>"
+            return {"messages": "<div class='cta-inner text-center rounded'>" +
+                    "<div class='row'>" +
+                    "<div class='col'>" + 
+                    "<p><h4>" + _("Obrigada ") + input_name.capitalize() + " !</h4></p>" +
+                    " <p>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
+                    " <p>" + _("Clique no baralho para cortar en dois") + 
+                    "</p></div></div>" +
+                    "<div class='row'>" +
+                    "<div class='col'>" + 
+                    "<input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></div>" +
+                    "</div></div></div>"
                     }
 
         if input_value == "cut":

@@ -54,11 +54,13 @@ function escapeHtml(msg) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 };
+var token = '{{csrf_token}}';
 
 function getMessageClairvoyant(msg) {
     $.ajax({
         type: 'POST',
-        url: "{% url 'clairvoyante' %}",
+        headers: { "X-CSRFToken": token },
+        url: '{% url "clairvoyante" %}',
         dataType: 'json',
         data: {
             messageInput: msg,
