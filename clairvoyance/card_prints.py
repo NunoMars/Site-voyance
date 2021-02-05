@@ -61,7 +61,7 @@ def response_card(name, index_result_card, chosed_theme, menu):
     if chosed_theme == "gen":
         chosed_theme = card[3]
 
-    return {"messages": "<div class='container'><div class='cta-inner text-center rounded'>" +
+    return {"messages": "<div class='cta-inner text-center rounded'>" +
             "<div class='col'><div class='cta-inner text-center rounded'>" +
             "<div class='mb-0'><h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2></div>" +
             "<div class='mb-0'><a href='#'><img src='/static/img/cards/Back.jpg'" +
@@ -72,7 +72,7 @@ def response_card(name, index_result_card, chosed_theme, menu):
             "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
             "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
             "<p class='mb-0'>" + _(card[2]) + "</p>" +
-            "</div></div></div></div> " + menu["messages"]
+            "</div></div></div>" + menu["messages"]
             }
 
 
@@ -178,12 +178,11 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu):
         polarity = polarity_calcul(list_of_polarity)
         print(polarity)
 
-        return {"messages": "<div class='container'>" +
-                "<div class='col'><div class='cta-inner text-center rounded'>" +
+        return {"messages": "<div class='col'><div class='cta-inner text-center rounded'>" +
                 "<h4>" + name.capitalize() + _(" aqui esta o resultado das cartas") + "</h4>" +
                 "<h4>" + polarity + "</h4>" +
                 "<h6>" + _("Para saber os avisos do Tarot passe o rato en cima de cada carta!") + "</h6>" +
-                f + "</div></div>" + important_card["messages"]
+                f + "</div>" + important_card["messages"]
                 }
 
     if chosed_theme == 'love':
