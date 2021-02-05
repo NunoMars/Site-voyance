@@ -82,6 +82,11 @@ $(window).on('keydown', function(e) {
     };
 });
 
+$('#message-form').submit(function(event) {
+    event.preventDefault();
+    insertMessage();
+});
+
 function firstClairvoyantMessage() {
     if ($('.message-input').val() != '') {
         return false;
@@ -130,4 +135,9 @@ $(window).unload(function() {
     $messages.mCustomScrollbar();
     msg = "Quit"
     getMessageClairvoyant(msg)
+});
+
+$('.button').click(function() {
+    $('.menu .items span').toggleClass('active');
+    $('.menu .button').toggleClass('active');
 });

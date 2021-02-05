@@ -36,7 +36,7 @@ def one_card(name, rand_card, menu):
     return {"messages": "<div class='col cta-inner text-center rounded'>" +
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
             "<a href='#'><img src='/static/img/cards/Back.jpg'" +
-            "onmouseover=" + '"this.src=' + "'" + card[0] + "'" + '"' +
+            "onmouseover=" + '"this.src=' + "'/" + card[0] + "'" + '"' +
             "border='0' alt='' height='25%' width='25%'/></a>" +
             "<p><h3>" + _(card[1].capitalize()) + "</h3></p>" +
             "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
@@ -65,7 +65,7 @@ def response_card(name, index_result_card, chosed_theme, menu):
             "<div class='col'><div class='cta-inner text-center rounded'>" +
             "<div class='mb-0'><h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2></div>" +
             "<div class='mb-0'><a href='#'><img src='/static/img/cards/Back.jpg'" +
-            "onmouseover=" + '"this.src=' + "'" + card[0] + "'" + '"' +
+            "onmouseover=" + '"this.src=' + "'/" + card[0] + "'" + '"' +
             "border='0' alt='' height='25%' width='25%'/></a></div>" +
             "<div class='mb-0'><h3>" + _(card[1].capitalize()) + "</h3></div>" +
             "<div class='mb-0'><h4>" + _("Resposta do tarot") + "</h4></div>" +
@@ -89,10 +89,10 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu):
     def create_cards_message(card_name, card_img, card_warnings, chosed_theme):
         msg = ["<div class='col'>" +
                "<div class='cta-inner text-center rounded'>" +
-               "<a href='#'><img class='card' src='{% static 'img/cards/Back.jpg' %}'" +
-               "onmouseover=" + '"this.src=' + "'" + card_img + "'" + '"' +
-               "onmouseout=" + '"this.src=' + "{% static 'img/cards/Back.jpg' %}" + '"' +
-               "border='0' alt=''/>" +
+               "<a href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
+               "onmouseover=" + '"this.src=' + "'/" + card_img + "'" + '"' +
+               "onmouseout=" + "this.src='/static/img/cards/Back.jpg'" +
+               "border='0' alt='' height='75%' width='75%'/>" +
                "<span><p>" + _(card_name.capitalize()) + "</p>" +
                "<p>" + _("Atenção") + "</p>" +
                (card_warnings) +

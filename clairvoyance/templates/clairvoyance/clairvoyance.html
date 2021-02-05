@@ -8,7 +8,15 @@
             <div class="row">
                 <div class="col">
                     <div class="avenue-messenger">
-                        <div class="agent-face">
+                          <div class="menu">
+                                <div class="items">
+                                <span>
+                                    <a href="https://cvnuno.herokuapp.com/index.html" title='Quiter le site et Voir mon CV en_ligne'>&#10005;</a>
+                                </span>
+                                </div>
+                                <div class="button">...</div>
+                            </div>
+                            <div class="agent-face">
                             <div class="half">
                                 <img class="agent circle" src={% static "img/voyante.jpg" %} alt="voyante">
                             </div>
@@ -22,7 +30,7 @@
                                 <div class="messages-content"></div>
                             </div>
                             <div class="message-box">
-                                <form action="">
+                                <form action="" id="message-form">
                                     {% csrf_token %}
                                     <textarea type="text" class="message-input" placeholder="{% trans 'Ponha sua resposta aqui...'%}"></textarea>
                                     <button type="submit" class="message-submit">{% trans 'Enviar'%}</button>

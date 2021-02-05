@@ -47,12 +47,10 @@
             <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'clairvoyance' %}">{% trans "Tarot" %}
-              <span class="sr-only">(current)</span>            
-            </a>
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'clairvoyance' %}"><img height="100px" width="60px" src="{% static 'img/cards/Back.jpg' %}"/><div class='font-weight-bold'>{% trans "Tarot" %}</div></a>
           </li>          
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'ball8' %}"><img height="45px" width="45px" src="{% static 'img/boule-magie-voyance.jpg' %}"/>{% trans "Oraculo" %}</a>
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'ball8' %}"><img height="100px" width="100px" src="{% static 'img/boule-magie-voyance.jpg' %}"/><div class='font-weight-bold'>{% trans "Oraculo" %}</div></a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
@@ -76,7 +74,7 @@
   {% block content %}
   {% endblock %}
   {% block footer %}
-    <footer class=" footer fixed-bottom text-faded text-center py-5">
+    <footer class=" footer fixed-bottom text-faded text-center py-4">
       <div class="container">
         <p class="m-0 py-lg-2">Copyright &copy; Nuno Marcelino 2020</p>
         <!-- Bootstrap core JavaScript -->
