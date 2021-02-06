@@ -2,11 +2,6 @@
 # General
 --------------------------------------------------------------*/
 
-body {
-    background-color: #f5f5f5;
-    color: #4e4e4e;
-}
-
 h1,
 h2,
 h3,
@@ -27,13 +22,24 @@ a:hover {
     transition: all 0.5s ease-in-out;
 }
 
-.bouton_card {
+span {
+    column-span: all
+}
+
+#bouton_card {
     background-image: url("/static/img/cards/Back.jpg");
     background-size: contain;
     min-width: 90px;
     min-height: 160px;
-    max-width: 95%;
-    max-height: 95%;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.card {
+    min-width: 90px;
+    min-height: 160px;
+    max-width: 30%;
+    max-height: 30%;
 }
 
 span {
@@ -1354,20 +1360,8 @@ span {
 footer {
     text-align: center;
     color: #fff;
-    padding: 25px 0;
+    padding: 40px;
     background: #0062d3;
-}
-
-footer .copyright {
-    margin-bottom: .3rem;
-}
-
-footer .credits {
-    margin-bottom: 0;
-}
-
-footer .credits a {
-    color: #fff;
 }
 
 
@@ -1456,6 +1450,19 @@ Messages
     overflow: hidden;
     position: relative;
     width: 100%;
+}
+
+.messages::after {
+    content: "";
+    background: url("/static/images/backgound-tapis.jpeg");
+    background-position: center;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .messages .messages-content {
@@ -1827,15 +1834,14 @@ Bounce
 .avenue-messenger {
     opacity: 1;
     border-radius: 20px;
-    height: calc(100% - 60px) !important;
-    max-height: 900px !important;
+    height: 1200px !important;
+    max-height: 1600px !important;
     /*460*/
     min-height: 220px !important;
     /*320*/
     background: rgba(255, 255, 255, 0.9);
-    bottom: auto;
-    margin-right: 10%;
-    margin-left: 10%;
+    margin-right: 15%;
+    margin-left: 15%;
     z-index: 10;
     box-shadow: 2px 10px 4px rgba(22, 20, 19, 0.4);
 }
@@ -2017,9 +2023,6 @@ screen and (max-device-width: 800px) {
     .messages .message,
     .message-box .message-input {
         font-size: 12px;
-    }
-    body {
-        background: none;
     }
     .footer {
         display: none;

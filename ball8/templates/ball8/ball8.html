@@ -4,22 +4,10 @@
 
 {% block content %}
     <section>
-        <div class="section-heading text-center rounded mb-4">
-            <h1 class="mb-0 cta animated lightSpeedIn slow">{% trans "Oráculo" %}</h1>
-            <h6 class="animated lightSpeedIn slow" style="color:white">{% trans "Pergunte o que deseja saber e o Oraculo responde SIM ou Não" %}</h6>
+        <div class="section-heading mb-0 cta animated lightSpeedIn slow text-center rounded mb-4">
+            <h1>{% trans "Oráculo" %}</h1>
+            <h6 style="color:white">{% trans "Pergunte o que deseja saber e o Oraculo responde SIM ou Não" %}</h6>
         </div>
-        <p class ="animated zoomInUp" style = "background:transparent;
-        text-shadow: 0 4px 4px rgba(208, 243, 8, 0.308);
-        z-index: 10;
-        position: absolute;
-        text-align: center;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-        top: 30%;
-        color: white;
-        width: 70%;
-        font-size: 20px;">{{user_question}}</p>   
         <div class="container">
             <div class="row">
                 <div class="col section-heading text-center rounded mb-4">
@@ -28,9 +16,21 @@
                             <img
                             src={% static 'img/boule-magie-voyance.png' %}
                             alt="boule de magie"
-                            height="580px" 
-                            width="580px" >
+                            height="620px" 
+                            width="620px" >
                         </div>
+                        <p class ="animated zoomInUp" style = "background:transparent;
+                            text-shadow: 0 4px 4px rgba(208, 243, 8, 0.308);
+                            z-index: 10;
+                            position: absolute;
+                            text-align: center;
+                            margin: 0 auto;
+                            left: 0;
+                            right: 0;
+                            top: 30%;
+                            color: white;
+                            width: 25%;
+                            font-size: 25px;">Votre question : {{user_question}}</p>   
                         <p class ="animated zoomInUp" style = "background:rgba(253, 253, 253, 0.2);
                             text-shadow: 1px 4px 4px rgb(0, 0, 0, 0.98);
                             z-index: 10;
@@ -43,8 +43,8 @@
                             top: 40%;
                             color: black;
                             font-style: inherit;
-                            width: 27%;
-                            font-size: 25px;">{{ball8_message}}
+                            width: 25%;
+                            font-size: 25px;"> Réponse : {{ball8_message}}
                         </p>                    
                     </div>   
                     <p class="mb-0">

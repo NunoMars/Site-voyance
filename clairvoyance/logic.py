@@ -84,6 +84,8 @@ def clairvoyant(input_value):
         if input_value == "cut":
             cut_point = rand(1, 37)
             inputs[2] = cut_point
+            left_deck = card_deck[0:cut_point]
+            right_deck = card_deck[cut_point:37]
 
             return {"messages": "<div class='col'><div class='cta-inner text-center rounded'>" +
                     "<p class='mb-0'><h4>" + _("Obrigada !") + "</h4></p>" +
@@ -91,8 +93,10 @@ def clairvoyant(input_value):
                     "<p class='mb-0'>" + _("Clique no baralho para escolher o baralho") + "</p></div></div>" +
                     "<div class='row'>" +
                     "<div class='col''><div class='cta-inner text-center rounded'>" +
+                    "<h1>Este baralho tem " + str(len(left_deck)) + " cartas!" +
                     "<div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLeft();'/></div></div></div>" +
                     "<div class='col''><div class='cta-inner text-center rounded'>" +
+                    "<h1>Este baralho tem " + str(len(right_deck)) + " cartas!" +
                     "<div class='mb-0'><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageRight();'/></div></div></div>" +
                     "</div>"
                     }
