@@ -1,5 +1,5 @@
 {% load static %}
-{% load static i18n %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -9,7 +9,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="Tarot" content="">
       <meta name="Nuno Marcelino" content="Tarot">
-      <title>{{page_title}}</title>
+      {% block title %}
+      <title>Home</title>
+      {% endblock %}
+      
       <link rel="icon" href={% static 'img/tapis.ico' %}/>
       <!-- Bootstrap core JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -31,7 +34,7 @@
   {% endblock %}
   {% block navbar %}
   <!-- Navigation -->
-    <nav class="navbar-b navbar-expand-lg py-4 fixed-top" id="mainNav">      
+    <nav class="navbar-b navbar-expand-lg py-3 fixed-top" id="mainNav">      
       <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">{% trans "Monde du Tarot"%}</a>
       <button class="navbar-brand navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
@@ -52,15 +55,15 @@
           <li class="nav-item px-lg-4">
             <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
           {% if user.is_authenticated %}
-              <img height="45px" width="45px" src="{% static 'dist/assets/img/auth.png' %}"/></a>    
+              <img height="100px" width="100px" src="{% static 'img/people-icon.png' %}"/></a>    
           {% else %}
-              <img height="45px" width="45px" src="{% static 'dist/assets/img/account.ico' %}"/></a>
+              <img height="100px" width="100px" src="{% static 'img/connected_icon.png' %}"/></a>
           {% endif %}</li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link js-scroll-trigger" href="{% url 'history' %}"><img height="45px" width="45px" src="{% static 'dist/assets/img/carrot.png' %}"/></a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'history' %}"><img height="100px" width="100px" src="{% static 'img/people-icon.png' %}"/></a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><img height="40px" width="40px" src="{% static 'dist/assets/img/logout.ico' %}"/></a></li>
+            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><img height="100px" width="100px" src="{% static 'img/connected-icon.ico' %}"/></a></li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="contact.html">{% trans "Fale comigo" %}</a>
           </li>
@@ -71,7 +74,7 @@
   {% block content %}
   {% endblock %}
   {% block footer %}
-    <footer class=" footer fixed-bottom text-faded text-center py-4">
+    <footer class="footer fixed-bottom text-faded text-center py-4">
         <p class="m-0 py-lg-2">Copyright &copy; Nuno Marcelino 2020</p>
         <!-- Bootstrap core JavaScript -->
         <script src= {% static "js/script.js" %}></script>

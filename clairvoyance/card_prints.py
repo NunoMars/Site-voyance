@@ -11,10 +11,10 @@ def get_from_db(id_card):
     obj = MajorArcana.objects.get(pk=id_card)
     card_img = obj.card_image
     card_name = obj.card_name_pt
-    card_warnings = obj.card_signification_warnings
-    card_signification_gen = obj.card_signification_gen
-    card_signification_love = obj.card_signification_love
-    card_signification_work = obj.card_signification_work
+    card_warnings = obj.card_signification_warnings_pt
+    card_signification_gen = obj.card_signification_gen_pt
+    card_signification_love = obj.card_signification_love_pt
+    card_signification_work = obj.card_signification_work_pt
     card_polarity = obj.card_polarity
     return [
         card_img,

@@ -7,7 +7,7 @@ from clairvoyance.views import index
 urlpatterns = [
     path("", index, name="home"),
     path('admin', admin.site.urls, name='admin'),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path("accounts/", include("accounts.urls"), name="accounts"),
     path('clairvoyance/', include('clairvoyance.urls')),
     path('ball8/', include('ball8.urls'))

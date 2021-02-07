@@ -42,7 +42,6 @@ def create_account_view(request):
 
 def login_view(request):
     if request.method == "POST":
-
         username = form.cleaned_data["email"]
         password = form.changed_data["password"]
         user = authenticate(CuA, username=username, password=password)
@@ -57,18 +56,18 @@ def login_view(request):
                 "link_msg": "Créez un compte utilisateur!",
             }
 
-            return render(request, "accounts/login.html", vars_to_template)
+            return render(request, "accounts/my_account.html", vars_to_template)
 
         else:
             login(request, user)
             # Redirect to a success page.
             msg = "Bienvenu"
-            return render(request, "accounts/login.html", {"msg": msg})
+            return render(request, "accounts/my_account.html", {"msg": msg})
 
     else:
         pass
 
-    return render(request, "accounts/login.html", {"form": form})
+    return render(request, "accounts/my_account.html")
 
 
 def logout_view(request):

@@ -12,7 +12,7 @@ class CustomUserManager(BaseUserManager):
         """
 
         if not email:
-            raise ValueError("Vous devez renseigner un email!")
+            raise ValueError(_("Vous devez renseigner un email!"))
 
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
@@ -43,10 +43,13 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     second_name = models.CharField(max_length=254, blank=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    email = models.EmailField(blank=True, unique=True)
+    email = models.EmailField(blank=False, unique=True)
+    phone_number = models.BigIntegerField(default="0000000000", blank=True)
+    send_email = models.BooleanField(default=False)
+    send_text_message = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["first_name", "second_name"]
+    REQUIRED_FIELDS = [_("first_name"), _("second_name"), _("send_email"), _("send_text_message")]
 
     objects = CustomUserManager()
 
