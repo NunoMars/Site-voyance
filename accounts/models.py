@@ -71,6 +71,7 @@ class History(models.Model):
 
     user = models.ForeignKey("CustomUser", related_name=_('User'), null=True, on_delete=models.CASCADE)
     sorted_cards_date = models.DateField(default=date.today, auto_created=True)
+    #sorted_cards = models.ManyToManyField("app.Model", verbose_name=_(""))
     sorted_cards = models.CharField(default="list of sorted cards", max_length=100) #rec the list of cards
     daily_sorted_cards = models.CharField( default= "list of cards", max_length=200) #rec the daily_cards
 
