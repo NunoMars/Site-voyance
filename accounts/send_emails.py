@@ -4,8 +4,8 @@ from django.template.loader import get_template
 
 
 def send_welcome_email(user):
-    plaintext = get_template('accounts/email.txt')
-    htmly     = get_template('accounts/email.html')
+    plaintext = get_template('accounts/email_account_created.txt')
+    htmly     = get_template('accounts/email_account_created.html')
 
     context = { 'username': user.first_name }
 

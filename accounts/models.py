@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
+from datetime import date
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -66,20 +67,13 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class History(models.Model):
-    pass
     """ Class to define the History table."""
 
-    """user = models.ForeignKey("CustomUser", on_delete=models.CASCADE)
-    chosen_product = models.ForeignKey(
-        "products.Products",
-        related_name="chosen_product",
-        on_delete=models.CASCADE,
-    )
-    remplacement_product = models.ForeignKey(
-        "products.Products",
-        related_name="remplacement_product",
-        on_delete=models.CASCADE,
-    )
+    user = models.ForeignKey("CustomUser", related_name=_('User'), null=True, on_delete=models.CASCADE)
+    sorted_cards_date = models.DateField(default=date.today, auto_created=True)
+    sorted_cards = models.CharField(default="list of sorted cards", max_length=100) #rec the list of cards
+    daily_sorted_cards = models.CharField( default= "list of cards", max_length=200) #rec the daily_cards
+
 
     class Meta:
         db_table = "history"""
