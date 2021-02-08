@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Page error 500{% endblock title %}
+{% block title %}<title>{% trans 'Erro 500' %}</title>{% endblock title %}
 
 <!-- Masthead-->
-{% block header %}
-    <header class="masthead" id="search">
+{% block content %}
+    <div class="cta-inner text-center text-uppercase text-expanded font-weight-bold rounded py-3">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-10 align-self-end">
-                    <h1 class="text-uppercase text-white font-weight-bold">Ups une erreur est survenue! Recommencez a rechercher un produit s'il vous plâit!</h1>
-                    <hr class="divider my-4" />
-                    {% include 'products/search.html' %}
-                    <hr class="divider my-4" />
+                <div class="col">
+                    <h1>{% trans 'Erro servidor! ' %}{{csrf_failure}}!</h1>
                 </div>
             </div>
         </div>
-    </header>
-{% endblock header %}
+    </div>
+{% endblock %}

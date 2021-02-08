@@ -5,21 +5,22 @@
 
 {% block title %}<title>Home Page</title>{% endblock %}
 {% block content %}
-  <div class="cta-inner text-center text-uppercase text-expanded font-weight-bold rounded py-3">
+  <div class="text-center text-uppercase text-expanded font-weight-bold rounded py-5">
     <h1>{{first_title}}</h1>
   </div>
-  <section class="page-section animated zoomInUp cta py-2">  
+  <section class="page-section animated zoomInUp cta">  
       <div class="row">      
         <div class="col">                
           <div class="cta-inner text-center rounded">        
             <h2 class="section-heading">
-                <span class="mb-0">{% trans "Tarot" %}</span>
-              </h2>
-              <a class="nav-item" href="clairvoyance">     
-                <img src={% static 'img/voyante_carre.jpg' %}       
-                alt="voyante"
-                height="170px" 
-                width="170px"></a>
+              {% trans "Tarot" %}
+            </h2>
+            <a href="{% url 'clairvoyance' %}">     
+              <img src={% static 'img/voyante_carre.jpg' %}       
+              alt="voyante"
+              height="170px" 
+              width="170px">
+            </a>
           </div>
         </div>
         <div class="col">
@@ -31,18 +32,17 @@
           </div>
         </div>
         <div class="col">
-          <div class="cta-inner text-center rounded">              
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'ball8' %}">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading">{% trans "Oráculo" %}
+            </h2>               
+            <a href="{% url 'ball8' %}">
               <img src={% static 'img/boule-magie-voyance.jpg' %}
               alt="boule de magie"
               height="170px" 
               width="170px">
-           </a>   
-            <h2 class="section-heading">{% trans "Oráculo" %}
-            </h2>            
+            </a>                        
           </div>
         </div>
       </div>
   </section>
-
 {% endblock %}

@@ -87,17 +87,18 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu):
         return [li[i:i+n] for i in range(0, len(li), n)]
 
     def create_cards_message(card_name, card_img, card_warnings, chosed_theme):
+        '''
+        Draw a bouton card with the name.
+        '''
         msg = ["<div class='col'>" +
                "<div class='cta-inner text-center rounded'>" +
                "<a href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
                "onmouseover=" + '"this.src=' + "'/" + card_img + "'" + '"' +
                "onmouseout=" + "this.src='/static/img/cards/Back.jpg'" +
                "border='0' alt=''>" +
-               "<span><p>" + _(card_name.capitalize()) + "</p>" +
-               "<p>" + _("Atenção") + "</p>" +
-               (card_warnings) +
-               "<p>" + _("A mensagen da carta!") + "</p>" +
-               _(chosed_theme) +
+               "<span><p>" + card_name.capitalize() + "</p>" +
+               "<p>" + _("Atenção") + "</p>" + card_warnings +
+               "<p>" + _("A mensagen da carta!") + "</p>" + chosed_theme +
                "</span></a>" +
                "</div></div>"]
         return msg

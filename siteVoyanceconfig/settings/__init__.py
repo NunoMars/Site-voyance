@@ -53,6 +53,14 @@ LOGIN_REDIRECT_URL = "history"
 
 ###################################################
 
+########################EMAIL######################
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'patricia.nunes.tarot@gmail.com'
+EMAIL_HOST_PASSWORD = 'Ruben1Mara2'
+###################################################
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -157,3 +165,5 @@ STATICFILES_DIRS = [
 ]
 
 django_heroku.settings(locals())
+
+CSRF_FAILURE_VIEW = 'clairvoyance/csrf_failure'

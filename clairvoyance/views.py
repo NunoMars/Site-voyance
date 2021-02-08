@@ -7,7 +7,6 @@ from django.http import Http404, JsonResponse
 
 def index(request):
     args= {
-        "page_title" : _("Mundo Do Tarot"),
         "first_title" : _("Benvindo ao Meu mundo"),
         "second_title" : _("TAROT T"),
         }
@@ -38,3 +37,6 @@ def clairvoyante(request):
 def history(request):
     pass
 
+def csrf_failure(request):
+    args = {'csrf_failure' : _("Ups temos un pequenino problema com o Csrf... recarrege a pàgina por favor!")}
+    return render(request, '500.html', args)
