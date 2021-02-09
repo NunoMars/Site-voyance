@@ -28,7 +28,10 @@
             <h2 class="section-heading">
               <span class="section-heading-lower">{% trans "Atenção" %}</span>
             </h2>
-            <p class="mb-0">{% trans "Este site nunca substituirá uma consulta presencial. Para uma análise personalizada, clique em 'Marcar consulta' para marcar uma consulta comigo." %}</p>
+            <p class="mb-0">{% trans "Este site nunca substituirá uma consulta presencial. Para encontrar as suas ultimas respostas do tarot e receber diariamente uma recomendação, basta crear uma conta!." %}</p>
+            <a href="{% url 'create_account' %}">     
+              <p class="section-heading">{% trans "Clique aqui para criar conta" %}</p>
+            </a>
           </div>
         </div>
         <div class="col">
