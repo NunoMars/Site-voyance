@@ -51,7 +51,7 @@
                     <p class="mb-0">
                         <form>
                             {% csrf_token %}
-                            <input type="text" class="message-send" name ="question" placeholder="{% trans 'Ponha aqui sua pergunta...'%}" style="font-size: 20px;padding-left: 20px;width: 500px;border-radius: 20px 20px 20px 20px;"></input>
+                            <input type="text" class="message-send" name ="question" placeholder="{% trans 'Ponha aqui sua pergunta...'%}" style="font-size: 20px;padding-left: 20px;width: 500px;border-radius: 20px 20px 20px 20px;">
                             <button type="submit" name="bouton_submit" value="bouton_submit" style="font-size: 30px; border-radius: 15px 15px 15px 15px;">{% trans 'Enviar'%}</button>
                         </form>
                     </p>
