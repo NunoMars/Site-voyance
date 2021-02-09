@@ -51,6 +51,8 @@ def history(request):
 
     return render(request, "products/history.html", context)
 
+def contacts(request):
+    return render(request, 'clairvoyance/contacts.html')
 
 def csrf_failure(request):
     args = {'csrf_failure' : _("Ups temos un pequenino problema com o Csrf... recarrege a pàgina por favor!")}
