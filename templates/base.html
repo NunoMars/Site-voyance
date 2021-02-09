@@ -53,16 +53,18 @@
           </li>
           <li class="nav-item px-lg-3">
             <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">
-          {% if user.is_authenticated %}
-              <img height="70px" width="70px" src="{% static 'img/connected-icon.png' %}" alt='connected icon'/>    
-          {% else %}
-              <img height="70px" width="70px" src="{% static 'img/people-icon.png' %}" alt='people icon'/>
-          {% endif %}<div class='font-weight-bold'>{% trans "Cadastramento" %}</div></a></li>
+              {% if user.is_authenticated %}
+                  <img height="70px" width="70px" src="{% static 'img/connected-icon.png' %}" alt='connected icon'/>    
+              {% else %}
+                  <img height="70px" width="70px" src="{% static 'img/people-icon.png' %}" alt='people icon'/>
+              {% endif %}<div class='font-weight-bold'>{% trans "Cadastramento" %}</div></a>
+          </li>
           <li class="nav-item px-lg-3">
             <a class="nav-link js-scroll-trigger" href="{% url 'history' %}"><img height="70px" width="70px" src="{% static 'img/deck.png' %}" alt='deck icon'/><div class='font-weight-bold'>{% trans "Meu Historico" %}</div></a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><img height="70px" width="70px" src="{% static 'img/apple-touch-icon.png' %}" alt='logout icon'/><div class='font-weight-bold'>{% trans "Deconexão" %}</div></a></a></li>
+            <a class="nav-link js-scroll-trigger" href="{% url 'logout' %}"><img height="70px" width="70px" src="{% static 'img/apple-touch-icon.png' %}" alt='logout icon'/><div class='font-weight-bold'>{% trans "Deconexão" %}</div></a>
+          </li>
           <li class="nav-item px-lg-3">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'contacts' %}">{% trans "Fale comigo" %}</a>
           </li>
