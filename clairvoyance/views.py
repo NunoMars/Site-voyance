@@ -7,7 +7,6 @@ from accounts.models import CustomUser, History
 from django.contrib.auth.models import User
 
 
-
 def index(request):
     args= {
         "first_title" : _("Benvindo ao Meu mundo"),
@@ -26,10 +25,11 @@ def clairvoyance(request):
 
 
 def clairvoyante(request):
+    language= request.LANGUAGE_CODE
     if request.method == 'POST':
         try:
             input_value = request.POST.get('messageInput')
-            result = clairvoyant(input_value)
+            result = clairvoyant(input_value, language)
             return JsonResponse(result)
         except ValueError:
             pass

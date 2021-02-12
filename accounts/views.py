@@ -10,6 +10,8 @@ def create_account_view(request):
     """
     Ceates user account
     """
+    language = request.LANGUAGE_CODE
+
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -20,7 +22,7 @@ def create_account_view(request):
             phone_number = form.cleaned_data['phone_number']
             send_email = form.cleaned_data['send_email']
             send_text_message = form.cleaned_data['send_text_message']
-
+            
             user = authenticate(request, username=email, password=password)
 
             if user == None:
@@ -31,7 +33,8 @@ def create_account_view(request):
                     email=email,
                     phone_number=phone_number,
                     send_email=send_email,
-                    send_text_message=send_text_message
+                    send_text_message=send_text_message,
+                    user_language=language
                 )
                 user.save()
 

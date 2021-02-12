@@ -6,7 +6,7 @@ from .card_prints import one_card, clairvoyante_sort_cards
 inputs = []
 
 
-def clairvoyant(input_value):
+def clairvoyant(input_value, language):
     """
         Construct the bot reponse.
     """
@@ -50,7 +50,7 @@ def clairvoyant(input_value):
             card_deck = [i+1 for i in range(38)]
             suf(card_deck)
             rand_card = choice(card_deck)
-            value = one_card(inputs[0], rand_card, menu)
+            value = one_card(inputs[0], rand_card, menu, language)
             del inputs[1:]
             return value
 
@@ -108,6 +108,6 @@ def clairvoyant(input_value):
         if input_value == "right":
             inputs[3] = card_deck[inputs[2]:37]
 
-        result = clairvoyante_sort_cards(inputs[0], inputs[3], inputs[1], menu)
+        result = clairvoyante_sort_cards(inputs[0], inputs[3], inputs[1], menu, language)
         del inputs[1:]
         return result

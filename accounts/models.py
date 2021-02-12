@@ -48,6 +48,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     phone_number = models.BigIntegerField(default="0000000000", blank=True)
     send_email = models.BooleanField(default=False)
     send_text_message = models.BooleanField(default=False)
+    user_language = models.CharField(max_length=20, blank=False, default='fr')
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = [_("first_name"), _("second_name"), _("send_email"), _("send_text_message")]
