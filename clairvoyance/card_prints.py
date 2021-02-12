@@ -13,7 +13,7 @@ def get_from_db(id_card, language):
     card_img = obj.card_image
     card_polarity = obj.card_polarity
 
-    if language == 'pt':
+    if language == 'pt' or language == 'br':
         card_name = obj.card_name_pt
         card_warnings = obj.card_signification_warnings_pt
         card_signification_gen = obj.card_signification_gen_pt
@@ -48,6 +48,12 @@ def one_card(name, rand_card, menu, language):
         card_signification_gen = card.card_signification_gen_fr
         card_signification_love = card.card_signification_love_fr
         card_signification_work = card.card_signification_work_fr
+    if language == 'pt' or language == 'br':
+        card_name = card.card_name_pt
+        card_signification_warnings = card.card_signification_warnings_pt
+        card_signification_gen = card.card_signification_gen_pt
+        card_signification_love = card.card_signification_love_pt
+        card_signification_work = card.card_signification_work_pt
 
     return {"messages": "<div class='col cta-inner text-center rounded'>" +
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
@@ -67,32 +73,51 @@ def one_card(name, rand_card, menu, language):
             }
 
 
-def response_card(name, card, chosed_theme, menu):
-
+def response_card(name, index_result_card, chosed_theme, menu, language):
+    """
+    Draw the Tarot response, the last card.
+    """
+    card = MajorArcana.objects.get(pk=index_result_card)
+    if language == 'fr':
+        card_name = card.card_name_fr
+    if language == 'pt' or language == 'br':
+        card_name = card.card_name_pt
 
     if chosed_theme == "love":
-        chosed_theme = card.card_signification_love
+        if language == 'fr':            
+            chosed_theme = card.card_signification_love_fr
+        if language == 'pt' or language == 'br':
+            chosed_theme = card.card_signification_love_pt
+
     if chosed_theme == "work":
-        chosed_theme = card.card_signification_work
+        if language == 'fr':
+            chosed_theme = card.card_signification_work_fr
+        if language == 'pt' or language == 'br':
+            chosed_theme = card.card_signification_work_pt
+
     if chosed_theme == "gen":
-        chosed_theme = card.card_signification_gen
+        if language == 'fr':
+            chosed_theme = card.card_signification_gen_fr
+        if language == 'pt' or language == 'br':
+            chosed_theme = card.card_signification_gen_pt
+
 
     return {"messages": "<div class='cta-inner text-center rounded'>" +
             "<div class='col'><div class='cta-inner text-center rounded'>" +
             "<div class='mb-0'><h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2></div>" +
             "<div class='mb-0'><a  href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
-            "onmouseover=" + '"this.src=' + "'/" + card[0] + "'" + '"' +
+            "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
             "border='0' alt='' /></a></div>" +
-            "<div class='mb-0'><h3>" + _(card[1].capitalize()) + "</h3></div>" +
+            "<div class='mb-0'><h3>" + card_name.capitalize() + "</h3></div>" +
             "<div class='mb-0'><h4>" + _("Resposta do tarot") + "</h4></div>" +
-            "<p class='mb-0'>" + _(chosed_theme) + "</p>" +
+            "<p class='mb-0'>" + chosed_theme + "</p>" +
             "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
-            "<p class='mb-0'>" + _(card[2]) + "</p>" +
+            "<p class='mb-0'>" + chosed_theme + "</p>" +
             "</div></div></div>" + menu["messages"]
             }
 
 
-def clairvoyante_sort_cards(name, language, chosed_card_deck, chosed_theme, menu):
+def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu, language):
 
     card_deck = list(MajorArcana.objects.all())
     suf(card_deck)
@@ -102,19 +127,26 @@ def clairvoyante_sort_cards(name, language, chosed_card_deck, chosed_theme, menu
     def splitBy(li, n=1):
         return [li[i:i+n] for i in range(0, len(li), n)]
 
-    def create_cards_message(card, chosed_theme):
+    def create_cards_message(card, chosed_theme, language):
         '''
         Draw a bouton card with the name.
         '''
-        print(card)
+        if language == 'fr':
+            card_name = card.card_name_fr
+            card_signification_warnings = card.card_signification_warnings_fr
+        if language == 'pt' or language == 'br':
+            card_name = card.card_name_pt
+            card_signification_warnings = card.card_signification_warnings_pt
+
+
         msg = ["<div class='col'>" +
                "<div class='cta-inner text-center rounded'>" +
                "<a href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
                "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
                "onmouseout=" + "this.src='/static/img/cards/Back.jpg'" +
                "border='0' alt=''>" +
-               "<span><p>" + card.card_name.capitalize() + "</p>" +
-               "<p>" + _("Atenção") + "</p>" + card.card_warnings +
+               "<span><p>" + card_name.capitalize() + "</p>" +
+               "<p>" + _("Atenção") + "</p>" + card_signification_warnings +
                "<p>" + _("A mensagen da carta!") + "</p>" + chosed_theme +
                "</span></a>" +
                "</div></div>"]
@@ -186,10 +218,8 @@ def clairvoyante_sort_cards(name, language, chosed_card_deck, chosed_theme, menu
 
         index_result_card = round(average(chosed_card_deck))
 
-        card = get_from_db(index_result_card, language)
-
         important_card = response_card(
-            name, card, chosed_theme, menu)
+            name, index_result_card, chosed_theme, menu, language)
 
         card_board = splitBy(list_of_cards, column)
 
@@ -211,34 +241,15 @@ def clairvoyante_sort_cards(name, language, chosed_card_deck, chosed_theme, menu
                 f + "</div>" + important_card["messages"]
                 }
 
-    if chosed_theme == 'love':
-
-        list_of_cards = []
-        list_of_polarity = []
-        for i in chosed_card_deck:
-            card = get_from_db(i, language)
-            list_of_polarity.append(card[6])
-            message_card = create_cards_message(card, "love")
-            list_of_cards.append(message_card[0])
-
-    if chosed_theme == 'work':
-
-        list_of_cards = []
-        list_of_polarity = []
-        for i in chosed_card_deck:
-            card = get_from_db(i, language)
-            list_of_polarity.append(card[6])
-            message_card = create_cards_message(card, "work")
-            list_of_cards.append(message_card[0])
-
-    if chosed_theme == 'gen':
-
-        list_of_cards = []
-        list_of_polarity = []
-        for i in chosed_card_deck:
-            card = get_from_db(i, language)
-            list_of_polarity.append(card[6])
-            message_card = create_cards_message(card, "gen")
-            list_of_cards.append(message_card[0])
-
+    list_of_cards = []
+    list_of_polarity = []  
+    print(chosed_card_deck)
+    for i in chosed_card_deck:
+        card = MajorArcana.objects.get(pk=i)
+        card_polarity = card.card_polarity
+        list_of_polarity.append(card_polarity)
+    
+        message_card = create_cards_message(card, chosed_theme, language)
+        list_of_cards.append(message_card[0])
+    print(list_of_cards)
     return create_final_response(list_of_cards, menu, name, list_of_polarity, chosed_card_deck)
