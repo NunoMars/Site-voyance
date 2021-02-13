@@ -215,7 +215,7 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu, language
 
     list_of_cards = []
     list_of_polarity = []  
-    print(chosed_card_deck)
+
     for i in chosed_card_deck:
         card = MajorArcana.objects.get(pk=i)
         card_polarity = card.card_polarity
@@ -223,5 +223,5 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu, language
     
         message_card = create_cards_message(card, chosed_theme, language)
         list_of_cards.append(message_card[0])
-    print(list_of_cards)
+
     return create_final_response(list_of_cards, menu, name, list_of_polarity, chosed_card_deck)
