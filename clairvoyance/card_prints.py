@@ -4,39 +4,6 @@ from datetime import datetime
 from .models import MajorArcana
 
 
-def get_from_db(id_card, language):
-    """
-        Get objects from DataBase
-    """
-
-    obj = MajorArcana.objects.get(pk=id_card)
-    card_img = obj.card_image
-    card_polarity = obj.card_polarity
-
-    if language == 'pt' or language == 'br':
-        card_name = obj.card_name_pt
-        card_warnings = obj.card_signification_warnings_pt
-        card_signification_gen = obj.card_signification_gen_pt
-        card_signification_love = obj.card_signification_love_pt
-        card_signification_work = obj.card_signification_work_pt
-    if language == 'fr':
-        card_name = obj.card_name_fr
-        card_warnings = obj.card_signification_warnings_fr
-        card_signification_gen = obj.card_signification_gen_fr
-        card_signification_love = obj.card_signification_love_fr
-        card_signification_work = obj.card_signification_work_fr
-
-    return {
-        'card_name': card_name,
-        'card_img' : card_img,
-        'card_polarity' : card_polarity,
-        'card_warnings' : card_warnings,
-        'card_signification_gen' : card_signification_gen,
-        'card_signification_love' : card_signification_love,
-        'card_signification_work' : card_signification_work
-    }
-
-
 def one_card(name, rand_card, menu, language):
     """
         Rends one cart reponse.
@@ -59,7 +26,7 @@ def one_card(name, rand_card, menu, language):
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
             "<a href='#'><img src='/static/img/cards/Back.jpg'" +
             "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
-            "border='0' alt='' height='25%' width='25%'/></a>" +
+            " alt='' height='25%' width='25%'/></a>" +
             "<p><h3>" + card_name.capitalize() + "</h3></p>" +
             "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
             "<p class='mb-0'>" + card_signification_warnings + "</p>" +
@@ -84,36 +51,41 @@ def response_card(name, index_result_card, chosed_theme, menu, language):
         card_name = card.card_name_pt
 
     if chosed_theme == "love":
-        if language == 'fr':            
-            chosed_theme = card.card_signification_love_fr
+        if language == 'fr':
+            chosed_theme = 'En Amour'            
+            chosed_theme_signification = card.card_signification_love_fr
         if language == 'pt' or language == 'br':
-            chosed_theme = card.card_signification_love_pt
+            chosed_theme = 'No Amor'
+            chosed_theme_signification = card.card_signification_love_pt
 
     if chosed_theme == "work":
         if language == 'fr':
-            chosed_theme = card.card_signification_work_fr
+            chosed_theme = 'Dans le domaine du travail'
+            chosed_theme_signification = card.card_signification_work_fr
         if language == 'pt' or language == 'br':
-            chosed_theme = card.card_signification_work_pt
+            chosed_theme = 'No trabalho'
+            chosed_theme_signification = card.card_signification_work_pt
 
     if chosed_theme == "gen":
         if language == 'fr':
-            chosed_theme = card.card_signification_gen_fr
+            chosed_theme == 'En général'
+            chosed_theme_signification = card.card_signification_gen_fr
         if language == 'pt' or language == 'br':
-            chosed_theme = card.card_signification_gen_pt
+            chosed_theme == 'En geral'
+            chosed_theme_signification = card.card_signification_gen_pt
 
 
-    return {"messages": "<div class='cta-inner text-center rounded'>" +
-            "<div class='col'><div class='cta-inner text-center rounded'>" +
-            "<div class='mb-0'><h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2></div>" +
-            "<div class='mb-0'><a  href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
+    return {"messages": "<div class='col cta-inner text-center rounded'>" +
+            "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
+            "<a  href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
             "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
-            "border='0' alt='' /></a></div>" +
+            "alt='' /></a>" +
             "<div class='mb-0'><h3>" + card_name.capitalize() + "</h3></div>" +
             "<div class='mb-0'><h4>" + _("Resposta do tarot") + "</h4></div>" +
             "<p class='mb-0'>" + chosed_theme + "</p>" +
             "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
-            "<p class='mb-0'>" + chosed_theme + "</p>" +
-            "</div></div></div>" + menu["messages"]
+            "<p class='mb-0'>" + chosed_theme_signification + "</p>" +
+            "</div>" + menu["messages"]
             }
 
 
@@ -144,7 +116,7 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu, language
                "<a href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
                "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
                "onmouseout=" + "this.src='/static/img/cards/Back.jpg'" +
-               "border='0' alt=''>" +
+               " alt=''>" +
                "<span><p>" + card_name.capitalize() + "</p>" +
                "<p>" + _("Atenção") + "</p>" + card_signification_warnings +
                "<p>" + _("A mensagen da carta!") + "</p>" + chosed_theme +
