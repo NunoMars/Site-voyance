@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-17 23:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\clairvoyance\card_prints.py:26 .\clairvoyance\card_prints.py:79
+msgid " o que o tarot tem para lhe dizer!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:31 .\clairvoyance\card_prints.py:86
+#: .\clairvoyance\card_prints.py:121
+msgid "Atenção"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:33
+msgid "Significado en geral"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:35
+msgid "No amor"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:37
+msgid "No trabalho"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:84
+msgid "Resposta do tarot"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:122
+msgid "A mensagen da carta!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:161
+msgid "O resultado é positivo!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:163
+msgid "O resultado é negativo!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:165
+msgid "O resultado e revelado pela carta que segue!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:170
+msgid " O resultado é positivo com "
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:171
+msgid "% total de cartas a favor!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:177
+msgid " O resultado é negativo com "
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:178
+msgid ""
+"% total de cartas en desfavor, mâs, tudo tem solução o Tarot vai-lhe indicar "
+"o caminho...!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:183
+msgid "O resultado revela o equilibrio com "
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:183
+#, python-format
+msgid "% das cartas!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:184
+msgid ""
+"! Nem muito nem pouco, mas ha sempre aspectos que podem que ser melhorados!"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:210
+msgid " aqui esta o resultado das cartas"
+msgstr ""
+
+#: .\clairvoyance\card_prints.py:212
+msgid "Para saber os avisos do Tarot passe o rato en cima de cada carta!"
+msgstr ""
+
+#: .\clairvoyance\logic.py:27
+msgid "Muito obrigada "
+msgstr ""
+
+#: .\clairvoyance\logic.py:28
+msgid " Vou baralhando as cartas..."
+msgstr ""
+
+#: .\clairvoyance\logic.py:31
+msgid "Escolha o tema da pergunta!"
+msgstr ""
+
+#: .\clairvoyance\logic.py:32 .\clairvoyance\logic.py:93
+msgid "Clique no baralho para escolher o baralho"
+msgstr ""
+
+#: .\clairvoyance\logic.py:35
+msgid "AMOR"
+msgstr ""
+
+#: .\clairvoyance\logic.py:38
+msgid "TRABALHO"
+msgstr ""
+
+#: .\clairvoyance\logic.py:41
+msgid "GERAL"
+msgstr ""
+
+#: .\clairvoyance\logic.py:44
+msgid "RAPIDA"
+msgstr ""
+
+#: .\clairvoyance\logic.py:74
+msgid "Obrigada "
+msgstr ""
+
+#: .\clairvoyance\logic.py:75
+msgid "Estamos quase a saber o que o Tarot nos diz!"
+msgstr ""
+
+#: .\clairvoyance\logic.py:76
+msgid "Clique no baralho para cortar en dois"
+msgstr ""
+
+#: .\clairvoyance\logic.py:91
+msgid "Obrigada !"
+msgstr ""
+
+#: .\clairvoyance\logic.py:92
+msgid "Temos, agora aqui os dois baralhos!"
+msgstr ""
+
+#: .\clairvoyance\templates\clairvoyance\clairvoyance.html:5
+msgid "Tiragem tarot"
+msgstr ""
+
+#: .\clairvoyance\templates\clairvoyance\clairvoyance.html:25
+msgid "Senhora T"
+msgstr ""
+
+#: .\clairvoyance\templates\clairvoyance\clairvoyance.html:26
+msgid "A vidente Bot"
+msgstr ""
+
+#: .\clairvoyance\templates\clairvoyance\clairvoyance.html:34
+msgid "Ponha sua resposta aqui..."
+msgstr ""
+
+#: .\clairvoyance\templates\clairvoyance\clairvoyance.html:35
+msgid "Enviar"
+msgstr ""
+
+#: .\clairvoyance\templates\clairvoyance\contacts.html:5
+msgid "Contactos"
+msgstr ""
+
+#: .\clairvoyance\views.py:12
+msgid "Benvindo ao Meu mundo"
+msgstr ""
+
+#: .\clairvoyance\views.py:13
+msgid "TAROT T"
+msgstr ""
+
+#: .\clairvoyance\views.py:21
+msgid "Tarot"
+msgstr ""
+
+#: .\clairvoyance\views.py:58
+msgid ""
+"Ups temos un pequenino problema com o Csrf... recarrege a pàgina por favor!"
+msgstr ""

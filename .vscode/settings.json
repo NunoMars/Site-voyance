@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\loupy\\OneDrive\\Bureau\\projet Tania\\Site-voyance\\venv\\Scripts\\python.exe",
+    "python.pythonPath": "venv\\Scripts\\pythonw.exe",
     "git.ignoreLimitWarning": true
 }

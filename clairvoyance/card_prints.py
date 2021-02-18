@@ -9,18 +9,33 @@ def one_card(name, rand_card, menu, language):
         Rends one cart reponse.
     """
     card = MajorArcana.objects.get(pk=rand_card)
-    if language == 'fr':
-        card_name = card.card_name_fr
-        card_signification_warnings = card.card_signification_warnings_fr
-        card_signification_gen = card.card_signification_gen_fr
-        card_signification_love = card.card_signification_love_fr
-        card_signification_work = card.card_signification_work_fr
+
     if language == 'pt' or language == 'br':
         card_name = card.card_name_pt
         card_signification_warnings = card.card_signification_warnings_pt
         card_signification_gen = card.card_signification_gen_pt
         card_signification_love = card.card_signification_love_pt
         card_signification_work = card.card_signification_work_pt
+
+    if language == 'en':
+        card_name = card.card_name_en
+        card_signification_warnings = card.card_signification_warnings_en
+        card_signification_gen = card.card_signification_gen_en
+        card_signification_love = card.card_signification_love_en
+        card_signification_work = card.card_signification_work_en
+
+    if language == 'es':
+        card_name = card.card_name_es
+        card_signification_warnings = card.card_signification_warnings_es
+        card_signification_gen = card.card_signification_gen_es
+        card_signification_love = card.card_signification_love_es
+        card_signification_work = card.card_signification_work_es
+    else:
+        card_name = card.card_name_fr
+        card_signification_warnings = card.card_signification_warnings_fr
+        card_signification_gen = card.card_signification_gen_fr
+        card_signification_love = card.card_signification_love_fr
+        card_signification_work = card.card_signification_work_fr
 
     return {"messages": "<div class='col cta-inner text-center rounded'>" +
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
