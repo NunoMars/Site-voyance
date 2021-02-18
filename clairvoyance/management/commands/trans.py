@@ -77,7 +77,7 @@ class Command(BaseCommand):
                 arcana.save()
 
 
-                print("la transuction de " + arcana.card_name_fr + " c'est bien passé, suivante!")
+                print("la traduction de " + arcana.card_name_fr + " c'est bien passé, suivante!")
 
         except:
             raise CommandError(
