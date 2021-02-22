@@ -10,6 +10,9 @@ class Sentences(models.Model):
         ("Negatif", "Negatif"),
         ("Neutral", "neutral")
     )
-    sentence = models.CharField(max_length=200)
+    sentence = models.TextField()
+    sentence_fr = models.TextField(default="sentence_fr")
+    sentence_es = models.TextField(default="sentence_es")
+    sentence_en = models.TextField(default="sentence_en")
     sentence_polarity = models.CharField(
         max_length=10, choices=CHOICES, default="Positif")

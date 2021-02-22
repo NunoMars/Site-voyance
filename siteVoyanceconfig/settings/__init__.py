@@ -146,14 +146,20 @@ def gettext(x): return x
 
 
 LANGUAGES = (
-    ('en', ('English')),
-    ('fr', ('French')),
-    ('pt', ('Portuguese')),
-    ('es', ('Spanish')),
+    ('en', _('English')),
+    ('fr', _('French')),
+    ('pt', _('Portuguese')),
+    ('es', _('Spanish')),
 )
 
+
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale')
+    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'ball8/locale'),
+    os.path.join(BASE_DIR, 'accounts/locale'),
+    os.path.join(BASE_DIR, 'clairvoyance/locale'),
+    os.path.join(BASE_DIR, 'static/js/locale'),
+
 ]
 
 # Static files (CSS, JavaScript, Images)

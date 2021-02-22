@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-02 17:01+0200\n"
+"POT-Creation-Date: 2021-02-22 18:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\siteVoyance\settings.py:127
+
+#: .\siteVoyanceconfig\settings\__init__.py:149
 msgid "English"
-msgstr ""
+msgstr "English"
 
-#: .\siteVoyance\settings.py:128
+#: .\siteVoyanceconfig\settings\__init__.py:150
 msgid "French"
-msgstr ""
+msgstr "French"
 
-#: .\siteVoyance\settings.py:129
+#: .\siteVoyanceconfig\settings\__init__.py:151
 msgid "Portuguese"
-msgstr ""
+msgstr "Portuguese"
 
-#: .\siteVoyance\settings.py:130
+#: .\siteVoyanceconfig\settings\__init__.py:152
 msgid "Spanish"
-msgstr ""
+msgstr "Spanish"

@@ -91,7 +91,7 @@ function firstClairvoyantMessage() {
     if ($('.message-input').val() != '') {
         return false;
     }
-    var sentence = document.write(gettext('Olá, eu sou a Sra. T, a sua vidente virtual. Proponho esclarecê-la sobre o seu futuro! Mas, acima de tudo, precisamos nos conhecer. Qual é o seu primeiro nome se faz favor?'));
+    sentence = gettext('Olá, eu sou a Sra. T, a sua vidente virtual. Proponho esclarecê-la sobre o seu futuro! Mas, acima de tudo, precisamos nos conhecer. Qual é o seu primeiro nome se faz favor?')
     var msg = "<div class='col'><div class='cta-inner text-center rounded'>" +
         "<p class='mb-0'>" +
         sentence +
