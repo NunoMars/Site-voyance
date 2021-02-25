@@ -1,13 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils.translation import gettext as _
-from django.views.decorators.csrf import csrf_exempt
 from random import shuffle as suf, choice as ch
 from .models import Sentences
 
-# Create your views here.
 
-@csrf_exempt
 def ball8(request):
     args = {}
     language= request.LANGUAGE_CODE
@@ -19,7 +16,7 @@ def ball8(request):
             page_title = _("ORÁCULO")
             args["page_title"] = page_title
             args["user_question"] = user_question
-            
+
             sentences = Sentences.objects.all()
             rand_message = ch(sentences)
 

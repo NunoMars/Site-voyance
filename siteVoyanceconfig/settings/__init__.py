@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'ball8.apps.Ball8Config',
     'clairvoyance.apps.ClairvoyanceConfig',
     'accounts.apps.AccountsConfig',
+    'rosetta',
+    'autotranslate',
 ]
 
 ######################AUTH#########################
@@ -51,6 +53,13 @@ AUTHENTIFICATION_BACKENDS = ("accounts.backends.CustomUserAuth",)
 LOGOUT_REDIRECT_URL = "home"
 LOGIN_REDIRECT_URL = "history"
 
+###################################################
+
+#####################ROSETTA#TRANS#################
+ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
+AZURE_CLIENT_SECRET = '20f1b26ad3414e65b51e4ad12f56336d'
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = "fr"
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = "fr"
 ###################################################
 
 ########################EMAIL######################
@@ -151,7 +160,6 @@ LANGUAGES = (
     ('pt', _('Portuguese')),
     ('es', _('Spanish')),
 )
-
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
