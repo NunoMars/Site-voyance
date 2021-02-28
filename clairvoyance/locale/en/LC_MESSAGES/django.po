@@ -1,177 +1,259 @@
 #
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-02-26 11:04+0000\n"
+"Last-Translator: b'nuno User <nuno.ricardo.mars@gmail.com>'\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
 
 #: .\clairvoyance\card_prints.py:41 .\clairvoyance\card_prints.py:94
 msgid " o que o tarot tem para lhe dizer!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\"> what the tarot has to tell you!</font></font>"
 
 #: .\clairvoyance\card_prints.py:46 .\clairvoyance\card_prints.py:101
 #: .\clairvoyance\card_prints.py:136
 msgid "Ateno"
-msgstr ""
+msgstr "warning"
 
 #: .\clairvoyance\card_prints.py:48
 msgid "Significado en geral"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Meaning in general</font></font>"
 
 #: .\clairvoyance\card_prints.py:50
 msgid "No amor"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">At Love</font></font>"
 
 #: .\clairvoyance\card_prints.py:52
 msgid "No trabalho"
-msgstr ""
+msgstr "At Work"
 
 #: .\clairvoyance\card_prints.py:99
 msgid "Resposta do tarot"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Tarot response</font></font>"
 
 #: .\clairvoyance\card_prints.py:137
 msgid "A mensagen da carta!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">The card message!</font></font>"
 
 #: .\clairvoyance\card_prints.py:176
 msgid "O resultado  positivo!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">The result is positive !</font></font>"
 
 #: .\clairvoyance\card_prints.py:178
 msgid "O resultado  negativo!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">The resuklt is negative !</font></font>"
 
 #: .\clairvoyance\card_prints.py:180
 msgid "O resultado e revelado pela carta que segue!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">The result and revealed by the next card!</font></font>"
 
 #: .\clairvoyance\card_prints.py:185
 msgid " O resultado  positivo com "
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\"> The positive result with</font></font>"
 
 #: .\clairvoyance\card_prints.py:186
 msgid "% total de cartas a favor!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">% total good cards !</font></font>"
 
 #: .\clairvoyance\card_prints.py:192
 msgid " O resultado  negativo com "
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\"> The result is negative with</font></font>"
 
 #: .\clairvoyance\card_prints.py:193
 msgid ""
 "% total de cartas en desfavor, ms, tudo tem soluo o Tarot vai-lhe indicar o "
 "caminho...!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">% total cards in disfavor, but, everything has solution the Tarot"
+" will indicate you the way ...!</font></font>"
 
 #: .\clairvoyance\card_prints.py:198
 msgid "O resultado revela o equilibrio com "
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">The result reveals the balance with</font></font>"
 
 #: .\clairvoyance\card_prints.py:198
 #, python-format
 msgid "% das cartas!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">% of cards!</font></font>"
 
 #: .\clairvoyance\card_prints.py:199
 msgid ""
 "! Nem muito nem pouco, mas ha sempre aspectos que podem que ser melhorados!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">!</font> <font style=\"vertical-align: inherit;\">Not much or "
+"little, but there are always aspects that can be improved!</font></font>"
 
 #: .\clairvoyance\card_prints.py:225
 msgid " aqui esta o resultado das cartas"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\"> here is the result of the cards</font></font>"
 
 #: .\clairvoyance\card_prints.py:227
 msgid "Para saber os avisos do Tarot passe o rato en cima de cada carta!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">To know tarot warnings hover over each card!</font></font>"
 
 #: .\clairvoyance\logic.py:27
 msgid "Muito obrigada "
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">thank you very much</font></font>"
 
 #: .\clairvoyance\logic.py:28
 msgid " Vou baralhando as cartas..."
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\"> I'm shuffling withme cards ...</font></font>"
 
 #: .\clairvoyance\logic.py:31
 msgid "Escolha o tema da pergunta!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Choose the question theme!</font></font>"
 
 #: .\clairvoyance\logic.py:32 .\clairvoyance\logic.py:93
 msgid "Clique no baralho para escolher o baralho"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Click on deck to choose deck</font></font>"
 
 #: .\clairvoyance\logic.py:35
 msgid "AMOR"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">LOVE</font></font>"
 
 #: .\clairvoyance\logic.py:38
 msgid "TRABALHO"
-msgstr ""
+msgstr "WORK"
 
 #: .\clairvoyance\logic.py:41
 msgid "GERAL"
-msgstr ""
+msgstr "GEN"
 
 #: .\clairvoyance\logic.py:44
 msgid "RAPIDA"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">One CARD</font></font>"
 
 #: .\clairvoyance\logic.py:74
 msgid "Obrigada "
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Thank</font></font>"
 
 #: .\clairvoyance\logic.py:75
 msgid "Estamos quase a saber o que o Tarot nos diz!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">We're almost done!</font></font>"
 
 #: .\clairvoyance\logic.py:76
 msgid "Clique no baralho para cortar en dois"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Click the deck to cut in two</font></font>"
 
 #: .\clairvoyance\logic.py:91
 msgid "Obrigada !"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Thank you!</font></font>"
 
 #: .\clairvoyance\logic.py:92
 msgid "Temos, agora aqui os dois baralhos!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">We now have the two decks here!</font></font>"
 
 #: .\clairvoyance\templates\clairvoyance\clairvoyance.html:5
 msgid "Tiragem tarot"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Drawing Tarot</font></font>"
 
 #: .\clairvoyance\templates\clairvoyance\clairvoyance.html:25
 msgid "Senhora T"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Lady T</font></font>"
 
 #: .\clairvoyance\templates\clairvoyance\clairvoyance.html:26
 msgid "A vidente Bot"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">One bot seer</font></font>"
 
 #: .\clairvoyance\templates\clairvoyance\clairvoyance.html:34
 msgid "Ponha sua resposta aqui..."
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Put your answer here ...</font></font>"
 
 #: .\clairvoyance\templates\clairvoyance\clairvoyance.html:35
 msgid "Enviar"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Send</font></font>"
 
 #: .\clairvoyance\templates\clairvoyance\contacts.html:5
 msgid "Contactos"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Contacts</font></font>"
 
 #: .\clairvoyance\views.py:12
 msgid "Benvindo ao Meu mundo"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Welcome to My World</font></font>"
 
 #: .\clairvoyance\views.py:13
 msgid "TAROT T"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">TAROT T</font></font>"
 
 #: .\clairvoyance\views.py:21
 msgid "Tarot"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Tarot</font></font>"
 
 #: .\clairvoyance\views.py:58
 msgid ""
 "Ups temos un pequenino problema com o Csrf... recarrege a pgina por favor!"
 msgstr ""
+"<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: "
+"inherit;\">Ups we have a tiny problem with Csrf ... reload the page "
+"please!</font></font>"

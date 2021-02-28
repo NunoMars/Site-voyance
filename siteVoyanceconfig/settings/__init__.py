@@ -25,6 +25,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
+
+
 DEBUG =  True
 
 ALLOWED_HOSTS = ["herokuapps.com", "localhost", "127.0.0.1"]
@@ -42,8 +44,7 @@ INSTALLED_APPS = [
     'ball8.apps.Ball8Config',
     'clairvoyance.apps.ClairvoyanceConfig',
     'accounts.apps.AccountsConfig',
-    'rosetta',
-    'autotranslate',
+    #'rosetta',
 ]
 
 ######################AUTH#########################
@@ -151,6 +152,8 @@ USE_L10N = True
 USE_TZ = True
 
 
+#######################INTERNATIONALIZATION###################
+
 def gettext(x): return x
 
 
@@ -170,6 +173,8 @@ LOCALE_PATHS = [
 
 ]
 
+#############################################################
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -177,7 +182,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
+########################HEROKU###############################
 django_heroku.settings(locals())
+#############################################################
+
 
 CSRF_FAILURE_VIEW = 'clairvoyance/csrf_failure'
