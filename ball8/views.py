@@ -19,18 +19,22 @@ def ball8(request):
 
             sentences = Sentences.objects.all()
             rand_message = ch(sentences)
-
-            if language == 'pt' or language == 'br':
+            
+            if language == 'pt':
                 ball8_message = rand_message.sentence
+                args["ball8_message"] = ball8_message
 
             if language == 'es':
                 ball8_message = rand_message.sentence_es
+                args["ball8_message"] = ball8_message
 
             if language == 'en':
                 ball8_message = rand_message.sentence_en
-
+                args["ball8_message"] = ball8_message
+                
             else:
                 ball8_message = rand_message.sentence_fr
+                args["ball8_message"] = ball8_message
 
-            args["ball8_message"] = ball8_message
+            
     return render(request, 'ball8/ball8.html', args)
