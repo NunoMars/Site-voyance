@@ -19,7 +19,7 @@ def clairvoyant(input_value, language):
     while True:
         # création deck
         if input_value == "Quit":
-            del inputs[0:]
+            inputs = []
 
         menu = {"messages": "<div class='cta-inner text-center rounded'>" +
                 "<div class='row'>" +
