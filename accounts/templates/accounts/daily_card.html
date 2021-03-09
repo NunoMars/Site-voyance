@@ -1,4 +1,3 @@
-{{ load static }}
 <!DOCTYPE html>    
 <html>    
 	<head>
@@ -123,22 +122,31 @@
 		<table cellspacing="0" cellpadding="0" class="bmeCaptionContainer" width="100%" style="padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:10px;border-collapse:separate;"><tbody><tr><td class="bmeImageContainerRow" valign="top" gutter="10">    
 		<table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="tdPart" valign="top">    
 		<table cellspacing="0" cellpadding="0" border="0" class="bmeImageContainer" width="560" align="left" style="float:left;"><tbody><tr><td valign="top" name="tdContainer">    
-		<table cellspacing="0" cellpadding="0" border="0" class="bmeImageTable" dimension="30%" imgid="1" style="float: right;" align="right" width="177" height="264"><tbody><tr><td name="bmeImgHolder" width="187" align="center" valign="top" class="bmeMblCenter" height="264"><img    
+		<table cellspacing="0" cellpadding="0" border="0" class="bmeImageTable" dimension="30%" imgid="1" style="float: right;" align="right" width="177" height="264"><tbody><tr><td name="bmeImgHolder" width="187" align="center" valign="top" class="bmeMblCenter" width="264"><img    
 		src={{ card_image }} class="mobile-img-large" width="177" style="max-width: 360px; display: block; image-orientation: 45deg;" imgid="imgkp8dl9f5HXrf" border="0"></td></tr></tbody>    
 		</table>    
 		<table cellspacing="0" cellpadding="0" border="0" class="bmeCaptionTable" style="float:left;" align="left" width="363"><tbody><tr><td name="tblCell" valign="top" align="left" style="font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: normal; color: #383838; text-align: left;" class="bmeMblCenter tblCell"><div style="line-height: 150%;"><span style="font-size: 30px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>{{ card_name }}</strong></span>    
 		<br><span style="font-size: 18px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>_______</strong></span>
 		<br>    
 		<br><span style="font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;">{{ card_signification_gen }}</span>    
+		<br>
 		<br>		    
-		<br><span style="font-size: 20px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>SHARE EVERYWHERE</strong></span>    
+		<br><span style="font-size: 20px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>{{ tag_warning }}</strong></span>    
 		<br><span style="font-size: 18px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>_______</strong></span>    
 		<br>    
-		<br><span style="font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;">You are totally stoked about the piece of information that goes here and your subscribers will be too.</span></div></td></tr></tbody>    
-  		</div></td></tr></tbody> 
-		</table></td></tr></tbody>    
-		</table></td></tr></tbody> 
-
+		<br><span style="font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;">{{ card_signification_warning }}</span>
+		<br>		    
+		<br><span style="font-size: 20px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>{{ tag_love }}</strong></span>    
+		<br><span style="font-size: 18px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>_______</strong></span>    
+		<br>    
+		<br><span style="font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;">{{ card_signification_love }}</span>    
+  		<br>		    
+		<br><span style="font-size: 20px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>{{ tag_work }}</strong></span>    
+		<br><span style="font-size: 18px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;"><strong>_______</strong></span>    
+		<br>    
+		<br><span style="font-size: 14px; font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Arial, sans-serif; color: #ffffff; line-height: 150%;">{{ card_signification_work }}</span></div></td></tr></tbody> 
+		</div></td></tr></tbody> 
+		<!--
 		</table></div><div id="dv_5" class="blk_wrapper">    
 		<table cellspacing="0" cellpadding="0" border="0" name="blk_divider" width="600" class="blk"><tbody><tr><td style="padding: 20px;" class="tblCellMain">    
 		<table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top-width: 0px; border-top-style: none; min-width: 1px;" class="tblLine"><tbody><tr><td><span></span></td></tr></tbody>    
@@ -225,6 +233,6 @@
 		</table></div></td></tr> </tbody>    
 		</table></td></tr></tbody>    
 		</table></td></tr></tbody>    
-		</table>
+		</table> -->
 	</body>    
 </html>
