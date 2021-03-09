@@ -20,7 +20,7 @@ def send_welcome_email(user):
     if user.user_language == 'pt':
         sentence = 'Benvindo ao meu site de cartonância gratuito!!'
     else:
-        sentence = 'Benvenu a mon site de voyance gratuit !!! '
+        sentence = 'Benvenu/a site de voyance gratuit !!! '
 
     subject, from_email, to = sentence, 'patricia.nunes.tarot@gmail.com', user.email
     text_content = plaintext.render(context)
