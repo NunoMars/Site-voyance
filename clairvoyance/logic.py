@@ -1,7 +1,7 @@
 from django.utils.translation import gettext as _
 from random import shuffle as suf, choice, randint as rand
 from .card_prints import one_card, clairvoyante_sort_cards
-
+from accounts.models import History
 
 inputs = []
 
@@ -16,46 +16,63 @@ def clairvoyant(input_value, language):
         inputs.append(input_value)
     print(inputs)
 
+    menu = {"messages": "<div class='cta-inner text-center rounded'>" +
+    "<div class='row'>" +
+    "<div class='col'>" +
+    "<p><h6>" + _("Muito obrigada ") + inputs[0].capitalize() + " !</h6></p>" +
+    "<p><h5>" + _(" Vou baralhando as cartas...") + "</h5></p></div></div>" +
+    "<div class='row'>" +
+    "<div class='col'>" +
+    "<p><h5>" + _("Escolha o tema da pergunta!") + "</h5></p>" +
+    "<p><h6>" + _("Clique no baralho para escolher o baralho") + "</h6></p></div></div>" +
+    "<div class='row'>" +
+    "<div class='col'>" +
+    "<p><h6>" + _("AMOR") + "<h6></p>" +
+    "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></p></div>" +
+    "<div class='col'>" +
+    "<p><h6>" + _("TRABALHO") + "</h6></p>" +
+    "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></p></div>" +
+    "<div class='col'>" +
+    "<p><h6>" + _("GERAL") + "</h6></p>" +
+    "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></p></div>" +
+    "<div class='col'>" +
+    "<p><h6>" + _("RAPIDA") + "</h6></p>" +
+    "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></p></div>" +
+    "</div></div>"
+    }
+    
+    record = {"message" :  "<div class='cta-inner text-center rounded'>" +
+    "<div class='row'>" +
+    "<div class='col'>" +
+    "<p><h3>" + _("Quer Guardar o seu resultado?") + "</h3></p></div></div>" +
+    "<div class='row'>" +
+    "<div class='col'>" +
+    "<p><h6>" + _("Guardar") + "</h6></p>" +
+    "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageRecYes();'/></p></div>" +
+    "<div class='col'>" + "<p><h6>" + _("Não") + "</h6></p>" +
+    "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageRecNo();'/></p></div>" +
+    "</div></div>"
+    }
+
+
+
     while True:
-        # création deck
+ 
         if input_value == "Quit":
             inputs = []
 
-        menu = {"messages": "<div class='cta-inner text-center rounded'>" +
-                "<div class='row'>" +
-                "<div class='col'>" +
-                "<p><h6>" + _("Muito obrigada ") + inputs[0].capitalize() + " !</h6></p>" +
-                "<p><h5>" + _(" Vou baralhando as cartas...") + "</h5></p></div></div>" +
-                "<div class='row'>" +
-                "<div class='col'>" +
-                "<p><h5>" + _("Escolha o tema da pergunta!") + "</h5></p>" +
-                "<p><h6>" + _("Clique no baralho para escolher o baralho") + "</h6></p></div></div>" +
-                "<div class='row'>" +
-                "<div class='col'>" +
-                "<p><h6>" + _("AMOR") + "<h6></p>" +
-                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageLove();'/></p></div>" +
-                "<div class='col'>" +
-                "<p><h6>" + _("TRABALHO") + "</h6></p>" +
-                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageWork();'/></p></div>" +
-                "<div class='col'>" +
-                "<p><h6>" + _("GERAL") + "</h6></p>" +
-                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageGen();'/></p></div>" +
-                "<div class='col'>" +
-                "<p><h6>" + _("RAPIDA") + "</h6></p>" +
-                "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></p></div>" +
-                "</div></div>"
-                }
+        if (len(inputs) == 1):
+            return menu
 
         if input_value == "one":
             card_deck = [i+1 for i in range(38)]
             suf(card_deck)
             rand_card = choice(card_deck)
-            value = one_card(inputs[0], rand_card, menu, language)
+            value = one_card(inputs[0], rand_card, language)
             del inputs[1:]
-            return value
+            return {'messages' : value + record['message']}
 
-        if (len(inputs) == 1):
-            return menu
+        
 
         if input_value == "love":
             inputs[1] = "love"
@@ -107,6 +124,23 @@ def clairvoyant(input_value, language):
 
         if input_value == "right":
             inputs[3] = card_deck[inputs[2]:37]
+
+        if input_value == "rec":
+            print('sauvegarder')
+            History.objects.create(
+                user=inputs[0],
+                sorted_cards=inputs[3],
+                chosed_theme=inputs[1]
+            )
+
+            del inputs[1:]
+            print(inputs)            
+            return menu
+
+        if input_value == "rec_no":
+            del inputs[1:]
+            print('retour menu')
+            return menu
 
         result = clairvoyante_sort_cards(inputs[0], inputs[3], inputs[1], menu, language)
         del inputs[1:]

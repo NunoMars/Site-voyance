@@ -29,7 +29,9 @@ def clairvoyante(request):
     if request.method == 'POST':
         try:
             input_value = request.POST.get('messageInput')
+
             result = clairvoyant(input_value, language)
+
             return JsonResponse(result)
         except ValueError:
             pass
@@ -38,7 +40,7 @@ def clairvoyante(request):
 
 @login_required
 def history(request):
-    """Fonction for show the sorted cards history,
+    """Show the sorted card history,
     tha are chosed by the user, login required."""
     user = request.user
     user = CustomUser.objects.get(email=user)

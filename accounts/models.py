@@ -73,7 +73,7 @@ class History(models.Model):
     user = models.ForeignKey("CustomUser", related_name=_('User'), null=True, on_delete=models.CASCADE)
     sorted_cards_date = models.DateField(default=date.today, auto_created=True)
     sorted_cards = models.ManyToManyField("clairvoyance.Majorarcana", verbose_name=_("Tiragem"))
-
+    chosed_theme = models.CharField(max_length=10)
 
     class Meta:
         db_table = "history"

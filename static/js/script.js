@@ -131,6 +131,15 @@ function sendMessageLeft() {
 function sendMessageRight() {
     getMessageClairvoyant("right");
 };
+
+function sendMessageRecYes() {
+    getMessageClairvoyant("rec");
+};
+
+function sendMessageRecNo() {
+    getMessageClairvoyant("rec_no");
+};
+
 $(window).unload(function() {
     $messages.mCustomScrollbar();
     msg = "Quit"

@@ -4,7 +4,7 @@ from datetime import datetime
 from .models import MajorArcana
 
 
-def one_card(name, rand_card, menu, language):
+def one_card(name, rand_card, language):
     """
         Rends one cart reponse.
     """
@@ -37,7 +37,7 @@ def one_card(name, rand_card, menu, language):
         card_signification_love = card.card_signification_love_fr
         card_signification_work = card.card_signification_work_fr
 
-    return {"messages": "<div class='col cta-inner text-center rounded'>" +
+    response = {"messages": "<div class='col cta-inner text-center rounded'>" +
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
             "<a href='#'><img src='/static/img/cards/Back.jpg'" +
             "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
@@ -51,8 +51,10 @@ def one_card(name, rand_card, menu, language):
             "<p class='mb-0'>" + card_signification_love + "</p>" +
             "<div class='mb-0'><h4>" + _("No trabalho") + "</h4></div>" +
             "<p class='mb-0'>" + card_signification_work + "</p>" +
-            "</div>" + menu["messages"]
+            "</div>"
             }
+
+    return response['messages']
 
 
 def response_card(name, index_result_card, chosed_theme, menu, language):
@@ -60,35 +62,48 @@ def response_card(name, index_result_card, chosed_theme, menu, language):
     Draw the Tarot response, the last card.
     """
     card = MajorArcana.objects.get(pk=index_result_card)
-    if language == 'fr':
-        card_name = card.card_name_fr
+    if language == 'en':
+        card_name = card.card_name_en
     if language == 'pt' or language == 'br':
         card_name = card.card_name_pt
+    if language == 'es':
+        card_name = card.card_name_es
+    else:
+        card_name = card.card_name_fr
 
     if chosed_theme == "love":
-        if language == 'fr':
-            chosed_theme = 'En Amour'            
-            chosed_theme_signification = card.card_signification_love_fr
+        
+        if language == 'es':        
+            chosed_theme_signification = card.card_signification_love_es
+
+        if language == 'en':        
+            chosed_theme_signification = card.card_signification_love_en
+
         if language == 'pt' or language == 'br':
-            chosed_theme = 'No Amor'
             chosed_theme_signification = card.card_signification_love_pt
+        
+        else:
+            chosed_theme_signification = card.card_signification_love_fr
 
     if chosed_theme == "work":
-        if language == 'fr':
-            chosed_theme = 'Dans le domaine du travail'
-            chosed_theme_signification = card.card_signification_work_fr
+        if language == 'es':
+            chosed_theme_signification = card.card_signification_work_es
+        if language == 'en':
+            chosed_theme_signification = card.card_signification_work_en
         if language == 'pt' or language == 'br':
-            chosed_theme = 'No trabalho'
             chosed_theme_signification = card.card_signification_work_pt
+        else:
+            chosed_theme_signification = card.card_signification_work_fr
 
     if chosed_theme == "gen":
-        if language == 'fr':
-            chosed_theme == 'En général'
-            chosed_theme_signification = card.card_signification_gen_fr
+        if language == 'es':
+            chosed_theme_signification = card.card_signification_gen_es
+        if language == 'en':
+            chosed_theme_signification = card.card_signification_gen_en
         if language == 'pt' or language == 'br':
-            chosed_theme == 'En geral'
             chosed_theme_signification = card.card_signification_gen_pt
-
+        else:
+            chosed_theme_signification = card.card_signification_gen_fr
 
     return {"messages": "<div class='col cta-inner text-center rounded'>" +
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
