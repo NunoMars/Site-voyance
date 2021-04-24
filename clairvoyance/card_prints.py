@@ -41,7 +41,7 @@ def one_card(name, rand_card, language):
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
             "<a href='#'><img src='/static/img/cards/Back.jpg'" +
             "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
-            " alt='' height='25%' width='25%'/></a>" +
+            " alt='' height='15%' width='15%'/></a>" +
             "<p><h3>" + card_name.capitalize() + "</h3></p>" +
             "<div class='mb-0'><h3>" + _("Atenção") + "</h3></div>" +
             "<p class='mb-0'>" + card_signification_warnings + "</p>" +
@@ -109,7 +109,7 @@ def response_card(name, index_result_card, chosed_theme, menu, language):
             "<h2>" + name.capitalize() + _(" o que o tarot tem para lhe dizer!") + "</h2>" +
             "<a  href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
             "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
-            "alt='' /></a>" +
+            "alt='' height='20%' width='20%'/ /></a>" +
             "<div class='mb-0'><h3>" + card_name.capitalize() + "</h3></div>" +
             "<div class='mb-0'><h4>" + _("Resposta do tarot") + "</h4></div>" +
             "<p class='mb-0'>" + chosed_theme + "</p>" +
@@ -123,7 +123,7 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu, language
 
     card_deck = list(MajorArcana.objects.all())
     suf(card_deck)
-    column = 8
+    column = 4
 
     # construire tableau
     def splitBy(li, n=1):
@@ -133,20 +133,26 @@ def clairvoyante_sort_cards(name, chosed_card_deck, chosed_theme, menu, language
         '''
         Draw a bouton card with the name.
         '''
-        if language == 'fr':
-            card_name = card.card_name_fr
-            card_signification_warnings = card.card_signification_warnings_fr
+
+        if language == 'es':
+            card_name = card.card_name_es
+            card_signification_warnings = card.card_signification_warnings_es
+        if language == 'en':
+            card_name = card.card_name_en
+            card_signification_warnings = card.card_signification_warnings_en
         if language == 'pt' or language == 'br':
             card_name = card.card_name_pt
             card_signification_warnings = card.card_signification_warnings_pt
+        else:
+            card_name = card.card_name_fr
+            card_signification_warnings = card.card_signification_warnings_fr
 
-
-        msg = ["<div class='col'>" +
+        msg = ["<div class='col-4'>" +
                "<div class='cta-inner text-center rounded'>" +
                "<a href='#'><img class='card' src='/static/img/cards/Back.jpg'" +
                "onmouseover=" + '"this.src=' + "'/" + card.card_image + "'" + '"' +
                "onmouseout=" + "this.src='/static/img/cards/Back.jpg'" +
-               " alt=''>" +
+               " alt=''/>" +
                "<span><p>" + card_name.capitalize() + "</p>" +
                "<p>" + _("Atenção") + "</p>" + card_signification_warnings +
                "<p>" + _("A mensagen da carta!") + "</p>" + chosed_theme +
