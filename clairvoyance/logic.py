@@ -16,10 +16,12 @@ def clairvoyant(input_value, language):
         inputs.append(input_value)
     print(inputs)
 
-    menu = {"messages": "<div class='cta-inner text-center rounded'>" +
+    user_name = inputs[0]
+
+    user_choices = {"messages": "<div class='cta-inner text-center rounded'>" +
     "<div class='row'>" +
     "<div class='col'>" +
-    "<p><h6>" + _("Muito obrigada ") + inputs[0].capitalize() + " !</h6></p>" +
+    "<p><h6>" + _("Muito obrigada ") + user_name.capitalize() + " !</h6></p>" +
     "<p><h5>" + _(" Vou baralhando as cartas...") + "</h5></p></div></div>" +
     "<div class='row'>" +
     "<div class='col'>" +
@@ -40,7 +42,8 @@ def clairvoyant(input_value, language):
     "<p><input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageOneCard();'/></p></div>" +
     "</div></div>"
     }
-    
+
+   
     record = {"message" :  "<div class='cta-inner text-center rounded'>" +
     "<div class='row'>" +
     "<div class='col'>" +
@@ -54,49 +57,51 @@ def clairvoyant(input_value, language):
     "</div></div>"
     }
 
+    message_cut = {"messages": "<div class='cta-inner text-center rounded'>" +
+    "<div class='row'>" +
+    "<div class='col'>" + 
+    "<p><h4>" + _("Obrigada ") + user_name.capitalize() + " !</h4></p>" +
+    " <p>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
+    " <p>" + _("Clique no baralho para cortar en dois") + 
+    "</p></div></div>" +
+    "<div class='row'>" +
+    "<div class='col'>" + 
+    "<input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></div>" +
+    "</div></div></div>"
+    }
 
 
-    while True:
- 
+    while True:        
+
         if input_value == "Quit":
             inputs = []
 
-        if (len(inputs) == 1):
-            return menu
+        if len(inputs) == 1:
+            return user_choices
 
         if input_value == "one":
             card_deck = [i+1 for i in range(38)]
             suf(card_deck)
             rand_card = choice(card_deck)
-            value = one_card(inputs[0], rand_card, language)
+            value = one_card(user_name, rand_card, language)
             del inputs[1:]
             return {'messages' : value + record['message']}
+
 
         
 
         if input_value == "love":
             inputs[1] = "love"
+            return message_cut
 
         if input_value == "work":
             inputs[1] = "work"
+            return message_cut
 
         if input_value == "gen":
             inputs[1] = "gen"
-
-        if (len(inputs) == 2):
-            input_name = inputs[0]
-            return {"messages": "<div class='cta-inner text-center rounded'>" +
-                    "<div class='row'>" +
-                    "<div class='col'>" + 
-                    "<p><h4>" + _("Obrigada ") + input_name.capitalize() + " !</h4></p>" +
-                    " <p>" + _("Estamos quase a saber o que o Tarot nos diz!") + "</p>" +
-                    " <p>" + _("Clique no baralho para cortar en dois") + 
-                    "</p></div></div>" +
-                    "<div class='row'>" +
-                    "<div class='col'>" + 
-                    "<input id='bouton_card' type='submit' class='bouton_card' onClick='sendMessageCut();'/></div>" +
-                    "</div></div></div>"
-                    }
+            return message_cut
+        
 
         if input_value == "cut":
             cut_point = rand(1, 37)
@@ -128,20 +133,18 @@ def clairvoyant(input_value, language):
         if input_value == "rec":
             print('sauvegarder')
             History.objects.create(
-                user=inputs[0],
+                user=user_name,
                 sorted_cards=inputs[3],
                 chosed_theme=inputs[1]
             )
 
             del inputs[1:]
-            print(inputs)            
-            return menu
+
 
         if input_value == "rec_no":
             del inputs[1:]
-            print('retour menu')
-            return menu
+            return user_choices
 
-        result = clairvoyante_sort_cards(inputs[0], inputs[3], inputs[1], menu, language)
-        del inputs[1:]
-        return result
+        result = clairvoyante_sort_cards(user_name, inputs[3], inputs[1], language)
+        return {'messages' : result["messages"] + record['message']}
+
