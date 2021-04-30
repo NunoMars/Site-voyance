@@ -1,4 +1,11 @@
 {
     "python.pythonPath": "venv\\Scripts\\pythonw.exe",
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "cSpell.words": [
+        "capitalize",
+        "inner",
+        "onmouseover",
+        "randint",
+        "rounded"
+    ]
 }
