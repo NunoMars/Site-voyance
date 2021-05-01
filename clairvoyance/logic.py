@@ -2,6 +2,8 @@ from django.utils.translation import gettext as _
 from random import shuffle as suf, choice, randint as rand
 from .card_prints import one_card, clairvoyante_sort_cards
 from accounts.models import History
+from .models import MajorArcana
+from django.contrib.auth.decorators import login_required
 
 inputs = []
 
@@ -130,16 +132,16 @@ def clairvoyant(input_value, language):
         if input_value == "right":
             inputs[3] = card_deck[inputs[2]:37]
 
-        if input_value == "rec":
-            print('sauvegarder')
-            History.objects.create(
-                user=user_name,
-                sorted_cards=inputs[3],
-                chosed_theme=inputs[1]
-            )
 
+        if input_value == "rec":
+
+            index_card = round(sum(inputs[3])/len(inputs[3]))
+            card = MajorArcana.objects.filter(id=index_card)
+            theme =inputs[1]
             del inputs[1:]
 
+            return [card, theme, user_choices]        
+            
 
         if input_value == "rec_no":
             del inputs[1:]

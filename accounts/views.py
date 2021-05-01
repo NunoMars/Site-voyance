@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login, authenticate
 from .backend import CustomUserAuth as CuA
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, EmailChangeForm
 from .models import CustomUser
+from django.contrib.auth.decorators import login_required
 from .send_emails import send_welcome_email
 
 
@@ -53,31 +54,26 @@ def create_account_view(request):
 
 
 def login_view(request):
-    if request.method == "POST":
-        username = form.cleaned_data["email"]
-        password = form.changed_data["password"]
-        user = authenticate(CuA, username=username, password=password)
 
-        if user == None:
-            # Return an 'invalid login' error message.
-            msg = "Compte utilisateur non trouvé!"
-            vars_to_template = {
-                "form": form,
-                "msg": msg,
-                "link": "../create_account",
-                "link_msg": "Créez un compte utilisateur!",
-            }
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(CuA, username=username, password=password)
 
-            return render(request, "accounts/my_account.html", vars_to_template)
-
-        else:
-            login(request, user)
-            # Redirect to a success page.
-            msg = "Bienvenu"
-            return render(request, "accounts/my_account.html", {"msg": msg})
-
+    if user is not None:
+        login(request, user)
+        # Redirect to a success page.
+        msg = "Bienvenu"
+        return render(request, "accounts/my_account.html", {"msg": msg})
     else:
-        pass
+        # Return an 'invalid login' error message.
+        msg = "Compte utilisateur non trouvé!"
+        vars_to_template = {
+            "msg": msg,
+            "link": "../create_account",
+            "link_msg": "Créez un compte utilisateur!",
+        }
+
+        return render(request, "accounts/my_account.html", vars_to_template)
 
     return render(request, "accounts/my_account.html")
 
@@ -87,3 +83,20 @@ def logout_view(request):
     # Redirect to a success page.
     return redirect("home")
 
+####### email change #######
+
+@login_required() 
+def email_change(request):
+    user = request.user
+    user = CustomUser.objects.get(email=user)
+    form = EmailChangeForm(user)
+    if request.method=='POST':
+        form = EmailChangeForm(user, request.POST)
+        if form.is_valid():
+            form.save()
+            print(user.email)
+            return redirect("history")            
+    else:
+        form =EmailChangeForm(user)
+    
+    return render(request, "accounts/email_change.html", {'form':form})
