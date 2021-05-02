@@ -14,6 +14,9 @@ import os
 from pathlib import Path
 import django_heroku
 from django.utils.translation import ugettext_lazy as _
+import _locale
+
+_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -53,7 +56,7 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 AUTHENTIFICATION_BACKENDS = ("accounts.backends.CustomUserAuth",)
 LOGOUT_REDIRECT_URL = "home"
 LOGIN_REDIRECT_URL = "history"
-
+LOGIN_URL = "login"
 ###################################################
 
 #####################ROSETTA#TRANS#################
@@ -141,7 +144,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'pt-PT'
+LANGUAGE_CODE = 'en-US'
 
 TIME_ZONE = 'UTC'
 

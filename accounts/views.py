@@ -25,7 +25,7 @@ def create_account_view(request):
             send_text_message = form.cleaned_data['send_text_message']
             
             user = authenticate(request, username=email, password=password)
-
+            print(phone_number)
             if user == None:
                 user = CustomUser.objects.create_user(
                     password=password,

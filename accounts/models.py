@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
-from datetime import date
+from django.utils.timezone import now
 from clairvoyance.models import MajorArcana
 
 from django.utils.translation import ugettext_lazy as _
@@ -72,9 +72,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 class History(models.Model):
     """ Class to define the History table."""
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    sorted_cards_date = models.DateField(auto_now_add=True)
-    sorted_card = models.ForeignKey(MajorArcana, default="null", verbose_name=_("Tiragem"), on_delete=models.CASCADE)
-    chosed_theme = models.CharField(default="gen", max_length=10)
+    sorted_cards_date = models.DateTimeField(auto_now_add=True)
+    sorted_card = models.ForeignKey(MajorArcana, verbose_name=_("Tiragem"), on_delete=models.CASCADE)
+    chosed_theme = models.CharField(default="theme", max_length=10)
 
     class Meta:
         db_table = "history"
@@ -86,7 +86,7 @@ class DailySortedCards(models.Model):
     rec the daily_cards
     """
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    sorted_cards_date = models.DateField(auto_now_add=True)
+    sorted_cards_date = models.DateTimeField(auto_now_add=True)
     daily_sorted_cards = models.ForeignKey(MajorArcana, verbose_name=_("Tiragem"), on_delete=models.CASCADE)
 
     class Meta:

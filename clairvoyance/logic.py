@@ -84,13 +84,12 @@ def clairvoyant(input_value, language):
         if input_value == "one":
             card_deck = [i+1 for i in range(38)]
             suf(card_deck)
+
+            global rand_card
             rand_card = choice(card_deck)
+            
             value = one_card(user_name, rand_card, language)
-            del inputs[1:]
-            return {'messages' : value + record['message']}
-
-
-        
+            return {'messages' : value + record['message']}        
 
         if input_value == "love":
             inputs[1] = "love"
@@ -134,13 +133,17 @@ def clairvoyant(input_value, language):
 
 
         if input_value == "rec":
+            if inputs[1] == "one":
+                card = MajorArcana.objects.filter(id=rand_card)
+                theme = _("Rapida")
+                
+            else:
+                index_card = round(sum(inputs[3])/len(inputs[3]))
+                card = MajorArcana.objects.filter(id=index_card)
+                theme =inputs[1]
 
-            index_card = round(sum(inputs[3])/len(inputs[3]))
-            card = MajorArcana.objects.filter(id=index_card)
-            theme =inputs[1]
-            del inputs[1:]
-
-            return [card, theme, user_choices]        
+            del inputs[1:]                
+            return [card[0], theme, user_choices]        
             
 
         if input_value == "rec_no":
