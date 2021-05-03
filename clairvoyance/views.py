@@ -34,6 +34,7 @@ def clairvoyante(request):
             result = clairvoyant(input_value, language)
 
             if input_value == "rec":
+
                 if request.user.is_authenticated:                   
 
                     user = request.user
@@ -50,10 +51,23 @@ def clairvoyante(request):
                         )
                         h.save()
                         return JsonResponse(result[2])
+
                     except:
-                        pass
+                        return JsonResponse(
+                            {
+                                'messages': "<h3>" + _("Impossible d'enregistrer le tirage, rafraîchissez la page svp!") + "</h3>"
+                            }
+                        )
                 else:
-                    return redirect("%s?next=%s" % ("../accounts/login", request.path))
+                    return JsonResponse(
+                        {
+                            'messages':"<div class='container-fluid w-100 h-100'> "+
+                            "<div class='row h-100 w-100 justify-content-center align-items-center text-cente'>" +
+                            "<div class='col align-items-center text-center' >" +
+                            '<a href="{% url ' + "'history'" + ' %}">LOGIN</a>'
+                        }
+                    )
+            
             else:
                 return JsonResponse(result)
             
