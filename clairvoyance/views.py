@@ -58,6 +58,7 @@ def clairvoyante(request):
                                 'messages': "<h3>" + _("Impossible d'enregistrer le tirage, rafraîchissez la page svp!") + "</h3>"
                             }
                         )
+                        
                 else:
                     return JsonResponse(
                         {
