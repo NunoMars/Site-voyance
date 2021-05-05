@@ -169,11 +169,6 @@ LANGUAGES = (
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
-    os.path.join(BASE_DIR, 'ball8/locale'),
-    os.path.join(BASE_DIR, 'accounts/locale'),
-    os.path.join(BASE_DIR, 'clairvoyance/locale'),
-    os.path.join(BASE_DIR, 'static/js/locale'),
-
 ]
 
 #############################################################
