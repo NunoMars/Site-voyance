@@ -13,15 +13,15 @@ def send_welcome_email(user):
     context = { 'username': user.first_name }
 
     if user.user_language == 'en':
-        sentence = 'Benvenu a mon site de voyance gratuit !!! '
+        sentence = 'Wellcome to world of Tarot !!! '
 
     if user.user_language == 'es':
-        sentence = 'Benvenu a mon site de voyance gratuit !!! '
+        sentence = 'Benvenido a El mundo del Tarot !!! '
 
     if user.user_language == 'pt':
         sentence = 'Benvindo ao meu site de cartonância gratuito!!'
     else:
-        sentence = 'Benvenu/a site de voyance gratuit !!! '
+        sentence = 'Benvenu/a a mon site de voyance gratuit !!! '
 
     subject, from_email, to = sentence, 'patricia.nunes.tarot@gmail.com', user.email
     text_content = plaintext.render(context)
@@ -37,11 +37,10 @@ def send_one_card_daily_email():
     cards = MajorArcana.objects.all()
 
     for user in users:
-        print(user.get_full_name())
-        print("email = " + user.email)
+        print(user.send_email)
         if user.send_email:
             card = random.choice(cards)
-            print(user.first_name + " l'ordinateur vous a envoyé une email avec la carte  " + card.card_name_fr + " !")
+            print(user.first_name + " l'ordinateur a choisi  " + card.card_name_fr + " !")
 
             if user.user_language == 'pt':
                 sentence = "A Sua carta Tarot do dia"
@@ -87,7 +86,6 @@ def send_one_card_daily_email():
                 }
                 
             else:
-                print("français")
                 sentence = "Ta prevision Tarot Du jour"
                 context = {
                     "username" : user.get_full_name(),
@@ -103,14 +101,12 @@ def send_one_card_daily_email():
                 }
 
             html_content = htmly.render(context)
-
             msg = EmailMultiAlternatives(
-                sentence,
-                html_content,
-                'nuno.ricardo.mars@gmail.com',
-                [user.email]             
+                subject=sentence,
+                from_email='patricia.nunes.tarot@gmail.com',
+                to=[user.email]             
                 )
-
-            msg.send(fail_silently=False)
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
         else:
             pass
