@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 from .logic import clairvoyant
 from django.http import Http404, JsonResponse
 from django.contrib.auth.decorators import login_required
+from .models import MajorArcana
 from accounts.models import CustomUser, History, DailySortedCards
 from django.contrib.auth.models import User
 import datetime
@@ -24,6 +25,21 @@ def clairvoyance(request):
     
     return render(request, 'clairvoyance/clairvoyance.html', args)
 
+def card_deck(request):
+    language= request.LANGUAGE_CODE
+    args = {}
+    cards = MajorArcana.objects.all()
+    args["cards"] = cards
+    args["language"] = language
+    return render(request, 'clairvoyance/card_deck.html', args)
+
+def card_detail(request, card):
+    language= request.LANGUAGE_CODE
+    args = {}
+    card = MajorArcana.objects.get(id=card.id)
+    args["card"] = card
+    args["language"] = language
+    return render(request, 'clairvoyance/card_detail.html', args)
 
 def clairvoyante(request):
     language= request.LANGUAGE_CODE
