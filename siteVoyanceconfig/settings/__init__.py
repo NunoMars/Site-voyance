@@ -14,9 +14,7 @@ import os
 from pathlib import Path
 import django_heroku
 from django.utils.translation import ugettext_lazy as _
-import _locale
 
-_locale._getdefaultlocale = (lambda *args: ['en_US', 'utf8'])
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -51,9 +49,8 @@ INSTALLED_APPS = [
 ]
 
 ######################AUTH#########################
-
 AUTH_USER_MODEL = "accounts.CustomUser"
-AUTHENTIFICATION_BACKENDS = ("accounts.backends.CustomUserAuth",)
+AUTHENTIFICATION_BACKENDS = "accounts.backends.CustomUserAuth"
 LOGOUT_REDIRECT_URL = "home"
 LOGIN_REDIRECT_URL = "history"
 LOGIN_URL = "login"
@@ -69,7 +66,7 @@ ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = "fr"
 ########################EMAIL######################
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
-EMAIL_PORT = 587
+EMAIL_PORT = 465
 EMAIL_HOST_USER = 'patricia.nunes.tarot@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 ###################################################
@@ -184,5 +181,3 @@ STATICFILES_DIRS = [
 django_heroku.settings(locals())
 #############################################################
 
-
-CSRF_FAILURE_VIEW = 'clairvoyance/csrf_failure'

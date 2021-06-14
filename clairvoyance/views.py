@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.conf import settings
 from django.utils.translation import gettext as _
 from .logic import clairvoyant
 from django.http import Http404, JsonResponse
@@ -103,6 +102,3 @@ def user_history(request):
 def contacts(request):
     return render(request, 'clairvoyance/contacts.html')
 
-def csrf_failure(request):
-    args = {'csrf_failure' : _("Ups temos un pequenino problema com o Csrf... recarrege a pàgina por favor!")}
-    return render(request, '500.html', args)

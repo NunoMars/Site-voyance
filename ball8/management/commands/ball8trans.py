@@ -31,17 +31,17 @@ class Command(BaseCommand):
                 sentence_pt = sentence.sentence
                 print(sentence_pt)
 
-                sentence_fr = trans.translate(sentence_pt,  lang_tgt='fr')
-                print(sentence_fr)
+                sentence_fr = trans.translate(sentence_pt,  lang_tgt='fr')                
                 sentence.sentence_fr = sentence_fr
+                print(sentence_fr)
 
                 sentence_es = trans.translate(sentence_pt,  lang_tgt = 'es')
-                print(sentence_es)
                 sentence.sentence_es = sentence_es
+                print(sentence_es)
 
-                sentence_en = trans.translate(sentence_pt,  lang_tgt = 'en')
-                print(sentence_en)
+                sentence_en = trans.translate(sentence_pt,  lang_tgt = 'en')                
                 sentence.sentence_en = sentence_en
+                print(sentence_en)
 
                 sentence.save()               
                 
